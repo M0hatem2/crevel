@@ -1,0 +1,122 @@
+<div class="p-6 bg-[#041f1e] text-white min-h-screen arabic-font">
+  <div class="max-w-6xl mx-auto bg-[#1e4d4e] rounded-2xl shadow-2xl p-8 border border-[var(--icon-color)]">
+    <!-- Header -->
+    <div class="flex justify-between items-center mb-8 border-b border-gray-700 pb-4">
+      <h2 class="text-3xl font-bold flex items-center gap-2">
+        <i class="fas fa-users-cog text-[var(--icon-color)]"></i>
+        About Us Management
+      </h2>
+
+    </div>
+
+    <!-- Loading -->
+    <div *ngIf="loading" class="text-center py-10 text-gray-400 text-lg">
+      <app-loading-spinner></app-loading-spinner>
+    </div>
+
+    <!-- Error -->
+    <div *ngIf="error" class="text-center py-10 text-red-400">
+      <i class="fas fa-exclamation-triangle text-2xl mb-3"></i>
+      <p class="text-lg mb-4">{{ error }}</p>
+      <button (click)="loadAboutUs()"
+        class="bg-[var(--icon-color)] hover:bg-[#449397] px-5 py-2 rounded-lg font-medium text-white transition-all">
+        <i class="fas fa-redo"></i> Retry
+      </button>
+    </div>
+
+    <!-- Table -->
+    <div *ngIf="!loading && !error" class="overflow-x-auto rounded-lg shadow-inner">
+      <table class="min-w-full text-sm border border-gray-700">
+        <thead>
+          <tr class="bg-[#154142] text-gray-200">
+            <th class="py-3 px-4 text-left">Title EN</th>
+            <th class="py-3 px-4 text-left">Title AR</th>
+            <th class="py-3 px-4 text-left">Description EN</th>
+            <th class="py-3 px-4 text-left">Description AR</th>
+            <th class="py-3 px-4 text-left">Scrolling Images</th>
+            <th class="py-3 px-4 text-left">About Us Images</th>
+            <th class="py-3 px-4 text-left">Created At</th>
+            <th class="py-3 px-4 text-center">Actions</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-700">
+          <tr *ngFor="let item of aboutUs" class="hover:bg-[#173b3c] transition-all">
+            <td class="py-3 px-4 font-semibold">{{ item.title_en }}</td>
+            <td class="py-3 px-4">{{ item.title_ar }}</td>
+            <td class="py-3 px-4">{{ item.description_en | slice:0:50 }}...</td>
+            <td class="py-3 px-4">{{ item.description_ar | slice:0:50 }}...</td>
+            <td class="py-3 px-4">
+              <div class="flex space-x-1">
+                <img *ngFor="let img of item.scrollingImages" [src]="img.secure_url" alt="Scrolling Image"
+                  class="w-8 h-8 object-cover rounded border border-gray-600">
+              </div>
+            </td>
+            <td class="py-3 px-4">
+              <div class="flex space-x-1">
+                <img *ngFor="let img of item.aboutUsImages" [src]="img.secure_url" alt="About Us Image"
+                  class="w-8 h-8 object-cover rounded border border-gray-600">
+              </div>
+            </td>
+            <td class="py-3 px-4 text-gray-400 text-xs">{{ item.createdAt | date:'mediumDate' }}</td>
+            <td class="py-3 px-4 text-center space-x-3">
+              <button (click)="editAboutUs(item)" class="text-blue-400 hover:text-blue-300 transition-all"
+                title="Edit About Us">
+                <i class="fas fa-edit text-lg"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div *ngIf="isModalOpen" class="fixed inset-0 bg-black/60 flex items-center justify-center z-50 ">
+    <div
+      class="bg-[#1e4d4e] max-w-2xl p-6 rounded-2xl shadow-2xl   max-w-lg border border-[var(--icon-color)] max-h-[90vh] overflow-y-auto">
+      <h3 class="text-xl font-semibold mb-6 flex items-center gap-2">
+        <i class="fas" [ngClass]="editMode ? 'fa-edit' : 'fa-plus-circle'"></i>
+        {{ editMode ? 'Edit' : 'Add' }} About Us
+      </h3>
+
+      <form (ngSubmit)="saveAboutUs()" class="space-y-5">
+        <input type="text" [(ngModel)]="form.title_en" name="title_en" placeholder="Title (English)"
+          class="w-full px-4 py-2 rounded bg-[#173b3c] border border-gray-600 text-white placeholder-gray-400" required>
+
+        <textarea [(ngModel)]="form.description_en" name="description_en" placeholder="Description (English)" rows="4"
+          class="w-full px-4 py-2 rounded bg-[#173b3c] border border-gray-600 text-white placeholder-gray-400"></textarea>
+
+        <input type="text" [(ngModel)]="form.title_ar" name="title_ar" placeholder="Title (Arabic)"
+          class="w-full px-4 py-2 rounded bg-[#173b3c] border border-gray-600 text-white placeholder-gray-400">
+
+        <textarea [(ngModel)]="form.description_ar" name="description_ar" placeholder="Description (Arabic)" rows="4"
+          class="w-full px-4 py-2 rounded bg-[#173b3c] border border-gray-600 text-white placeholder-gray-400"></textarea>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-300 mb-2"><i class="fas fa-images mr-1"></i> Scrolling
+            Images</label>
+          <input type="file" multiple (change)="onScrollingImagesChange($event)"
+            class="w-full px-4 py-2 rounded bg-[#173b3c] border border-gray-600 text-white">
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-300 mb-2"><i class="fas fa-image mr-1"></i> About Us
+            Images</label>
+          <input type="file" multiple (change)="onAboutUsImagesChange($event)"
+            class="w-full px-4 py-2 rounded bg-[#173b3c] border border-gray-600 text-white">
+        </div>
+
+        <div class="flex justify-end space-x-3 pt-4">
+          <button type="button" (click)="closeModal()"
+            class="px-5 py-2 rounded bg-gray-600 hover:bg-gray-500 text-white transition-all">
+            <i class="fas fa-times mr-1"></i> Cancel
+          </button>
+          <button type="submit"
+            class="px-5 py-2 rounded bg-[var(--icon-color)] hover:bg-[#449397] text-white font-medium transition-all">
+            <i class="fas fa-save mr-1"></i> Save
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

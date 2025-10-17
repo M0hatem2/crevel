@@ -1,0 +1,385 @@
+<!-- Admin Dashboard Layout -->
+<div class="min-h-screen arabic-font">
+  <!-- Top Navigation Bar -->
+  <nav class="fixed top-0   z-50 w-full border-b border-gray-700/40 shadow-lg backdrop-blur-xl  ">
+    <div class="flex items-center justify-between px-4   lg:px-8">
+      <!-- ===== Left side ===== -->
+      <div class="flex items-center space-x-3">
+        <!-- Sidebar toggle (mobile only) -->
+        <button id="sidebar-toggle" type="button" data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar"
+          aria-controls="logo-sidebar"
+          class="inline-flex items-center justify-center p-2 text-gray-300 rounded-lg lg:hidden hover:bg-slate-700/50 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition">
+          <span class="sr-only">{{ 'ADMIN.OPEN_SIDEBAR' | translate }}</span>
+          <i class="fa-solid fa-bars text-xl"></i>
+        </button>
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center space-x-3">
+          <img src="./logo black.png" alt="Logo" class="h-16 w-16" />
+          <span class="text-white font-semibold text-lg tracking-wide">{{ 'ADMIN.ADMIN_DASHBOARD' | translate }}</span>
+        </a>
+      </div>
+
+      <!-- ===== Right side (Notifications & User Menu) ===== -->
+      <div class="flex items-center space-x-4">
+        <!-- Notifications -->
+        <div class="relative">
+          <button type="button" id="notifications-button"
+            class="relative p-2 text-gray-300 hover:text-white hover:bg-slate-700/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400 transition"
+            (click)="toggleNotifications()">
+            <span class="sr-only">{{ 'COMMON.SEEMORE' | translate }}</span>
+            <i class="fa-solid fa-bell px-1 mx-2"></i>
+            <!-- Notification badge -->
+            <span
+              class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center"
+              *ngIf="unreadCount > 0">
+              {{ unreadCount }}
+            </span>
+          </button>
+          <app-language-toggle></app-language-toggle>
+          <!-- 🔔 Notifications Dropdown -->
+          <div id="notifications-dropdown"
+            class="hidden absolute mt-3 w-80 rounded-2xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.4)] backdrop-blur-xl bg-gradient-to-br from-[#042322] to-[#0a2f2d] text-white z-50 max-h-96 overflow-y-auto"
+            [class.right-0]="!isRTL" [class.left-0]="isRTL" [class.origin-top-right]="!isRTL"
+            [class.origin-top-left]="isRTL">
+            <!-- Header -->
+            <div class="px-5 py-3 bg-gradient-to-r from-[#093937] to-[#0f4f4d] border-b border-white/10">
+              <div class="flex justify-between items-center">
+                <h3 class="text-sm font-semibold tracking-wide">{{ 'ADMIN.DASHBOARD' | translate }}</h3>
+                <span *ngIf="unreadCount > 0"
+                  class="animate-pulse bg-cyan-500 text-xs px-2 py-0.5 rounded-full font-medium shadow-md">
+                  {{ unreadCount }}
+                </span>
+              </div>
+            </div>
+
+            <!-- Empty State -->
+            <div *ngIf="notifications.length === 0" class="px-6 py-8 text-center">
+              <div class="text-gray-400 text-sm">{{ 'MESSAGES.NO_SERVICES' | translate }}</div>
+            </div>
+
+            <!-- Notification Items -->
+            <div *ngFor="let notification of notifications; let i = index" class="group relative">
+              <div class="px-5 py-4 border-b border-white/5 cursor-pointer
+          transition-all duration-300 ease-in-out
+          hover:bg-[#0f4f4d]/40    hover:shadow-inner" [class.bg-[#0c3a38]]="!notification.read"
+                (click)="openNotificationModal(notification)">
+                <div class="flex items-start space-x-3">
+                  <!-- Icon -->
+                  <div class="w-9 h-9 rounded-full bg-[#1a5b59] flex items-center justify-center text-cyan-300
+                group-hover:bg-cyan-600/20 transition-colors duration-300">
+                    <i class="fas fa-bell text-sm animate-[wiggle_1s_ease-in-out_1]" *ngIf="!notification.read"></i>
+                    <i class="fas fa-info text-sm" *ngIf="notification.read"></i>
+                  </div>
+
+                  <!-- Content -->
+                  <div class="flex-1 min-w-0">
+                    <p class="text-sm font-medium truncate group-hover:text-cyan-400 transition-colors duration-300">
+                      {{ notification.title_en || notification.title_ar || notification.title ||
+                      ('ADMIN.BRIEFS.UNTITLED' | translate)
+                      }}
+                    </p>
+                    <p class="text-xs text-gray-400 mt-1 leading-snug">{{ notification.message_en ||
+                      notification.message_ar || notification.message || ('MESSAGES.SOMETHING_WRONG' | translate) }}</p>
+                    <p class="text-[11px] text-gray-500 mt-2 italic">
+                      {{ notification.createdAt | date:'MMM d, y, h:mm a' }}
+                    </p>
+                  </div>
+
+                  <!-- Unread dot -->
+                  <div *ngIf="!notification.read" class="flex-shrink-0 self-center">
+                    <div class="w-2 h-2 bg-cyan-400 rounded-full animate-ping absolute right-5 top-5"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Custom animation keyframes -->
+
+
+        </div>
+
+        <!-- User Menu -->
+        <div class="relative">
+
+          <button type="button"
+            class="flex items-center text-sm rounded-full ring-2 ring-transparent focus:ring-cyan-400 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 shadow-md transition-all"
+            data-dropdown-toggle="dropdown-user" aria-expanded="false">
+            <span class="sr-only">{{ 'COMMON.ACCOUNT' | translate }}</span>
+            <img class="w-9 h-9 rounded-full border-2 border-white"
+              src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="User photo" />
+          </button>
+
+          <!-- Dropdown -->
+          <div id="dropdown-user"
+            class="hidden absolute mt-3 w-56 bg-white dark:bg-slate-800 border border-slate-200/10 rounded-xl shadow-xl overflow-hidden z-50"
+            [class.right-0]="!isRTL" [class.left-0]="isRTL">
+            <div
+              class="px-4 py-3 bg-gradient-to-r from-slate-50 to-slate-100 dark:from-slate-700 dark:to-slate-800 border-b border-slate-200/10">
+              <p class="text-sm font-semibold text-slate-900 dark:text-white">{{ 'ADMIN.ADMIN_USER' | translate }}</p>
+              <p class="text-sm text-slate-500 dark:text-slate-300 truncate">
+                {{ 'ADMIN.ADMIN_EMAIL' | translate }}
+              </p>
+            </div>
+
+            <ul class="py-2">
+              <li>
+                <a [routerLink]="['/admin/dashboard']"
+                  class="flex items-center px-4 py-2 text-sm text-slate-700 hover:bg-cyan-50 hover:text-cyan-700 dark:text-slate-300 dark:hover:bg-cyan-900/30 dark:hover:text-cyan-300 transition">
+                  <i class="fa-solid fa-gauge" [class.mr-3]="!isRTL" [class.ml-3]="isRTL"></i>
+                  {{ 'ADMIN.DASHBOARD' | translate }}
+                </a>
+              </li>
+              <li>
+                <a href="#"
+                  class="flex items-center px-4 py-2 text-sm text-slate-700 hover:bg-cyan-50 hover:text-cyan-700 dark:text-slate-300 dark:hover:bg-cyan-900/30 dark:hover:text-cyan-300 transition">
+                  <i class="fa-solid fa-gear" [class.mr-3]="!isRTL" [class.ml-3]="isRTL"></i>
+                  {{ 'ADMIN.SETTINGS' | translate }}
+                </a>
+              </li>
+              <li class="border-t border-slate-200/20 my-1"></li>
+              <li>
+                <button (click)="logout()"
+                  class="flex items-center w-full px-4 py-2 text-sm text-red-600 hover:bg-red-50 hover:text-red-700 dark:text-red-400 dark:hover:bg-red-900/30 dark:hover:text-red-300 transition">
+                  <i class="fa-solid fa-right-from-bracket" [class.mr-3]="!isRTL" [class.ml-3]="isRTL"></i>
+                  {{ 'ADMIN.SIGN_OUT' | translate }}
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- Sidebar -->
+  <aside id="logo-sidebar"
+    class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full border-r shadow-lg sm:translate-x-0"
+    aria-label="Sidebar" style=" border-color: #475569;">
+    <div class="h-full px-3 pb-4 overflow-y-auto">
+      <ul class="space-y-2 font-medium">
+
+        <li>
+          <a [routerLink]="['/admin/portfolio']" routerLinkActive="text-white bg-[#057996] shadow-md"
+            class="flex items-center p-3 rounded-xl transition-all duration-200 hover:scale-105 group border-l-4"
+            style="color: #cbd5e1; border-color: transparent; ">
+            <i class="fa-solid fa-briefcase transition duration-75 group-hover:scale-110" style="color: #94a3b8;"></i>
+            <span class="flex-1 ms-3 whitespace-nowrap">{{ 'ADMIN.PORTFOLIO' | translate }}</span>
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/admin/users']" routerLinkActive="text-white bg-[#057996] shadow-md"
+            class="flex items-center p-3 rounded-xl transition-all duration-200 hover:scale-105 group border-l-4"
+            style="color: #cbd5e1; border-color: transparent; ">
+            <i class="fa-solid fa-users transition duration-75 group-hover:scale-110" style="color: #94a3b8;"></i>
+            <span class="flex-1 ms-3 whitespace-nowrap">{{ 'ADMIN.USERS' | translate }}</span>
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/admin/how-we-succeed']" routerLinkActive="text-white bg-[#057996] shadow-md"
+            class="flex items-center p-3 rounded-xl transition-all duration-200 hover:scale-105 group border-l-4"
+            style="color: #cbd5e1; border-color: transparent; ">
+            <i class="fa-solid fa-trophy transition duration-75 group-hover:scale-110" style="color: #94a3b8;"></i>
+            <span class="flex-1 ms-3 whitespace-nowrap">{{ 'ADMIN.HOW_WE_SUCCEED' | translate }}</span>
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/admin/footer']" routerLinkActive="text-white bg-[#057996] shadow-md"
+            class="flex items-center p-3 rounded-xl transition-all duration-200 hover:scale-105 group border-l-4"
+            style="color: #cbd5e1; border-color: transparent; ">
+            <i class="fa-solid fa-edit transition duration-75 group-hover:scale-110" style="color: #94a3b8;"></i>
+            <span class="flex-1 ms-3 whitespace-nowrap">{{ 'ADMIN.FOOTER_SETTINGS' | translate }}</span>
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/admin/services']" routerLinkActive="text-white bg-[#057996] shadow-md"
+            class="flex items-center p-3 rounded-xl transition-all duration-200 hover:scale-105 group border-l-4"
+            style="color: #cbd5e1; border-color: transparent; ">
+            <i class="fa-solid fa-cogs transition duration-75 group-hover:scale-110" style="color: #94a3b8;"></i>
+            <span class="flex-1 ms-3 whitespace-nowrap">{{ 'ADMIN.SERVICES' | translate }}</span>
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/admin/blog']" routerLinkActive="text-white bg-[#057996] shadow-md"
+            class="flex items-center p-3 rounded-xl transition-all duration-200 hover:scale-105 group border-l-4"
+            style="color: #cbd5e1; border-color: transparent; ">
+            <i class="fa-solid fa-blog transition duration-75 group-hover:scale-110" style="color: #94a3b8;"></i>
+            <span class="flex-1 ms-3 whitespace-nowrap">{{ 'ADMIN.BLOG_MANAGEMENT' | translate }}</span>
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/admin/aboutUs']" routerLinkActive="text-white bg-[#057996] shadow-md"
+            class="flex items-center p-3 rounded-xl transition-all duration-200 hover:scale-105 group border-l-4"
+            style="color: #cbd5e1; border-color: transparent; ">
+            <i class="fa-solid fa-info-circle transition duration-75 group-hover:scale-110" style="color: #94a3b8;"></i>
+            <span class="flex-1 ms-3 whitespace-nowrap">{{ 'ADMIN.ABOUT_US' | translate }}</span>
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/admin/briefs']" routerLinkActive="text-white bg-[#057996] shadow-md"
+            class="flex items-center p-3 rounded-xl transition-all duration-200 hover:scale-105 group border-l-4"
+            style="color: #cbd5e1; border-color: transparent; ">
+            <i class="fa-solid fa-file-alt transition duration-75 group-hover:scale-110" style="color: #94a3b8;"></i>
+            <span class="flex-1 ms-3 whitespace-nowrap">{{ 'ADMIN.BRIEFS.TITLE' | translate }}</span>
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/admin/meetings']" routerLinkActive="text-white bg-[#057996] shadow-md"
+            class="flex items-center p-3 rounded-xl transition-all duration-200 hover:scale-105 group border-l-4"
+            style="color: #cbd5e1; border-color: transparent; ">
+            <i class="fa-solid fa-calendar transition duration-75 group-hover:scale-110" style="color: #94a3b8;"></i>
+            <span class="flex-1 ms-3 whitespace-nowrap">{{ 'ADMIN.MEETINGS' | translate }}</span>
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/admin/contactUs']" routerLinkActive="text-white bg-[#057996] shadow-md"
+            class="flex items-center p-3 rounded-xl transition-all duration-200 hover:scale-105 group border-l-4"
+            style="color: #cbd5e1; border-color: transparent; ">
+            <i class="fa-solid fa-lock transition duration-75 group-hover:scale-110" style="color: #94a3b8;"></i>
+            <span class="flex-1 ms-3 whitespace-nowrap">{{ 'ADMIN.CONTACT.TITLE' | translate }}</span>
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/admin/contact']" routerLinkActive="text-white bg-[#057996] shadow-md"
+            class="flex items-center p-3 rounded-xl transition-all duration-200 hover:scale-105 group border-l-4"
+            style="color: #cbd5e1; border-color: transparent; ">
+            <i class="fa-solid fa-address-book transition duration-75 group-hover:scale-110"
+              style="color: #94a3b8;"></i>
+            <span class="flex-1 ms-3 whitespace-nowrap">{{ 'CONTACT.TITLE' | translate }}</span>
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/admin/new-briefs']" routerLinkActive="text-white bg-[#057996] shadow-md"
+            class="flex items-center p-3 rounded-xl transition-all duration-200 hover:scale-105 group border-l-4"
+            style="color: #cbd5e1; border-color: transparent; ">
+            <i class="fa-solid fa-file-alt transition duration-75 group-hover:scale-110" style="color: #94a3b8;"></i>
+            <span class="flex-1 ms-3 whitespace-nowrap">{{ 'ADMIN.NEW_BRIEFS.TITLE' | translate }}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="p-4 sm:ml-64">
+
+    style="border-color: var(--border-color); background: var(--bg-card);">
+    <!-- Router outlet will display the active child component here -->
+    <div class="flex-1 overflow-auto">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+  <!-- Notification Modal -->
+  <div *ngIf="isModalOpen" class="fixed inset-0 z-[60] flex items-center justify-center p-4"
+    (click)="closeNotificationModal()" [class.modal-open]="isModalOpen">
+    <!-- Backdrop with blur effect -->
+    <div class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300"
+      [class.opacity-100]="isModalOpen"></div>
+
+    <!-- Modal Content -->
+    <div
+      class="relative w-full max-w-2xl bg-gradient-to-br from-[#042322] to-[#0a2f2d] rounded-2xl border border-white/10 shadow-2xl transform transition-all duration-300 ease-out"
+      [class.scale-100]="isModalOpen" [class.opacity-100]="isModalOpen" [class.scale-95]="!isModalOpen"
+      [class.opacity-0]="!isModalOpen" (click)="$event.stopPropagation()">
+
+      <!-- Modal Header -->
+      <div class="px-6 py-4 bg-gradient-to-r from-[#093937] to-[#0f4f4d] rounded-t-2xl border-b border-white/10">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 rounded-full bg-[#1a5b59] flex items-center justify-center text-cyan-300">
+              <i class="fas fa-bell text-lg"></i>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-white tracking-wide">
+                {{ selectedNotification?.title_en || selectedNotification?.title_ar || selectedNotification?.title ||
+                ('ADMIN.BRIEFS.UNTITLED' | translate) }}
+              </h3>
+              <p class="text-xs text-gray-300 mt-1">
+                {{ selectedNotification?.createdAt | date:'EEEE, MMMM d, y, h:mm a' }}
+              </p>
+            </div>
+          </div>
+
+          <!-- Close Button -->
+          <button (click)="closeNotificationModal()"
+            class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-gray-300 hover:text-white transition-all duration-200 flex items-center justify-center group">
+            <i class="fas fa-times text-sm group-hover:rotate-90 transition-transform duration-200"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="px-6 py-6">
+        <!-- Status Badge -->
+        <div class="flex items-center space-x-2 mb-4">
+          <span class="px-3 py-1 text-xs font-medium rounded-full" [class.bg-green-500/20]="selectedNotification?.read"
+            [class.text-green-400]="selectedNotification?.read" [class.bg-cyan-500/20]="!selectedNotification?.read"
+            [class.text-cyan-400]="!selectedNotification?.read" [class.animate-pulse]="!selectedNotification?.read">
+            <i class="fas mr-1" [class.fa-check-circle]="selectedNotification?.read"
+              [class.fa-info-circle]="!selectedNotification?.read"></i>
+            {{ selectedNotification?.read ? ('STATUS.SUCCESS' | translate) : ('STATUS.INFO' | translate) }}
+          </span>
+
+          <!-- Priority Badge (if available) -->
+          <span *ngIf="selectedNotification?.priority" class="px-3 py-1 text-xs font-medium rounded-full"
+            [class.bg-red-500/20]="selectedNotification.priority === 'high'"
+            [class.text-red-400]="selectedNotification.priority === 'high'"
+            [class.bg-yellow-500/20]="selectedNotification.priority === 'medium'"
+            [class.text-yellow-400]="selectedNotification.priority === 'medium'"
+            [class.bg-blue-500/20]="selectedNotification.priority === 'low'"
+            [class.text-blue-400]="selectedNotification.priority === 'low'">
+            <i class="fas mr-1" [class.fa-exclamation-triangle]="selectedNotification.priority === 'high'"
+              [class.fa-exclamation-circle]="selectedNotification.priority === 'medium'"
+              [class.fa-info-circle]="selectedNotification.priority === 'low'"></i>
+            {{ selectedNotification.priority | titlecase }}
+          </span>
+        </div>
+
+        <!-- Message Content -->
+        <div class="space-y-4">
+          <div class="bg-[#0c3a38]/50 rounded-xl p-4 border border-white/5">
+            <h4 class="text-sm font-semibold text-cyan-400 mb-2 flex items-center">
+              <i class="fas fa-align-left mr-2"></i>
+              {{ 'MESSAGES.SOMETHING_WRONG' | translate }}
+            </h4>
+            <p class="text-gray-200 leading-relaxed whitespace-pre-wrap">
+              {{ selectedNotification?.message_en || selectedNotification?.message_ar || selectedNotification?.message
+              || ('MESSAGES.SOMETHING_WRONG' | translate) }}
+            </p>
+          </div>
+
+          <!-- Additional Details (if available) -->
+          <div *ngIf="selectedNotification?.details || selectedNotification?.targetUrl" class="space-y-3">
+            <!-- Action Button (if target URL exists) -->
+            <div *ngIf="selectedNotification?.targetUrl" class="flex justify-end">
+              <a [href]="selectedNotification.targetUrl" target="_blank"
+                class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white text-sm font-medium rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                <i class="fas fa-external-link-alt mr-2"></i>
+                {{ 'BUTTONS.VIEW_DETAILS' | translate }}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="px-6 py-4 bg-[#08312f] rounded-b-2xl border-t border-white/10">
+        <div class="flex justify-between items-center text-xs text-gray-400">
+          <span>
+            <i class="fas fa-clock mr-1"></i>
+            {{ 'MESSAGES.LAST_UPDATED' | translate }}: {{ selectedNotification?.createdAt | date:'MMM d, y, h:mm a' }}
+          </span>
+          <span
+            *ngIf="selectedNotification?.updatedAt && selectedNotification.updatedAt !== selectedNotification.createdAt">
+            <i class="fas fa-edit mr-1"></i>
+            {{ 'MESSAGES.LAST_UPDATED' | translate }}: {{ selectedNotification.updatedAt | date:'MMM d, y, h:mm a' }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

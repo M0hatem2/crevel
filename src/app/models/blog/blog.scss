@@ -1,0 +1,22 @@
+// Lalezar font styling for blog component
+.blog-title {
+  font-family: 'Lalezar', cursive;
+}
+
+.blog-heading {
+  font-family: 'Lalezar', cursive;
+}
+
+.blog-text {
+  font-family: 'Lalezar', cursive;
+}
+
+// Arabic text styling with Lalezar
+.arabic-font {
+  font-family: 'Lalezar', cursive;
+  direction: rtl;
+  text-align: right;
+}
+
+// Ensure Lalezar font loads properly
+@import url('https://fonts.googleapis.com/css2?family=Lalezar&display=swap');

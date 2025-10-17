@@ -1,0 +1,126 @@
+<app-header></app-header>
+<app-who-we-are></app-who-we-are>
+<app-hr></app-hr>
+
+<!-- Services Section -->
+<div class="text-white flex flex-col  justify-center w-full px-4 sm:px-10 md:px-20">
+  <h2 class="text-4xl md:text-5xl font-bold py-6 my-6 text-center text-[#57c4c1] line tracking-wide arabic-font ">
+    {{ 'SERVICES.TITLE' | translate }}
+  </h2>
+
+  <app-our-services [limit]="6" (serviceCardClick)="onServiceCardClick($event)"></app-our-services>
+
+  <app-see-more-btn [link]="'/services'" class="mx-auto"></app-see-more-btn>
+</div>
+
+<app-hr></app-hr>
+
+<!-- Portfolio Section -->
+<div class="relative w-full px-4 sm:px-10 md:px-20 my-10 overflow-hidden">
+  <div class="text-center ">
+     <h2 class="text-4xl md:text-5xl font-bold py-6 my-6 text-center text-[#57c4c1] line tracking-wide arabic-font ">
+    {{ 'SERVICES.TITLE' | translate }}
+  </h2>
+  </div>
+  <!-- أزرار التحريك -->
+  <button
+    class="hidden md:block absolute top-1/2 -translate-y-1/2 bg-[#57c4c1] text-white p-3 rounded-full shadow hover:bg-[#48b0ad] transition z-10"
+    [class.left-4]="currentLanguage !== 'ar'" [class.right-4]="currentLanguage === 'ar'" (click)="scrollLeft()">
+    <i class="fa-solid" [class.fa-arrow-left]="currentLanguage !== 'ar'"
+      [class.fa-arrow-right]="currentLanguage === 'ar'"></i>
+  </button>
+
+  <button
+    class="hidden md:block absolute top-1/2 -translate-y-1/2 bg-[#57c4c1] text-white p-3 rounded-full shadow hover:bg-[#48b0ad] transition z-10"
+    [class.right-4]="currentLanguage !== 'ar'" [class.left-4]="currentLanguage === 'ar'" (click)="scrollRight()">
+    <i class="fa-solid" [class.fa-arrow-right]="currentLanguage !== 'ar'"
+      [class.fa-arrow-left]="currentLanguage === 'ar'"></i>
+  </button>
+
+  <!-- الكونتينر القابل للسكرول -->
+  <div class="portfolio-container flex flex-col items-center justify-center w-full overflow-x-hidden">
+    <app-portfolio-cards-home
+      class="w-full text-center font-bold bg-gradient-to-r from-[#57c4c1] via-cyan-300 to-blue-400 bg-clip-text text-transparent uppercase tracking-wider animate-fade-in-10"></app-portfolio-cards-home>
+  </div>
+</div>
+
+<app-hr></app-hr>
+<app-our-blueprint></app-our-blueprint>
+<app-how-we-succeed></app-how-we-succeed>
+<app-contact-us></app-contact-us>
+
+<!-- Service Details Modal -->
+<div *ngIf="showModal" class="core-services-modal-overlay" (click)="closeModal()">
+  <div class="core-services-modal modal-content" (click)="$event.stopPropagation()">
+    <!-- Close Button -->
+    <button (click)="closeModal()" class="modal-close-btn">
+      <i class="fas fa-times"></i>
+    </button>
+
+    <!-- Loading State -->
+    <div *ngIf="modalLoading" class="modal-loading">
+      <div class="spinner"></div>
+    </div>
+
+    <!-- Error State -->
+    <div *ngIf="error && !modalLoading" class="modal-error">
+      <i class="fas fa-exclamation-triangle"></i>
+      <p>{{ error }}</p>
+      <button (click)="closeModal()" class="btn-primary">
+        {{ 'COMMON.CLOSE' | translate }}
+      </button>
+    </div>
+
+    <!-- Service Details -->
+    <div *ngIf="selectedServiceData && !modalLoading && !error" class="space-y-6">
+      <div class="modal-header">
+        <div class="service-icon">
+          <i [class]="'fas ' + getServiceIcon(selectedServiceData.icon)"></i>
+        </div>
+        <h2>
+          {{
+          currentLanguage === 'ar'
+          ? (selectedServiceData.title_ar || selectedServiceData.title_en)
+          : selectedServiceData.title_en
+          }}
+        </h2>
+      </div>
+
+      <!-- Description -->
+      <div class="modal-description">
+        <h3>{{ 'SERVICES.CORE_SERVICES.DESCRIPTION' | translate }}</h3>
+        <p>
+          {{
+          currentLanguage === 'ar'
+          ? (selectedServiceData.description_ar || selectedServiceData.description_en)
+          : selectedServiceData.description_en
+          }}
+        </p>
+      </div>
+
+      <!-- Service Info Grid -->
+      <div class="modal-info-grid">
+        <div class="info-item">
+          <i class="fas fa-calendar"></i>
+          <span class="label">{{ 'SERVICES.CORE_SERVICES.LAST_UPDATED' | translate }}</span>
+          <span class="value">{{ 'SERVICES.CORE_SERVICES.RECENTLY' | translate }}</span>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-check-circle"></i>
+          <span class="label">{{ 'SERVICES.CORE_SERVICES.STATUS' | translate }}</span>
+          <span class="value text-green-500">{{
+            'SERVICES.CORE_SERVICES.ACTIVE' | translate
+            }}</span>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="modal-actions">
+        <button (click)="closeModal()" class="btn-secondary">
+          <i class="fas fa-times"></i>
+          {{ 'SERVICES.CORE_SERVICES.CLOSE' | translate }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

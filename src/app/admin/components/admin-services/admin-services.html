@@ -1,0 +1,125 @@
+<div class="p-4 bg-[#041f1e] text-white arabic-font">
+      <div class="py-20 px-6 md:px-12 text-white">
+        <div class="max-w-6xl mx-auto bg-[#1e4d4e] rounded-2xl shadow-lg p-6 border border-[var(--icon-color)]">
+    
+          <!-- Header -->
+          <div class="flex justify-between items-center mb-6">
+            <h2 class="text-2xl font-semibold">{{ 'ADMIN.SERVICES_MANAGEMENT.TITLE' | translate }}</h2>
+            <button class="bg-[var(--icon-color)] hover:bg-[#449397] px-4 py-2 rounded-lg font-medium text-white shadow flex items-center gap-2"
+                    (click)="openAddServiceModal()">
+              <i class="fas fa-plus"></i> {{ 'ADMIN.SERVICES_MANAGEMENT.ADD_SERVICE' | translate }}
+            </button>
+          </div>
+    
+          <!-- Loading -->
+          <div *ngIf="loading" class="text-center py-8">
+      <app-loading-spinner></app-loading-spinner>
+          </div>
+    
+          <!-- Error -->
+          <div *ngIf="error" class="text-center py-8">
+            <p class="text-red-400"><i class="fas fa-exclamation-circle mr-2"></i>{{ error }}</p>
+            <button (click)="loadServices()"
+                    class="mt-4 bg-[var(--icon-color)] hover:bg-[#449397] px-4 py-2 rounded-lg font-medium text-white flex items-center gap-2">
+              <i class="fas fa-redo"></i> {{ 'ADMIN.SERVICES_MANAGEMENT.RETRY' | translate }}
+            </button>
+          </div>
+    
+          <!-- Table -->
+          <div *ngIf="!loading && !error" class="overflow-x-auto">
+            <table class="min-w-full text-sm border-collapse">
+              <thead>
+                <tr class="text-left bg-[#154142] text-gray-300">
+                  <th class="py-3 px-4">{{ 'ADMIN.SERVICES_MANAGEMENT.TITLE_EN' | translate }}</th>
+                  <th class="py-3 px-4">{{ 'ADMIN.SERVICES_MANAGEMENT.TITLE_AR' | translate }}</th>
+                  <th class="py-3 px-4">{{ 'ADMIN.SERVICES_MANAGEMENT.DESCRIPTION_EN' | translate }}</th>
+                  <th class="py-3 px-4">{{ 'ADMIN.SERVICES_MANAGEMENT.DESCRIPTION_AR' | translate }}</th>
+                  <th class="py-3 px-4">{{ 'ADMIN.SERVICES_MANAGEMENT.ICON' | translate }}</th>
+                  <th class="py-3 px-4">{{ 'ADMIN.SERVICES_MANAGEMENT.CREATED_AT' | translate }}</th>
+                  <th class="py-3 px-4 text-center">{{ 'ADMIN.SERVICES_MANAGEMENT.ACTIONS' | translate }}</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-600">
+                <tr *ngFor="let service of services" class="hover:bg-[#0f3b3b] transition">
+                  <td class="py-3 px-4 font-medium">{{ service.title_en }}</td>
+                  <td class="py-3 px-4">{{ service.title_ar }}</td>
+                  <td class="py-3 px-4">{{ service.description_en }}</td>
+                  <td class="py-3 px-4">{{ service.description_ar }}</td>
+                  <td class="py-3 px-4 text-center"><i class="{{ service.icon }}"></i></td>
+                  <td class="py-3 px-4"><div class="text-xs text-gray-400">{{ service.createdAt | date:'mediumDate' }}</div></td>
+                  <td class="py-3 px-4 text-center space-x-2">
+                    <button (click)="editService(service)" class="text-blue-400 hover:text-blue-300" [title]="'ADMIN.SERVICES_MANAGEMENT.EDIT' | translate">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                    <button (click)="deleteService(service)" class="text-red-500 hover:text-red-400" [title]="'ADMIN.SERVICES_MANAGEMENT.DELETE' | translate">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+    
+        <!-- Modal -->
+        <div *ngIf="isModalOpen" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div class="bg-[#1e4d4e] p-6 rounded-xl shadow-lg w-full max-w-2xl border border-[var(--icon-color)] max-h-[90vh] overflow-y-auto">
+            <h3 class="text-lg font-semibold mb-4">{{ editMode ? ('ADMIN.SERVICES_MANAGEMENT.EDIT_SERVICE' | translate) : ('ADMIN.SERVICES_MANAGEMENT.ADD_SERVICE' | translate) }}</h3>
+
+            <form (ngSubmit)="saveService()" class="space-y-4">
+              <!-- العنوان بالإنجليزية -->
+              <div>
+                <label class="block text-sm font-medium text-gray-300 mb-2">{{ 'ADMIN.SERVICES_MANAGEMENT.TITLE_ENGLISH' | translate }}</label>
+                <input type="text" [(ngModel)]="form.title_en" name="title_en"
+                       [placeholder]="'ADMIN.SERVICES_MANAGEMENT.TITLE_ENGLISH_PLACEHOLDER' | translate"
+                       class="w-full px-4 py-2 rounded bg-[#173b3c] border border-gray-500 text-white placeholder-gray-400">
+              </div>
+
+              <!-- العنوان بالعربية -->
+              <div>
+                <label class="block text-sm font-medium text-gray-300 mb-2">{{ 'ADMIN.SERVICES_MANAGEMENT.TITLE_ARABIC' | translate }}</label>
+                <input type="text" [(ngModel)]="form.title_ar" name="title_ar"
+                       [placeholder]="'ADMIN.SERVICES_MANAGEMENT.TITLE_ARABIC_PLACEHOLDER' | translate"
+                       class="w-full px-4 py-2 rounded bg-[#173b3c] border border-gray-500 text-white placeholder-gray-400">
+              </div>
+
+              <!-- الوصف بالإنجليزية -->
+              <div>
+                <label class="block text-sm font-medium text-gray-300 mb-2">{{ 'ADMIN.SERVICES_MANAGEMENT.DESCRIPTION_ENGLISH' | translate }}</label>
+                <textarea [(ngModel)]="form.description_en" name="description_en"
+                         [placeholder]="'ADMIN.SERVICES_MANAGEMENT.DESCRIPTION_ENGLISH_PLACEHOLDER' | translate"
+                         rows="3"
+                         class="w-full px-4 py-2 rounded bg-[#173b3c] border border-gray-500 text-white placeholder-gray-400"></textarea>
+              </div>
+
+              <!-- الوصف بالعربية -->
+              <div>
+                <label class="block text-sm font-medium text-gray-300 mb-2">{{ 'ADMIN.SERVICES_MANAGEMENT.DESCRIPTION_ARABIC' | translate }}</label>
+                <textarea [(ngModel)]="form.description_ar" name="description_ar"
+                         [placeholder]="'ADMIN.SERVICES_MANAGEMENT.DESCRIPTION_ARABIC_PLACEHOLDER' | translate"
+                         rows="3"
+                         class="w-full px-4 py-2 rounded bg-[#173b3c] border border-gray-500 text-white placeholder-gray-400"></textarea>
+              </div>
+
+              <!-- الأيقونة -->
+              <div>
+                <label class="block text-sm font-medium text-gray-300 mb-2">{{ 'ADMIN.SERVICES_MANAGEMENT.ICON' | translate }}</label>
+                <input type="text" [(ngModel)]="form.icon" name="icon"
+                       [placeholder]="'ADMIN.SERVICES_MANAGEMENT.ICON_PLACEHOLDER' | translate"
+                       class="w-full px-4 py-2 rounded bg-[#173b3c] border border-gray-500 text-white placeholder-gray-400">
+              </div>
+
+              <div class="flex justify-end space-x-3 pt-4">
+                <button type="button" (click)="closeModal()" class="px-4 py-2 rounded bg-gray-600 hover:bg-gray-500 text-white flex items-center gap-2">
+                  <i class="fas fa-times"></i> {{ 'ADMIN.SERVICES_MANAGEMENT.CANCEL' | translate }}
+                </button>
+                <button type="submit" class="px-4 py-2 rounded bg-[var(--icon-color)] hover:bg-[#449397] text-white font-medium flex items-center gap-2">
+                  <i class="fas fa-save"></i> {{ editMode ? ('ADMIN.SERVICES_MANAGEMENT.UPDATE' | translate) : ('ADMIN.SERVICES_MANAGEMENT.SAVE' | translate) }}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    

@@ -1,0 +1,77 @@
+<section class="relative w-full py-16 overflow-hidden arabic-font">
+  <!-- Background Effects -->
+  <div class="absolute inset-0">
+    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-[#57c4c1] rounded-full opacity-5 blur-3xl animate-pulse"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-cyan-400 rounded-full opacity-5 blur-3xl animate-pulse"
+      style="animation-delay: 1s;"></div>
+  </div>
+
+  <div class="relative z-10 w-full mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-12">
+      <h2
+        class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#57c4c1] via-cyan-300 to-blue-400 bg-clip-text text-transparent mb-4">
+        {{ getTranslation('MESSAGES.OUR_WORK_GALLERY') || 'Our Work Gallery' }}
+      </h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-[#57c4c1] to-cyan-300 mx-auto rounded-full"></div>
+    </div>
+
+
+    <!-- Loading State -->
+    <div *ngIf="scrollingImages.length === 0" class="flex justify-center items-center h-96">
+      <div class="text-center">
+        <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-[#57c4c1] mx-auto mb-4"></div>
+        <p class="text-gray-300 text-lg">{{ getTranslation('MESSAGES.LOADING_GALLERY') || 'Loading gallery...' }}</p>
+      </div>
+    </div>
+
+    <!-- Carousel Container -->
+    <div *ngIf="scrollingImages.length > 0" class="relative">
+      <!-- Main Carousel -->
+      <div class="relative h-96 md:h-[500px] lg:h-[600px] overflow-hidden rounded-2xl shadow-2xl bg-gray-800">
+        <!-- Images -->
+        <div class="relative w-full h-full">
+          <img *ngFor="let image of scrollingImages; let i = index" [src]="image"
+            [alt]="getTranslation('MESSAGES.GALLERY_IMAGE') + ' ' + (i + 1)"
+            class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out"
+            [class.opacity-100]="i === currentIndex" [class.opacity-0]="i !== currentIndex">
+        </div>
+
+        <!-- Overlay Gradient -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+
+        <!-- Navigation Arrows -->
+        <button *ngIf="scrollingImages.length > 1" (click)="prevSlide()"
+          class="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-300 group">
+          <svg class="w-6 h-6 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor"
+            viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+          </svg>
+        </button>
+
+        <button *ngIf="scrollingImages.length > 1" (click)="nextSlide()"
+          class="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-300 group">
+          <svg class="w-6 h-6 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor"
+            viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button>
+
+        <!-- Image Counter -->
+        <div class="absolute top-4 right-4 z-20 bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm">
+          {{ currentIndex + 1 }} / {{ scrollingImages.length }}
+        </div>
+      </div>
+
+
+      <!-- Auto-scroll Indicator -->
+      <div *ngIf="scrollingImages.length > 1" class="flex justify-center mt-4">
+        <div class="flex space-x-2">
+          <div *ngFor="let image of scrollingImages; let i = index"
+            class="w-2 h-2 rounded-full transition-all duration-300" [class.bg-[#57c4c1]]="i === currentIndex"
+            [class.bg-gray-600]="i !== currentIndex"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

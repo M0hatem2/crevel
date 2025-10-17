@@ -1,0 +1,150 @@
+<div class="p-6 bg-[#041f1e] min-h-screen text-white arabic-font">
+      <!-- Header -->
+      <div class="flex justify-between items-center mb-8">
+        <h1 class="text-3xl font-bold flex items-center gap-2">
+          <i class="fas fa-handshake text-[var(--icon-color)]"></i>
+          Meetings Management
+        </h1>
+        <button
+          class="px-5 py-2 rounded-lg bg-[var(--icon-color)] hover:bg-[#449397] transition-all shadow-lg flex items-center gap-2"
+          (click)="refreshData()"
+          [disabled]="loading">       
+
+          <i class="fas fa-sync-alt"></i>
+          Refresh
+        </button>
+      </div>
+    
+      <!-- Error Message -->
+      <div *ngIf="error" class="p-4 bg-red-900/40 border border-red-500 rounded-lg mb-6 flex items-center gap-2">
+        <i class="fas fa-exclamation-triangle text-red-400"></i>
+        {{ error }}
+      </div>
+    
+      <!-- Loading Spinner -->
+      <div *ngIf="loading" class="flex flex-col items-center justify-center py-20 text-gray-400">
+            <app-loading-spinner></app-loading-spinner>
+
+      </div>
+    
+      <!-- Tabs and Filters -->
+      <div class="flex flex-col lg:flex-row gap-4 mb-8">
+        <!-- Tabs -->
+        <div class="flex gap-4">
+          <button
+            class="px-5 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2"
+            [class.bg-[var(--icon-color)]]="activeTab === 'all'"
+            [class.bg-[#133534]]="activeTab !== 'all'"
+            (click)="activeTab = 'all'">
+            <i class="fas fa-calendar-alt"></i>
+            All Meetings
+          </button>
+          <button
+            class="px-5 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2"
+            [class.bg-[var(--icon-color)]]="activeTab === 'new'"
+            [class.bg-[#133534]]="activeTab !== 'new'"
+            (click)="activeTab = 'new'">
+            <i class="fas fa-bell"></i>
+            New Meetings
+          </button>
+        </div>
+
+        <!-- Date Filter -->
+        <div class="flex-1 max-w-md">
+          <div class="relative">
+            <select
+              class="w-full px-4 py-2 rounded-lg bg-[#133534] border border-gray-600 text-white text-sm focus:outline-none focus:border-[var(--icon-color)] transition-all appearance-none cursor-pointer"
+              [(ngModel)]="selectedDateFilter"
+              (change)="onDateFilterChange()">
+              <option *ngFor="let option of dateFilterOptions" [value]="option.value">
+                {{ option.labelAr }} - {{ option.label }}
+              </option>
+            </select>
+            <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+              <i class="fas fa-chevron-down text-gray-400 text-xs"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <!-- All Meetings Section -->
+      <div *ngIf="activeTab === 'all' && !loading">
+        <div class="flex justify-between items-center mb-6">
+          <h2 class="text-2xl font-semibold flex items-center gap-2">
+            <i class="fas fa-calendar-check text-[var(--icon-color)]"></i>
+            All Meetings
+          </h2>
+          <span class="text-gray-400">{{ filteredMeetings.length }} meetings</span>
+        </div>
+    
+        <div *ngIf="filteredMeetings.length === 0" class="text-center py-20 text-gray-500">
+          <i class="fas fa-calendar-xmark text-5xl mb-4"></i>
+          <p>No meetings found for selected period</p>
+        </div>
+
+        <div *ngIf="filteredMeetings.length > 0" class="grid md:grid-cols-2 gap-6">
+          <div
+            *ngFor="let meeting of filteredMeetings"
+            class="p-6 rounded-2xl bg-[#133534]/70 backdrop-blur-lg border border-[rgba(255,255,255,0.08)] hover:border-[var(--icon-color)] transition-all shadow-lg hover:shadow-[var(--icon-color)]/30 transform hover:-translate-y-1 duration-300">
+            <div class="flex justify-between items-center mb-3">
+              <h3 class="text-xl font-semibold">{{ meeting.name || 'Untitled Meeting' }}</h3>
+              <span class="text-sm text-gray-400">{{ meeting.createdAt | date:'medium' }}</span>
+            </div>
+
+            <div class="space-y-1 text-sm">
+              <p><i class="fas fa-user mr-2 text-[var(--icon-color)]"></i><strong>Name:</strong> {{ meeting.name || 'N/A' }}</p>
+              <p><i class="fas fa-envelope mr-2 text-[var(--icon-color)]"></i><strong>Email:</strong> {{ meeting.email || 'N/A' }}</p>
+              <p><i class="fas fa-calendar mr-2 text-[var(--icon-color)]"></i><strong>Date:</strong> {{ meeting.date ? (meeting.date | date:'mediumDate') : 'N/A' }}</p>
+              <p><i class="fas fa-clock mr-2 text-[var(--icon-color)]"></i><strong>Time:</strong> {{ meeting.time || 'N/A' }}</p>
+              <p><i class="fas fa-info-circle mr-2 text-[var(--icon-color)]"></i><strong>ID:</strong> {{ meeting._id || 'N/A' }}</p>
+            </div>
+
+            <div class="mt-4 text-sm text-gray-400">
+              <strong>Created:</strong> {{ meeting.createdAt | date:'short' }} |
+              <strong>Updated:</strong> {{ meeting.updatedAt | date:'short' }}
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <!-- New Meetings Section -->
+      <div *ngIf="activeTab === 'new' && !loading">
+        <div class="flex justify-between items-center mb-6">
+          <h2 class="text-2xl font-semibold flex items-center gap-2">
+            <i class="fas fa-bell text-[var(--icon-color)]"></i>
+            New Meetings
+          </h2>
+          <span class="text-gray-400">{{ newMeetings.length }} new meetings</span>
+        </div>
+    
+        <div *ngIf="newMeetings.length === 0" class="text-center py-20 text-gray-500">
+          <i class="fas fa-calendar-xmark text-5xl mb-4"></i>
+          <p>No new meetings found</p>
+        </div>
+    
+        <div *ngIf="newMeetings.length > 0" class="grid md:grid-cols-2 gap-6">
+          <div
+            *ngFor="let meeting of newMeetings"
+            class="p-6 rounded-2xl bg-[#184a48]/80 backdrop-blur-lg border border-[var(--icon-color)] hover:shadow-[var(--icon-color)]/40 transform hover:-translate-y-1 duration-300">
+            <div class="flex justify-between items-center mb-3">
+              <h3 class="text-xl font-semibold">{{ meeting.name || 'Untitled Meeting' }}</h3>
+              <span class="text-sm text-gray-400">{{ meeting.createdAt | date:'medium' }}</span>
+            </div>
+
+            <div class="space-y-1 text-sm">
+              <p><i class="fas fa-user mr-2 text-[var(--icon-color)]"></i><strong>Name:</strong> {{ meeting.name || 'N/A' }}</p>
+              <p><i class="fas fa-envelope mr-2 text-[var(--icon-color)]"></i><strong>Email:</strong> {{ meeting.email || 'N/A' }}</p>
+              <p><i class="fas fa-calendar mr-2 text-[var(--icon-color)]"></i><strong>Date:</strong> {{ meeting.date ? (meeting.date | date:'mediumDate') : 'N/A' }}</p>
+              <p><i class="fas fa-clock mr-2 text-[var(--icon-color)]"></i><strong>Time:</strong> {{ meeting.time || 'N/A' }}</p>
+              <p><i class="fas fa-info-circle mr-2 text-[var(--icon-color)]"></i><strong>ID:</strong> {{ meeting._id || 'N/A' }}</p>
+            </div>
+
+            <div class="mt-4 text-sm text-gray-400">
+              <strong>Created:</strong> {{ meeting.createdAt | date:'short' }} |
+              <strong>Updated:</strong> {{ meeting.updatedAt | date:'short' }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    

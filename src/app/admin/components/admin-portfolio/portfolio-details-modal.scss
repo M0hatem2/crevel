@@ -1,0 +1,260 @@
+/* Modal animations and transitions */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Modal backdrop styles - removed since we use *ngIf now */
+
+/* Modal container styles */
+.portfolio-details-modal {
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+/* Ensure modal uses flexbox properly */
+.flex.flex-col.h-\[95vh\] {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-1.min-h-0 {
+  flex: 1 1 0;
+  min-height: 0;
+}
+
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+
+/* Enhanced scrollbar for modal content */
+.overflow-y-auto::-webkit-scrollbar {
+  width: 6px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-track {
+  background: #0f1a19;
+  border-radius: 3px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background: #1e2f2d;
+  border-radius: 3px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb:hover {
+  background: #263c3a;
+}
+
+/* Image hover effects */
+.group:hover .group-hover\:scale-105 {
+  transform: scale(1.05);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .max-w-4xl {
+    max-width: 95vw;
+    margin: 0 auto;
+  }
+
+  .grid-cols-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .p-6 {
+    padding: 1rem;
+  }
+
+  .text-xl {
+    font-size: 1.125rem;
+  }
+
+  .text-lg {
+    font-size: 1rem;
+  }
+
+  .gap-6 {
+    gap: 1rem;
+  }
+
+  /* Better mobile layout for modal */
+  .min-h-screen {
+    min-height: 100vh;
+    min-height: 100dvh; /* Dynamic viewport height for mobile */
+  }
+
+  /* Modal height for mobile */
+  .h-\[95vh\] {
+    height: 98vh;
+  }
+
+  /* Stack columns vertically on mobile */
+  .md\:grid-cols-2 {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Better spacing for mobile */
+  .space-y-4 > * + * {
+    margin-top: 0.75rem;
+  }
+
+  /* Mobile-friendly button layout - ensure footer is always visible */
+  .flex.gap-3 {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .flex.gap-3 button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Ensure footer is always visible on mobile */
+  .flex-shrink-0 {
+    flex-shrink: 0;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .max-w-4xl {
+    max-width: 98vw;
+    margin: 0 0.5rem;
+  }
+
+  .p-6 {
+    padding: 0.75rem;
+  }
+
+  .text-xl {
+    font-size: 1rem;
+  }
+
+  .text-lg {
+    font-size: 0.875rem;
+  }
+
+  /* Single column layout for very small screens */
+  .grid-cols-3 {
+    grid-template-columns: 1fr;
+  }
+
+  /* Smaller images on very small screens */
+  .h-48 {
+    height: 10rem;
+  }
+
+  .h-20 {
+    height: 4rem;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .group:hover .group-hover\:scale-105 {
+    transform: none;
+  }
+
+  .transition-all {
+    transition-duration: 0.2s;
+  }
+
+  /* Better touch targets for mobile */
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Remove hover effects on touch devices */
+  .hover\:bg-blue-700:active {
+    background-color: rgb(37 99 235);
+  }
+
+  .hover\:bg-red-700:active {
+    background-color: rgb(185 28 28);
+  }
+
+  .hover\:bg-gray-700:active {
+    background-color: rgb(55 65 81);
+  }
+}
+
+/* Landscape orientation on mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .max-h-\[90vh\] {
+    max-height: 95vh;
+  }
+
+  .min-h-screen {
+    min-height: 100vh;
+  }
+}
+
+/* Dark theme enhancements */
+@media (prefers-color-scheme: dark) {
+  .bg-black.bg-opacity-90 {
+    background-color: rgba(0, 0, 0, 0.95);
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .border {
+    border-width: 2px;
+  }
+
+  .text-gray-400 {
+    color: #ffffff;
+  }
+
+  .text-gray-300 {
+    color: #e5e7eb;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus styles for accessibility */
+button:focus-visible {
+  outline: 2px solid #eec044;
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  .fixed {
+    position: relative;
+  }
+
+  .bg-black {
+    background: white;
+  }
+
+  .text-white {
+    color: black;
+  }
+}

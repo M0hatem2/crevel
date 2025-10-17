@@ -1,0 +1,47 @@
+<app-blog-header></app-blog-header>
+<section class="relative  px-8 md:px-32">
+
+      <div class="pt-20 relative z-10">
+            <h2 class="text-4xl md:text-5xl font-bold text-center text-white uppercase mb-4 tracking-wide blog-title">
+                  {{ 'BLOG.TITLE' | translate }}
+            </h2>
+            <p class="text-lg md:text-xl text-white text-center mb-12 max-w-3xl mx-auto"
+                  style="font-family: 'Lalezar', cursive;">
+                  {{ 'TAGLINES.BLOG' | translate }}
+            </p>
+
+      </div>
+</section>
+
+<section class="px-4 md:px-20 relative py-10  text-white">
+      <!-- العنوان -->
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-10 tracking-wide blog-heading">
+            {{ 'MESSAGES.MOST_POPULAR' | translate }}
+      </h2>
+      <app-blogs-cards></app-blogs-cards>
+</section>
+
+
+<section id="explore-insights-section" class="px-4 md:px-20 relative py-10  text-white">
+      <!-- العنوان -->
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-10 tracking-wide blog-heading">
+            {{ 'MESSAGES.NEW_ON_BLOG' | translate }}
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+
+            <app-blog-card *ngFor="let blog of blogs" [blog]="blog"
+                  class="flex justify-center items-center flex-col w-full"></app-blog-card>
+
+      </div>
+</section>
+
+
+
+
+<section class="px-4 md:px-20 relative py-10  text-white">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-10 tracking-wide blog-heading">
+            {{ 'MESSAGES.EXPLORE_TOPICS' | translate }}
+      </h2>
+      <app-topics></app-topics>
+</section>
+<app-contact-us></app-contact-us>

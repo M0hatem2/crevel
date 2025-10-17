@@ -1,0 +1,78 @@
+/* Enhanced Arabic Typography System - Works with global styles.scss */
+
+/* Arabic font application for RTL content */
+[dir="rtl"] .arabic-font,
+.arabic-font,
+.arabic-content {
+  font-family: 'Noto Sans Arabic', 'Cairo', 'Lalezar', 'Amiri', 'Tajawal', 'Segoe UI', Tahoma, Arial, sans-serif;
+  direction: rtl;
+  text-align: right;
+  line-height: 1.6;
+}
+
+/* Arabic language specific styling - enhanced */
+:lang(ar) {
+  font-family: 'Noto Sans Arabic', 'Cairo', 'Lalezar', 'Amiri', 'Tajawal', 'Segoe UI', Tahoma, Arial, sans-serif;
+  direction: rtl;
+  text-align: right;
+  line-height: 1.6;
+  word-spacing: 0.1em;
+  letter-spacing: 0.02em;
+}
+
+/* RTL Layout enhancements - refined */
+[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Arabic typography variants for different contexts */
+.arabic-heading:lang(ar),
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4,
+[dir="rtl"] h5,
+[dir="rtl"] h6 {
+  font-family: 'Cairo', 'Noto Sans Arabic', 'Lalezar', 'Amiri', 'Tajawal', serif;
+  font-weight: 600;
+  direction: rtl;
+  text-align: right;
+  line-height: 1.4;
+}
+
+.arabic-body:lang(ar),
+[dir="rtl"] p,
+[dir="rtl"] span,
+[dir="rtl"] div {
+  font-family: 'Noto Sans Arabic', 'Cairo', 'Lalezar', 'Amiri', 'Tajawal', sans-serif;
+  font-weight: 400;
+  direction: rtl;
+  text-align: right;
+  line-height: 1.7;
+}
+
+/* Arabic UI elements styling */
+[dir="rtl"] button,
+[dir="rtl"] a,
+[dir="rtl"] .btn {
+  font-family: 'Noto Sans Arabic', 'Cairo', 'Lalezar', 'Amiri', 'Tajawal', sans-serif;
+  direction: rtl;
+  text-align: right;
+}
+
+/* Enhanced Arabic text utilities */
+.arabic-display-text {
+  font-family: 'Lalezar', 'Cairo', 'Noto Sans Arabic', 'Amiri', 'Tajawal', cursive;
+  direction: rtl;
+  text-align: right;
+  font-weight: 400;
+}
+
+.arabic-reading-text {
+  font-family: 'Noto Sans Arabic', 'Cairo', 'Amiri', 'Tajawal', serif;
+  direction: rtl;
+  text-align: right;
+  line-height: 1.8;
+  font-weight: 400;
+}

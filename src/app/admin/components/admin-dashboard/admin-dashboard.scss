@@ -1,0 +1,16 @@
+/* Admin Dashboard Styles */
+main {
+  padding: 1rem;
+}
+
+@media (min-width: 640px) {
+  main {
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  main {
+    padding: 2rem;
+  }
+}

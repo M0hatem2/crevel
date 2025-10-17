@@ -1,0 +1,57 @@
+/* Admin How We Succeed Component Styles */
+
+/* Custom styles for the how-we-succeed admin component */
+.admin-how-we-succeed {
+  /* Additional custom styles can be added here if needed */
+
+  /* Custom scrollbar for the table */
+  .table-container {
+    scrollbar-width: thin;
+    scrollbar-color: var(--icon-color) rgba(255, 255, 255, 0.1);
+  }
+
+  .table-container::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .table-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+  }
+
+  .table-container::-webkit-scrollbar-thumb {
+    background: var(--icon-color);
+    border-radius: 4px;
+  }
+
+  .table-container::-webkit-scrollbar-thumb:hover {
+    background: #449397;
+  }
+}
+
+/* Animation for modal appearance */
+.modal-enter {
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Custom focus styles for form inputs */
+.form-input:focus {
+  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1);
+}
+
+/* Image preview styling */
+.image-preview {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}

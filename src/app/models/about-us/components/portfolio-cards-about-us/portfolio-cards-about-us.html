@@ -1,0 +1,71 @@
+<div class="portfolio-section w-full flex flex-col items-center justify-center  ">
+  <div class="w-full max-w-6xl px-4 relative flex  items-center justify-center">
+    <!-- Loading State -->
+    <div *ngIf="loading" class="loading-state w-full">
+            <app-loading-spinner ></app-loading-spinner>
+
+    </div>
+
+    <!-- Error State -->
+    <div *ngIf="error" class="error-state w-full">
+      <svg class="error-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z">
+        </path>
+      </svg>
+      <h3 class="error-title">Something went wrong</h3>
+      <p class="error-message">{{ error }}</p>
+      <button (click)="loadPortfolio()" class="retry-button">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15">
+          </path>
+        </svg>
+        Try Again
+      </button>
+    </div>
+
+    <!-- Portfolio Cards Horizontal Scroll -->
+    <div *ngIf="!loading && !error" class="cards-scroll">
+      <div #scrollableContainer class="flex gap-6 overflow-x-auto scrollbar-hide scroll-smooth  ">
+        <div *ngFor="let card of cards"
+          class="portfolio-card flex-none w-80 bg-[#2a4a4c] rounded-3xl shadow-xl transform transition-all  mb-20 duration-300 hover:scale-105 hover:shadow-[0px 0px 50px rgba(87, 196, 193, 0.3)] cursor-pointer overflow-hidden"
+          (click)="viewPortfolioDetails(card.id)">
+
+          <!-- Card Background Image -->
+          <div class="card-image-container">
+            <img *ngIf="card.image" [src]="card.image" alt="Portfolio Image" class="w-full h-48 object-cover" />
+          </div>
+
+          <!-- Card Content -->
+          <div class="p-6">
+            <!-- Category Tag -->
+            <div>
+              <span class="category-tag inline-flex items-center px-3 py-1 rounded-full text-xs font-medium text-white">
+                {{getCurrentCategory(card)}}
+              </span>
+            </div>
+            <h3 class="card-title pt-6">{{ getCurrentTitle(card) }}</h3>
+            <p class="card-description">{{ getCurrentDescription(card) }}</p>
+
+            <!-- View Case Study Link -->
+            <span class="view-case-study group">
+              View Case Study
+              <i class="fa-solid fa-arrow-right px-2"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <button *ngIf="!loading && !error" (click)="scrollLeft()" class="hidden md:flex absolute left-0 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-[#57c4c1] text-white rounded-full shadow-lg hover:bg-[#4a9e9b] hover:shadow-xl transition-all duration-300 items-center justify-center z-10">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+    <button *ngIf="!loading && !error" (click)="scrollRight()" class="hidden md:flex absolute right-0 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-[#57c4c1] text-white rounded-full shadow-lg hover:bg-[#4a9e9b] hover:shadow-xl transition-all duration-300 items-center justify-center z-10">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+
+  </div>
+
+</div>

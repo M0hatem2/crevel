@@ -1,0 +1,49 @@
+.custom-select {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2357c4c1' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+
+  option {
+    background-color: #041f1e;
+    color: white;
+    padding: 12px 16px;
+    border: 1px solid rgba(87, 196, 193, 0.3);
+    border-radius: 8px;
+    margin: 4px 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: rgba(87, 196, 193, 0.1);
+      border-color: #57c4c1;
+    }
+
+    &:first-child {
+      margin-top: 8px;
+    }
+
+    &:last-child {
+      margin-bottom: 8px;
+    }
+  }
+
+  &:focus option:checked {
+    background-color: rgba(87, 196, 193, 0.2);
+    border-color: #57c4c1;
+  }
+}
+
+// Additional styling for better visual appearance
+select option {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+// Style for the dropdown container
+select {
+  option {
+    background: linear-gradient(135deg, #041f1e 0%, #0a2f2e 100%);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+}

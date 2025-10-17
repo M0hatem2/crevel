@@ -1,0 +1,527 @@
+.active {
+  position: relative;
+  color: #57c4c1 !important;
+  font-weight: 600;
+
+  border-radius: 6px;
+  transition: background 0.3s ease-in-out;
+}
+
+/* Enhanced Modal Styles */
+.modal-overlay {
+  animation: enhancedFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-content {
+  animation: enhancedSlideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Enhanced animations */
+@keyframes enhancedFadeIn {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+
+  to {
+    opacity: 1;
+    backdrop-filter: blur(16px);
+  }
+}
+
+@keyframes enhancedSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.9);
+    filter: blur(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0px);
+  }
+}
+
+@keyframes animateFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Enhanced backdrop with glass morphism */
+.modal-backdrop {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background: linear-gradient(135deg,
+      rgba(6, 182, 212, 0.1) 0%,
+      rgba(23, 59, 60, 0.1) 100%);
+}
+
+/* Modal responsive design */
+@media (max-width: 640px) {
+  .modal-content {
+    margin: 1rem;
+    max-width: calc(100% - 2rem);
+  }
+}
+
+/* Enhanced dropdown animation */
+.dropdown-enter {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.dropdown-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.2s ease-out;
+}
+
+.dropdown-leave {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dropdown-leave-active {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.2s ease-in;
+}
+
+/* Enhanced modal content animations */
+.animate-fade-in {
+  animation: animateFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Enhanced glass morphism effects */
+.backdrop-blur-2xl {
+  backdrop-filter: blur(32px) saturate(200%);
+  -webkit-backdrop-filter: blur(32px) saturate(200%);
+}
+
+/* Gradient border animation */
+@keyframes gradientShift {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Pulse animation for status indicator */
+@keyframes pulse-subtle {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.delay-1000 {
+  animation-delay: 1s;
+}
+
+/* Dropdown animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.2s ease-out;
+}
+
+/* Enhanced dropdown button hover effects */
+.navbar-dropdown-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.navbar-dropdown-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.navbar-dropdown-btn:hover::before {
+  left: 100%;
+}
+
+/* Enhanced Unified Auth Dropdown Styles */
+.auth-dropdown {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(6, 182, 212, 0.2);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+.auth-dropdown-btn {
+  background: linear-gradient(135deg, #173b3c 0%, #06b6d4 100%);
+  box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.auth-dropdown-btn:hover {
+  box-shadow: 0 8px 25px rgba(6, 182, 212, 0.4);
+  transform: translateY(-2px) scale(1.02);
+}
+
+.auth-dropdown-item {
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-dropdown-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.1), transparent);
+  transition: left 0.3s ease-in-out;
+}
+
+.auth-dropdown-item:hover::before {
+  left: 100%;
+}
+
+.auth-dropdown-icon {
+  transition: transform 0.2s ease-in-out;
+}
+
+.auth-dropdown-item:hover .auth-dropdown-icon {
+  transform: scale(1.1);
+}
+
+/* Unified dropdown section styling */
+.auth-section-header {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  color: #64748b;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.auth-dropdown-divider {
+  background: linear-gradient(90deg, transparent 0%, #e2e8f0 50%, transparent 100%);
+  height: 1px;
+  border: none;
+}
+
+/* Enhanced dropdown animations */
+@keyframes slideDownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-15px) scale(0.95);
+    filter: blur(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0px);
+  }
+}
+
+@keyframes slideUpFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(100%) scale(0.9);
+    filter: blur(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0px);
+  }
+}
+
+.animate-slide-down-fade-in {
+  animation: slideDownFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Mobile responsive enhancements */
+@media (max-width: 768px) {
+  .auth-dropdown {
+    width: 280px;
+     left: auto;
+    max-width: calc(100vw - 2rem);
+  }
+
+  /* Mobile side dropdown for new request dropdown and auth dropdown */
+  .mobile-side-dropdown {
+    position: fixed !important;
+    top: auto !important;
+    bottom: 0 !important;
+    width: 50% !important;
+    max-width: 100% !important;
+    border-radius: 20px 20px 0 0 !important;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.15) !important;
+    animation: slideUpFromBottom 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    z-index: 70 !important;
+  }
+
+  /* LTR (English) - dropdown on the right side */
+  .mobile-side-dropdown:not([dir="rtl"]):not(:host-context([dir="rtl"])) .mobile-side-dropdown {
+    right: 0 !important;
+    left: auto !important;
+  }
+
+  /* RTL (Arabic) - dropdown on the left side */
+  :host-context([dir="rtl"]) .mobile-side-dropdown,
+  .mobile-side-dropdown[dir="rtl"] {
+    right: auto !important;
+    left: 0 !important;
+  }
+
+  .auth-dropdown-btn {
+    padding: 12px 24px;
+    font-size: 16px;
+    min-height: 48px;
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Mobile menu container improvements */
+  .mobile-menu-container {
+    padding: 1.5rem;
+    background: rgba(33, 104, 101, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  /* Mobile navigation links */
+  .mobile-nav-link {
+    padding: 1rem 1.5rem;
+    margin: 0.25rem 0;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    font-size: 1.125rem;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+  }
+
+  .mobile-nav-link:hover {
+    background: rgba(87, 196, 193, 0.1);
+    transform: translateX(4px);
+  }
+
+  /* Mobile dropdown menu improvements */
+  .mobile-dropdown-menu {
+    position: static;
+    box-shadow: none;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    margin-top: 1rem;
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Enhanced mobile backdrop for dropdown */
+  .mobile-dropdown-menu+.fixed.inset-0.bg-black.bg-opacity-50 {
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+
+  /* Enhanced mobile backdrop for auth dropdown */
+  .auth-dropdown+.fixed.inset-0.bg-black.bg-opacity-50 {
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+
+  /* Mobile button improvements */
+  .mobile-action-btn {
+    min-height: 48px;
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+    border-radius: 25px;
+    margin: 0.5rem 0;
+  }
+}
+
+/* Additional responsive breakpoints for better mobile optimization */
+@media (max-width: 640px) {
+  .mobile-menu-container {
+    padding: 1rem;
+  }
+
+  .mobile-nav-link {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+  }
+
+  .mobile-action-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .auth-dropdown {}
+}
+
+@media (max-width: 480px) {
+  .mobile-menu-container {
+    padding: 0.75rem;
+  }
+
+  .mobile-nav-link {
+
+    padding: 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  .mobile-action-btn {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+  }
+
+  .auth-dropdown {
+    [dir=ltr] {
+      left: 0;
+      right: auto;
+    }
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+
+  .mobile-nav-link,
+  .mobile-action-btn {
+    transition: background-color 0.2s ease;
+  }
+
+  .mobile-nav-link:active {
+    background: rgba(87, 196, 193, 0.2);
+    transform: scale(0.98);
+  }
+
+  .mobile-action-btn:active {
+    transform: scale(0.96);
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .auth-dropdown {
+    border: 2px solid #06b6d4;
+    background: white;
+  }
+
+  .auth-dropdown-btn {
+    border: 2px solid transparent;
+  }
+
+  .auth-dropdown-btn:focus {
+    border-color: #06b6d4;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+
+  .auth-dropdown-btn,
+  .auth-dropdown-item,
+  .auth-dropdown-icon,
+  .animate-slide-down-fade-in {
+    transition: none;
+    animation: none;
+  }
+}
+
+/* Enhanced Modal Container Styles */
+.modal-inner-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Modal backdrop click area */
+.modal-overlay {
+  cursor: pointer;
+}
+
+.modal-content {
+  cursor: default;
+  transform-origin: center;
+}
+
+/* Enhanced close button styling */
+.modal-close-btn {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.modal-close-btn:hover {
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Modal content wrapper for better scrolling */
+.modal-content-wrapper {
+  max-height: 85vh;
+  overflow-y: auto;
+  border-radius: 1rem;
+}
+
+/* Enhanced modal animations for different screen sizes */
+@media (max-width: 768px) {
+  .modal-content {
+    margin: 0.5rem;
+    max-width: calc(100vw - 1rem);
+    max-height: calc(100vh - 1rem);
+  }
+
+  .modal-inner-content {
+    padding: 1rem;
+  }
+}
+
+/* Focus styles for accessibility */
+.modal-overlay:focus-within .modal-content {
+  outline: 2px solid rgba(6, 182, 212, 0.5);
+  outline-offset: 2px;
+}
+
+/* Enhanced glass morphism for modal backdrop */
+.modal-backdrop-enhanced {
+  background: linear-gradient(135deg,
+      rgba(6, 182, 212, 0.15) 0%,
+      rgba(23, 59, 60, 0.15) 50%,
+      rgba(6, 182, 212, 0.1) 100%);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+}

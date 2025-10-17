@@ -1,0 +1,15 @@
+<div class="arabic-font">
+    <h2 class="text-4xl md:text-5xl font-bold text-center text-[#57c4c1] uppercase mb-6 tracking-wide">
+        Portfolio
+    </h2>
+    <p class="text-gray-300 text-lg w-1/2 mx-auto leading-relaxed text-center mb-12">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam commodi aperiam assumenda inventore
+        quisquam. Culpa cum aspernatur veniam quos quis ipsum. Commodi et sit ducimus, enim ab fugit itaque magnam.
+    </p>
+</div>
+<!-- component -->
+<div #scroller class="card-scroller hide-scroll-bar" (scroll)="onScroll()">
+    <div class="card-wrapper" *ngFor="let card of cards; let i = index" [ngStyle]="getCardStyle(i)">
+        <app-custom-card></app-custom-card>
+    </div>
+</div>

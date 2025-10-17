@@ -1,0 +1,117 @@
+<section class="min-h-screen   flex items-center justify-center text-white arabic-font">
+  <div class="w-full max-w-5xl   border border-[#1e2f2d] rounded-2xl shadow-2xl p-8">
+    <h2 class="text-4xl font-bold mb-10 text-center text-[#57c4c1] flex items-center justify-center gap-2">
+      <i class="fa-solid fa-gear"></i> Footer Settings
+    </h2>
+
+    <!-- Loading Spinner -->
+    <div *ngIf="loading" class="text-center py-6">
+            <app-loading-spinner></app-loading-spinner>
+
+    </div>
+
+    <div *ngIf="footerData" class="space-y-10">
+
+      <!-- Logo Section -->
+      <div class="flex flex-col items-center space-y-3">
+        <img [src]="footerData.logo.secure_url" alt="Logo" class="w-28 h-28 object-contain rounded-xl border border-white/10 shadow-md">
+        <input type="file" (change)="onLogoSelect($event)" class="text-sm text-gray-300" />
+        <button (click)="uploadLogo()" class="bg-[#57c4c1] hover:bg-[#3fa9a7] transition-all text-white px-4 py-2 rounded-lg font-medium">
+          <i class="fa-solid fa-upload mr-2"></i> Upload New Logo
+        </button>
+      </div>
+
+      <!-- Editable Fields -->
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <label class="block text-sm mb-1 flex items-center gap-2">
+            <i class="fa-solid fa-globe"></i> Website Name <span class="text-red-400">*</span>
+          </label>
+          <input [(ngModel)]="footerData.website.name" class="w-full p-2 rounded-lg bg-[#0f1c20] border border-[#1e2f2d]" placeholder="Required" required>
+        </div>
+
+        <div>
+          <label class="block text-sm mb-1 flex items-center gap-2">
+            <i class="fa-solid fa-link"></i> Website URL <span class="text-red-400">*</span>
+          </label>
+          <input [(ngModel)]="footerData.website.url" class="w-full p-2 rounded-lg bg-[#0f1c20] border border-[#1e2f2d]" placeholder="Required" required>
+        </div>
+
+        <div>
+          <label class="block text-sm mb-1 flex items-center gap-2">
+            <i class="fa-solid fa-location-dot"></i> Location (EN)
+          </label>
+          <input [(ngModel)]="footerData.location.title_en" class="w-full p-2 rounded-lg bg-[#0f1c20] border border-[#1e2f2d]">
+        </div>
+
+        <div>
+          <label class="block text-sm mb-1 flex items-center gap-2">
+            <i class="fa-solid fa-map-pin"></i> Location (AR)
+          </label>
+          <input [(ngModel)]="footerData.location.title_ar" class="w-full p-2 rounded-lg bg-[#0f1c20] border border-[#1e2f2d]">
+        </div>
+
+        <div>
+          <label class="block text-sm mb-1 flex items-center gap-2">
+            <i class="fa-solid fa-map-location-dot"></i> Google Maps URL
+          </label>
+          <input [(ngModel)]="footerData.location.url" class="w-full p-2 rounded-lg bg-[#0f1c20] border border-[#1e2f2d]">
+        </div>
+
+        <div>
+          <label class="block text-sm mb-1 flex items-center gap-2">
+            <i class="fa-solid fa-phone"></i> Mobile <span class="text-red-400">*</span>
+          </label>
+          <input [(ngModel)]="footerData.mobile" class="w-full p-2 rounded-lg bg-[#0f1c20] border border-[#1e2f2d]" placeholder="Required" required>
+        </div>
+
+        <div>
+          <label class="block text-sm mb-1 flex items-center gap-2">
+            <i class="fa-solid fa-envelope"></i> Email <span class="text-red-400">*</span>
+          </label>
+          <input [(ngModel)]="footerData.email" class="w-full p-2 rounded-lg bg-[#0f1c20] border border-[#1e2f2d]" placeholder="Required" required>
+        </div>
+
+        <div>
+          <label class="block text-sm mb-1 flex items-center gap-2">
+            <i class="fa-regular fa-copyright"></i> Copyright
+          </label>
+          <input [(ngModel)]="footerData.copyright" class="w-full p-2 rounded-lg bg-[#0f1c20] border border-[#1e2f2d]">
+        </div>
+      </div>
+
+      <!-- Social Links -->
+      <div>
+        <div class="flex justify-between items-center mt-6 mb-2">
+          <h3 class="text-lg font-semibold flex items-center gap-2">
+            <i class="fa-solid fa-share-nodes"></i> Social Links
+          </h3>
+          <button (click)="addSocialLink()" class="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded-lg text-sm flex items-center gap-1">
+            <i class="fa-solid fa-plus"></i> Add
+          </button>
+        </div>
+
+        <div *ngFor="let soc of footerData.social; let i = index" class="flex items-center gap-2 mb-2">
+          <input [(ngModel)]="soc.platform" class="flex-1 p-2 rounded-lg bg-[#0f1c20] border border-[#1e2f2d]" placeholder="Platform (e.g., Facebook)">
+          <input [(ngModel)]="soc.url" class="flex-[2] p-2 rounded-lg bg-[#0f1c20] border border-[#1e2f2d]" placeholder="URL">
+          <button (click)="removeSocialLink(i)" class="bg-red-600 hover:bg-red-700 text-white px-2 py-2 rounded-lg" title="Remove">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Save Button -->
+      <div class="text-center mt-10">
+        <button (click)="saveChanges()" class="bg-[#57c4c1] hover:bg-[#3fa9a7] text-white px-8 py-3 rounded-xl font-semibold transition-all">
+          <i class="fa-solid fa-floppy-disk mr-2"></i> Save All Changes
+        </button>
+      </div>
+
+      <!-- Message -->
+      <div *ngIf="message" class="message text-center mt-4 text-sm"
+           [ngClass]="message.includes('✅') ? 'text-green-400' : 'text-red-400'">
+        {{ message }}
+      </div>
+    </div>
+  </div>
+</section>

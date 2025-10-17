@@ -1,0 +1,98 @@
+// Admin Footer Component Styles
+.container {
+  min-height: 100vh;
+ }
+
+// Enhanced button styles
+button {
+  transition: all 0.3s ease;
+  transform: translateY(0);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(87, 196, 193, 0.3);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+// Input field enhancements
+input[type="text"], input[type="email"], input[type="url"], input[type="file"] {
+  transition: all 0.3s ease;
+
+  &:focus {
+    border-color: #57c4c1;
+    box-shadow: 0 0 0 3px rgba(87, 196, 193, 0.1);
+    outline: none;
+  }
+
+  &:invalid {
+    border-color: #ef4444;
+
+    &:focus {
+      border-color: #ef4444;
+      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+    }
+  }
+}
+
+// Logo upload section styling
+.logo-upload-section {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 1rem;
+  padding: 2rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: #57c4c1;
+    background: rgba(87, 196, 193, 0.05);
+  }
+}
+
+// Loading animation
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #57c4c1;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+// Message styling
+.message {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+
+  &.success {
+    background-color: rgba(87, 196, 193, 0.1);
+    border: 1px solid #57c4c1;
+    color: #57c4c1;
+  }
+
+  &.error {
+    background-color: rgba(239, 68, 68, 0.1);
+    border: 1px solid #ef4444;
+    color: #ef4444;
+  }
+}
+
+// Responsive improvements
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

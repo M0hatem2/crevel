@@ -1,0 +1,45 @@
+<div class="min-h-screen flex items-center justify-center bg-[#0d1413] px-4">
+  <div class="w-full max-w-md bg-[#081110] border border-[#1e2f2d] rounded-xl shadow-lg p-6 text-center">
+
+    <!-- Header -->
+    <div class="mb-6">
+      <h2 class="text-2xl font-bold text-white mb-2">{{ 'AUTH.CONFIRM_EMAIL.TITLE' | translate }}</h2>
+      <p class="text-gray-400 text-sm">{{ 'AUTH.CONFIRM_EMAIL.SUBTITLE' | translate }}</p>
+    </div>
+
+    <div class="space-y-6">
+      <!-- Loading State -->
+      <div *ngIf="loading" class="flex flex-col items-center">
+        <div class="animate-spin border-4 border-[#00c896] border-t-transparent rounded-full w-10 h-10"></div>
+        <p class="mt-3 text-gray-300">{{ 'AUTH.CONFIRM_EMAIL.CONFIRMING' | translate }}</p>
+      </div>
+
+      <!-- Success State -->
+      <div *ngIf="successMsg && !loading" class="space-y-3">
+        <div class="text-[#00c896] text-5xl">
+          <i class="fas fa-check-circle"></i>
+        </div>
+        <h3 class="text-xl font-semibold text-white">{{ 'AUTH.CONFIRM_EMAIL.SUCCESS_TITLE' | translate }}</h3>
+        <p class="text-gray-300">{{ 'AUTH.CONFIRM_EMAIL.SUCCESS_MESSAGE' | translate }}</p>
+        <p class="text-sm text-gray-400">{{ 'AUTH.CONFIRM_EMAIL.REDIRECT_MESSAGE' | translate }}</p>
+      </div>
+
+      <!-- Error State -->
+      <div *ngIf="errorMsg && !loading" class="space-y-3">
+        <div class="text-red-500 text-5xl">
+          <i class="fas fa-exclamation-triangle"></i>
+        </div>
+        <h3 class="text-xl font-semibold text-white">{{ 'AUTH.CONFIRM_EMAIL.ERROR_TITLE' | translate }}</h3>
+        <p class="text-gray-300">{{ errorMsg }}</p>
+        <div class="mt-4">
+          <a
+            routerLink="/auth/login"
+            class="inline-block bg-[#00c896] hover:bg-[#00a67f] text-white font-medium py-2 px-4 rounded-lg transition"
+          >
+            {{ 'AUTH.CONFIRM_EMAIL.BACK_TO_LOGIN' | translate }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<div class="portfolio-container arabic-font" [class.arabic-font]="currentLanguage === 'ar'"
+  [dir]="currentLanguage === 'ar' ? 'rtl' : 'ltr'">
+  <div class="loading text-white text-center" *ngIf="isLoading">
+      <app-loading-spinner></app-loading-spinner>
+  </div>
+
+  <div class="error text-red-400 text-center" *ngIf="error">
+    {{ error }}
+  </div>
+
+  <div class="portfolio-grid grid gap-10 md:grid-cols-2 lg:grid-cols-3 items-center justify-center"
+    *ngIf="!isLoading && !error">
+    <div
+      class="portfolio-card w-90 bg-[#2a4a4c] rounded-3xl shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-[0px_0px_50px_rgba(87,196,193,0.3)] cursor-pointer overflow-hidden"
+      *ngFor="let item of portfolioItems; trackBy: trackByFn" (click)="onCardClick(item)"
+      [class.text-right]="currentLanguage === 'ar'" [class.text-left]="currentLanguage !== 'ar'">
+      <!-- Background Image -->
+      <div class="card-image-container">
+        <img [src]="item.image.secure_url" [alt]="getCurrentTitle(item)" (error)="onImageError($event)"
+          class="w-full h-48 object-cover" />
+      </div>
+
+      <!-- Content -->
+      <div class="p-6 text-white text-start"  
+      >
+        <!-- Category -->
+        <div *ngIf="item.category" 
+        >
+          <span class="inline-flex text-start items-center px-3 py-1 rounded-full text-xs font-medium text-white bg-[#57c4c1]/30">
+            {{ item.category }}
+          </span>
+        </div>
+
+        <h3 class="pt-6 text-xl font-bold" [class.arabic-font]="currentLanguage === 'ar'">{{ getCurrentTitle(item) }}
+        </h3>
+        <p class="text-sm text-gray-300 mt-2 line-clamp-3" [class.arabic-font]="currentLanguage === 'ar'">{{
+          getCurrentDescription(item) }}</p>
+
+        <!-- View Case Study Button -->
+        <div (click)="onCardClick(item)" class="mt-4 inline-flex items-center text-[#57c4c1] hover:underline group"
+          [class.flex-row-reverse]="currentLanguage === 'ar'" [class.flex-row]="currentLanguage !== 'ar'">
+          {{ 'MESSAGES.VIEW_CASE_STUDY' | translate }}
+
+          <i class="fa-solid fa-arrow-right transition-transform px-2" [class.rtl:rotate-180]="currentLanguage === 'ar'"
+            [class.rotate-180]="currentLanguage === 'ar'"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

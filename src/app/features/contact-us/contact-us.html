@@ -1,0 +1,25 @@
+<section
+    class="px-6 md:px-32 py-20 text-center text-white  mx-6 md:mx-32 rounded-3xl my-16 shadow-lg relative overflow-hidden bg-gradient-to-br from-[#3A7678] to-[#173131]">
+
+    <!-- خلفية شكلية بسيطة -->
+    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_top_right,_white,_transparent_70%)]"></div>
+
+    <!-- المحتوى -->
+    <div class="relative z-10 space-y-6" style="font-family: 'Lalezar', cursive;">
+        <!-- العنوان -->
+        <h2 class="text-2xl md:text-4xl uppercase tracking-wider font-semibold">
+            {{ getTranslation('CONTACT.TITLE') || 'Contact Us' }}
+        </h2>
+
+        <!-- الوصف -->
+        <p class="text-3xl md:text-5xl font-bold leading-snug max-w-4xl mx-auto">
+            {{ getTranslation('CONTACT.HEADER.SUBTITLE') || 'Let\'s Start Something Great Together' }}
+        </p>
+
+        <!-- الزر -->
+        <div class="mt-10">
+            <app-btn-lets-talk></app-btn-lets-talk>
+        </div>
+    </div>
+
+</section>

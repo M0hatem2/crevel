@@ -1,0 +1,135 @@
+<div class="min-h-screen   text-gray-100 p-6 arabic-font">
+  <!-- Header Section -->
+  <div class="flex flex-col md:flex-row justify-between items-center mb-10 gap-4">
+    <div class="flex items-center">
+      <div
+        class="bg-gradient-to-r from-[#57c4c1] to-[#2b8381] rounded-lg p-3 mr-4 shadow-lg shadow-[#57c4c133]"
+      >
+        <i class="fa-solid fa-envelope-open-text text-white text-2xl"></i>
+      </div>
+      <h1 class="text-3xl font-bold tracking-tight text-white">
+        {{ 'ADMIN.CONTACT_US.TITLE' | translate }}
+      </h1>
+    </div>
+
+    <button
+      (click)="onRefresh()"
+      [disabled]="loading"
+      class="inline-flex items-center px-6 py-2.5 bg-gradient-to-r from-[#57c4c1] to-[#2b8381] text-white text-sm font-medium rounded-xl hover:from-[#4bb6b3] hover:to-[#27928f] focus:outline-none focus:ring-2 focus:ring-[#57c4c1] disabled:opacity-50 transition-all duration-200 shadow-md shadow-[#57c4c133]"
+    >
+      <i *ngIf="loading" class="fa-solid fa-spinner animate-spin mr-2"></i>
+      <i *ngIf="!loading" class="fa-solid fa-rotate-right mr-2"></i>
+      {{ 'COMPONENTS.BUTTONS.REFRESH' | translate }}
+    </button>
+  </div>
+
+  <!-- Loading State -->
+  <div *ngIf="loading" class="flex flex-col items-center justify-center py-16">
+        <app-loading-spinner></app-loading-spinner>
+
+  </div>
+
+  <!-- Error State -->
+  <div
+    *ngIf="error && !loading"
+    class="bg-[#2a1212] border border-red-600 rounded-xl p-6 text-center shadow-md shadow-red-900/30"
+  >
+    <i class="fa-solid fa-triangle-exclamation text-red-500 text-4xl mb-3"></i>
+    <p class="text-red-400 font-medium mb-4">{{ error }}</p>
+    <button
+      (click)="onRefresh()"
+      class="inline-flex items-center px-5 py-2 bg-red-600 text-white text-sm font-medium rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-400 transition"
+    >
+      {{ 'BUTTONS.TRY_AGAIN' | translate }}
+    </button>
+  </div>
+
+  <!-- Contact Messages Grid -->
+  <div *ngIf="!loading && !error" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+    <div
+      *ngIf="contactUsData.length === 0"
+      class="col-span-full bg-[#0f1a19]/70 rounded-2xl shadow-inner border border-[#1f2f2e] p-12 text-center"
+    >
+      <i class="fa-regular fa-envelope text-6xl text-gray-500 mb-4"></i>
+      <h3 class="text-xl font-semibold mb-2 text-gray-200">
+        {{ 'ADMIN.CONTACT_US.NO_MESSAGES' | translate }}
+      </h3>
+      <p class="text-gray-400">
+        {{ 'ADMIN.CONTACT_US.NO_MESSAGES_DESC' | translate }}
+      </p>
+    </div>
+
+    <!-- Each Message Card -->
+    <div
+      *ngFor="let contact of contactUsData; trackBy: trackByContactId"
+      class="bg-[#0f1a19]/80 border border-[#1e2f2d] rounded-2xl shadow-lg hover:shadow-[#57c4c133] transition-all duration-300 overflow-hidden"
+    >
+      <!-- Card Header -->
+      <div class="p-5 border-b border-[#1e2f2d] flex items-center justify-between">
+        <div class="flex items-center">
+          <div
+            class="w-12 h-12 bg-gradient-to-r from-[#57c4c1] to-[#2b8381] rounded-full flex items-center justify-center mr-4 shadow-md shadow-[#57c4c133]"
+          >
+            <span class="text-white font-semibold text-lg">{{ getInitials(contact.name) }}</span>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-white">
+              {{ contact.name }} {{ contact.name2 }}
+            </h3>
+            <p class="text-gray-400 text-sm">
+              <i class="fa-regular fa-envelope mr-1"></i>{{ contact.email }}
+            </p>
+          </div>
+        </div>
+        <div class="text-right text-xs text-gray-400">
+          <div
+            class="bg-[#1b2827] px-2 py-1 rounded-full inline-block font-mono text-[#57c4c1]"
+          >
+            #{{ contact._id.slice(-8) }}
+          </div>
+          <div class="mt-1">{{ formatDate(contact.createdAt) }}</div>
+        </div>
+      </div>
+
+      <!-- Card Body -->
+      <div class="p-5 space-y-4">
+        <!-- Info -->
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs text-gray-400 uppercase font-semibold mb-1">
+              {{ 'ADMIN.CONTACT_US.PHONE' | translate }}
+            </label>
+            <div
+              class="text-sm text-gray-100 bg-[#1b2827] px-3 py-2 rounded-md flex items-center gap-1"
+            >
+              <i class="fa-solid fa-phone text-[#57c4c1]"></i>
+              {{ contact.phoneNumber }}
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs text-gray-400 uppercase font-semibold mb-1">
+              {{ 'ADMIN.CONTACT_US.SERVICE' | translate }}
+            </label>
+            <div
+              class="text-sm text-white bg-gradient-to-r from-green-500 to-green-600 px-3 py-2 rounded-md text-center font-medium shadow-md"
+            >
+              {{ contact.service }}
+            </div>
+          </div>
+        </div>
+
+        <!-- Message -->
+        <div>
+          <label class="block text-xs text-gray-400 uppercase font-semibold mb-2">
+            {{ 'ADMIN.CONTACT_US.MESSAGE' | translate }}
+          </label>
+          <div
+            class="bg-[#1b2827] border border-[#1e2f2d] rounded-md p-3 text-sm text-gray-100 min-h-[70px] max-h-[140px] overflow-y-auto"
+          >
+            {{ contact.message }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

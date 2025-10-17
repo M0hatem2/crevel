@@ -1,0 +1,66 @@
+<section
+  class="relative flex items-center min-h-[280px] lg:min-h-[400px] overflow-hidden bg-gradient-to-br from-[#041f1e] to-[#072927] rounded-2xl shadow-2xl mx-4 my-10"
+  [class.arabic-font]="currentLang === 'ar'" [attr.dir]="currentLang === 'ar' ? 'rtl' : 'ltr'">
+
+  <!-- ✨ المحتوى -->
+  <div class="relative container mx-auto px-6 py-12 lg:px-16">
+    <div class=" grid grid-cols-1 lg:grid-cols-2 gap-12 items-center justify-between md:flex">
+
+      <!-- 📝 المحتوى النصي -->
+      <div class="space-y-6" [ngClass]="{
+          'text-center lg:text-right': currentLang === 'ar',
+          'text-center lg:text-left': currentLang === 'en'
+        }">
+
+        <h1
+          class="text-3xl md:text-4xl xl:text-5xl font-extrabold text-white leading-tight drop-shadow-lg animate-fade-in">
+          {{ 'HEADER.TITLE' | translate }}<br />
+          <span class="text-cyan-400">
+            {{ 'HEADER.SUBTITLE' | translate }}
+          </span>
+        </h1>
+
+        <p class="text-base md:text-lg text-gray-300 max-w-md mx-auto lg:mx-0 leading-relaxed">
+          {{ 'BLOG.HEADER.SUBTITLE' | translate }}
+        </p>
+
+        <!-- 🎯 الأزرار -->
+        <div class="flex flex-col sm:flex-row gap-4 pt-4" [ngClass]="{
+             'justify-center lg:justify-end': currentLang === 'ar',
+             'justify-center lg:justify-start': currentLang === 'en'
+           }">
+
+          <button routerLink="/about"
+            class="px-8 py-3 bg-gray-800 hover:bg-gray-700 text-white font-semibold rounded-xl border border-gray-700 hover:border-gray-500 transition-all duration-300">
+            {{ 'BLOG.READ_MORE' | translate }}
+          </button>
+
+          <button (click)="onExploreInsights()"
+            class="px-8 py-3 bg-cyan-500 hover:bg-cyan-400 text-white font-semibold rounded-xl border border-cyan-400 shadow-[0_0_20px_rgba(6,182,212,0.5)] hover:shadow-[0_0_30px_rgba(6,182,212,0.7)] transition-all duration-300">
+            {{ 'MESSAGES.EXPLORE_INSIGHTS' | translate }}
+          </button>
+        </div>
+      </div>
+
+      <!-- 🖼️ الصورة -->
+      <div class="flex md:mx-20" [ngClass]="{
+          'justify-center lg:justify-start': currentLang === 'ar',
+          'justify-center lg:justify-end': currentLang === 'en'
+        }">
+        <div
+          class="relative p-6 bg-[#0A2C2B]/50 rounded-2xl shadow-inner backdrop-blur-sm hover:scale-105 transition-transform duration-500">
+          <img src="/assets/LOGO/logo png white.png" [alt]="'FOOTER.ALT_TEXTS.LOGO' | translate"
+            class="w-full h-auto md:w-52 object-contain drop-shadow-[0_0_30px_rgba(6,182,212,0.6)]" />
+          <div class="absolute -inset-4 bg-cyan-400 opacity-20 blur-3xl rounded-full -z-10"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ✨ خلفيات الإضاءة -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute top-10 left-1/4 w-80 h-80 bg-cyan-400 opacity-20 blur-[150px] rounded-full"></div>
+    <div class="absolute bottom-10 right-1/4 w-64 h-64 bg-teal-500 opacity-10 blur-[120px] rounded-full"></div>
+  </div>
+</section>

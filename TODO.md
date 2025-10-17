@@ -1,0 +1,2 @@
+- [x] Update aside.ts to inject AuthService and Router, add logout method
+- [x] Update aside.html to add logout button at the end of the list

@@ -1,0 +1,953 @@
+{
+  "NAVIGATION": {
+    "HOME": "الرئيسية",
+    "ABOUT": "حول",
+    "BRIFE": "نبذة",
+    "SERVICES": "الخدمات",
+    "PORTFOLIO": "أعمالنا",
+    "BLOG": "المدونة",
+    "CONTACT": "اتصل بنا",
+    "ADMIN": "الإدارة",
+    "LOGIN": "تسجيل الدخول",
+    "LOGOUT": "تسجيل الخروج"
+  },
+  "HEADER": {
+    "TITLE": "نحن لا نسوق فقط",
+    "SUBTITLE": "نحن نسيطر على الفضاء الرقمي",
+    "SOCIAL_MEDIA": "تابعنا",
+    "ALT_TEXTS": {
+      "NAVBAR_LIGHT": "إضاءة شريط التنقل",
+      "STARS_LEFT": "النجوم يسار",
+      "STARS_RIGHT": "النجوم يمين",
+      "GRID_BACKGROUND": "خلفية الشبكة",
+      "CYBER_CHARACTER": "الشخصية الرقمية",
+      "WAVE": "الموجة"
+    }
+  },
+  "FOOTER": {
+    "COPYRIGHT": "© 2024 كريفل. جميع الحقوق محفوظة.",
+    "PRIVACY": "سياسة الخصوصية",
+    "TERMS": "شروط الخدمة",
+    "NAVIGATION": {
+      "HOME": "الرئيسية",
+      "PORTFOLIO": "أعمالنا",
+      "SERVICES": "الخدمات",
+      "ABOUT": "حول"
+    },
+    "ALT_TEXTS": {
+      "LOGO": "شعار الشركة"
+    }
+  },
+  "PRIVACY_POLICY": {
+    "TITLE": "سياسة الخصوصية",
+    "INFORMATION_COLLECTED": "المعلومات التي نجمعها",
+    "COLLECTION_DESCRIPTION": "نجمع معلومات شخصية وتقنية لتقديم وتحسين خدماتنا. يشمل ذلك:",
+    "COLLECTION_ITEMS": {
+      "FULL_NAME": "الاسم الكامل وعنوان البريد الإلكتروني ورقم الهاتف",
+      "MESSAGES": "الرسائل والاستفسارات المقدمة عبر نماذجنا",
+      "USAGE_DATA": "بيانات الاستخدام مثل عنوان IP ونوع المتصفح والصفحات المُشاهدة",
+      "COOKIES": "ملفات تعريف الارتباط المستخدمة لتحسين التجربة والتحليلات"
+    },
+    "HOW_WE_USE": "كيف نستخدم معلوماتك",
+    "USAGE_DESCRIPTION": "نستخدم البيانات المجمعة للرد على الاستفسارات وتقديم الخدمات وتحليل الأداء وتحسين تجربة المستخدم. تساعدنا بياناتك في:",
+    "USAGE_ITEMS": {
+      "SERVICES": "تقديم وتحسين خدمات التسويق الرقمي لكريفل",
+      "COMMUNICATION": "التواصل معك حول طلباتك أو تعاونك",
+      "UPDATES": "إرسال التحديثات والعروض والرسائل التسويقية ذات الصلة",
+      "SECURITY": "ضمان أمان المنصة ومنع الإساءة"
+    },
+    "INFORMATION_SHARING": "مشاركة المعلومات",
+    "SHARING_DESCRIPTION": "نحن لا نبيع أو نؤجر بياناتك الشخصية أبداً. قد نشاركها فقط مع:",
+    "SHARING_ITEMS": {
+      "PARTNERS": "الشركاء الموثوقين الذين يساعدوننا في تشغيل خدماتنا",
+      "LEGAL": "السلطات القانونية عند الحاجة بموجب القانون",
+      "PROVIDERS": "مقدمي التحليلات واستضافة تحت اتفاقيات صارمة"
+    },
+    "DATA_PROTECTION": "حماية البيانات",
+    "PROTECTION_DESCRIPTION": "تطبق كريفل إجراءات فنية وإدارية متقدمة لحماية معلوماتك الشخصية. ومع ذلك، لا تكون أي عملية نقل عبر الإنترنت آمنة تماماً، ونشجع على الحذر عند مشاركة البيانات الحساسة.",
+    "YOUR_RIGHTS": "حقوقك",
+    "RIGHTS_ITEMS": {
+      "ACCESS": "الوصول إلى وتصحيح معلوماتك المخزنة",
+      "DELETION": "طلب حذف البيانات أو تقييد المعالجة",
+      "OPTOUT": "الانسحاب من الاتصالات الترويجية في أي وقت",
+      "PORTABILITY": "طلب نسخة من بياناتك بتنسيق قابل للنقل"
+    },
+    "COOKIES_ANALYTICS": "ملفات تعريف الارتباط والتحليلات",
+    "COOKIES_DESCRIPTION": "نستخدم ملفات تعريف الارتباط وأدوات التحليلات لتحسين تجربة التصفح لديك وقياس التفاعل وتحسين الحملات التسويقية. يمكنك التحكم في ملفات تعريف الارتباط عبر إعدادات متصفحك.",
+    "UPDATES": "التحديثات",
+    "UPDATES_DESCRIPTION": "قد تقوم كريفل بتحديث سياسة الخصوصية هذه بشكل دوري. سيتم نشر أي تغييرات كبيرة هنا مع تحديث تاريخ 'آخر تحديث'.",
+    "CONTACT_US": "تواصل معنا",
+    "CONTACT_DESCRIPTION": "للاستفسارات حول هذه السياسة أو بياناتك، يرجى التواصل معنا على:",
+    "CONTACT_INFO": {
+      "EMAIL": "البريد الإلكتروني",
+      "PHONE": "الهاتف",
+      "WEBSITE": "الموقع الإلكتروني",
+      "LOCATION": "الموقع"
+    },
+    "LAST_UPDATED": "آخر تحديث:",
+    "CLOSE": "إغلاق"
+  },
+  "COMMON": {
+    "WELCOME": "مرحباً",
+    "ACCOUNT": "الحساب",
+    "LOADING": "جارٍ التحميل...",
+    "ERROR": "خطأ",
+    "SUCCESS": "نجح",
+    "CANCEL": "إلغاء",
+    "CONFIRM": "تأكيد",
+    "SAVE": "حفظ",
+    "DELETE": "حذف",
+    "EDIT": "تعديل",
+    "SEEMORE": "عرض المزيد",
+    "ADD": "إضافة",
+    "SEARCH": "بحث",
+    "FILTER": "تصفية",
+    "SORT": "ترتيب",
+    "NEXT": "التالي",
+    "PREVIOUS": "السابق",
+    "SUBMIT": "إرسال",
+    "RESET": "إعادة تعيين",
+    "CLOSE": "إغلاق",
+    "OPEN": "فتح",
+    "YES": "نعم",
+    "NO": "لا",
+    "OK": "موافق",
+    "BACK": "رجوع",
+    "CONTINUE": "متابعة",
+    "ID": "المعرف",
+    "LANGUAGES": {
+      "ENGLISH": "الإنجليزية",
+      "ARABIC": "العربية",
+      "CURRENT": "اللغة الحالية"
+    },
+    "BUTTONS": {
+      "LETS_TALK": "دعنا نتحدث"
+    },
+    "ACCESSIBILITY": {
+      "SCROLL_TO_TOP": "الانتقال إلى الأعلى",
+      "WHATSAPP_CONTACT": "تواصل معنا عبر الواتساب"
+    },
+    "NEW_REQUEST": "طلب جديد",
+    "DISMISS": "إغلاق",
+    "FOLLOW_UP": "سنعود إليك في أقرب وقت ممكن",
+    "CONTACT_FORM": {
+      "TITLE": "طلب الاتصال",
+      "SUBTITLE": "نحن نحب أن نسمع منك",
+      "FULL_NAME": "الاسم الكامل",
+      "FULL_NAME_PLACEHOLDER": "أدخل اسمك الكامل",
+      "EMAIL_ADDRESS": "عنوان البريد الإلكتروني",
+      "EMAIL_PLACEHOLDER": "your.email@example.com",
+      "MESSAGE": "رسالتك",
+      "MESSAGE_PLACEHOLDER": "أخبرنا عن مشروعك أو استفسارك...",
+      "SEND_MESSAGE": "إرسال الرسالة",
+      "SUCCESS_MESSAGE": "تم إرسال الرسالة بنجاح!",
+      "FOLLOW_UP": "سنعود إليك في أقرب وقت ممكن",
+      "DISMISS": "إغلاق"
+    },
+    "MEETING_FORM": {
+      "TITLE": "حجز اجتماع",
+      "SUBTITLE": "دعنا نناقش متطلبات مشروعك",
+      "FULL_NAME": "الاسم الكامل",
+      "FULL_NAME_PLACEHOLDER": "أدخل اسمك الكامل",
+      "EMAIL_ADDRESS": "عنوان البريد الإلكتروني",
+      "EMAIL_PLACEHOLDER": "أدخل عنوان بريدك الإلكتروني",
+      "PREFERRED_DATE": "التاريخ المفضل",
+      "PREFERRED_TIME": "الوقت المفضل",
+      "SCHEDULE_MEETING": "حجز اجتماع",
+      "SCHEDULING": "جارٍ الحجز...",
+      "SUCCESS_MESSAGE": "تم حجز الاجتماع بنجاح! سنتواصل معك قريباً.",
+      "CONFIRMATION_EMAIL": "سنرسل لك رسالة تأكيد بالتفاصيل",
+      "VALIDATION": {
+        "NAME_REQUIRED": "الاسم مطلوب",
+        "EMAIL_REQUIRED": "البريد الإلكتروني مطلوب",
+        "EMAIL_INVALID": "يرجى إدخال بريد إلكتروني صالح",
+        "DATE_REQUIRED": "التاريخ مطلوب",
+        "TIME_REQUIRED": "الوقت مطلوب"
+      }
+    },
+    "BRIEF_FORM": {
+      "TITLE": "نبذة جديدة",
+      "SUBTITLE": "أخبرنا عن مشروعك",
+      "PROJECT_NAME": "اسم المشروع",
+      "PROJECT_NAME_PLACEHOLDER": "أدخل اسم مشروعك",
+      "EMAIL_ADDRESS": "عنوان البريد الإلكتروني",
+      "EMAIL_PLACEHOLDER": "your.email@example.com",
+      "PROJECT_DESCRIPTION": "وصف المشروع",
+      "PROJECT_DESCRIPTION_PLACEHOLDER": "أخبرنا عن متطلبات وأهداف مشروعك...",
+      "MOBILE_NUMBER": "رقم الهاتف المحمول",
+      "MOBILE_NUMBER_PLACEHOLDER": "أدخل رقم هاتفك المحمول",
+      "BUDGET": "الميزانية (جنيه مصري)",
+      "BUDGET_PLACEHOLDER": "أدخل ميزانيتك بالجنيه المصري",
+      "SUBMIT_BRIEF": "إرسال النبذة",
+      "SUCCESS_MESSAGE": "تم إرسال النبذة بنجاح!",
+      "FOLLOW_UP": "سنعود إليك في أقرب وقت ممكن",
+      "CLIENT_INFO_TITLE": "معلومات العميل",
+      "SUCCESS_TITLE": "تم إنشاء النبذة بنجاح!",
+      "SUCCESS_SUBTITLE": "شكراً لك على إرسالك. سنعود إليك قريباً.",
+      "ERROR_TITLE": "خطأ",
+      "COMPANY_NAME": "اسم الشركة",
+      "BUSINESS_SECTOR": "قطاع الأعمال",
+      "WEBSITE": "الموقع الإلكتروني",
+      "SOCIAL_MEDIA_LINKS": "حسابات وسائل التواصل الاجتماعي (رابط واحد في كل سطر)\nمثال:\nhttps://twitter.com/company\nhttps://linkedin.com/company/company",
+      "CREATING": "جارٍ الإنشاء...",
+      "CREATE_BRIEF": "إنشاء النبذة",
+      "VALIDATION": {
+        "COMPANY_NAME_REQUIRED": "اسم الشركة مطلوب",
+        "BUSINESS_SECTOR_REQUIRED": "قطاع الأعمال مطلوب",
+        "MOBILE_NUMBER_REQUIRED": "رقم الهاتف المحمول مطلوب",
+        "EMAIL_REQUIRED": "البريد الإلكتروني مطلوب",
+        "EMAIL_INVALID": "يرجى إدخال بريد إلكتروني صالح",
+        "WEBSITE_REQUIRED": "الموقع الإلكتروني مطلوب",
+        "WEBSITE_INVALID": "يرجى إدخال رابط موقع إلكتروني صالح (يبدأ بـ http:// أو https://)",
+        "MOBILE_INVALID": "يرجى إدخال رقم هاتف محمول صالح",
+        "COMPANY_NAME_MIN_LENGTH": "يجب أن يكون اسم الشركة {{length}} حرف على الأقل",
+        "BUSINESS_SECTOR_MIN_LENGTH": "يجب أن يكون قطاع الأعمال {{length}} حرف على الأقل"
+      }
+    },
+    "LETS_TALK_FORM": {
+      "FIRST_NAME": "الاسم الأول",
+      "LAST_NAME": "اسم العائلة",
+      "SERVICE": "اختر الخدمة",
+      "SERVICES": {
+        "SOFTWARE": "البرمجيات",
+        "MARKETING": "التسويق",
+        "MEDIA_PRODUCTION": "إنتاج المحتوى الإعلامي"
+      },
+      "PHONE": "رقم الهاتف",
+      "EMAIL": "عنوان البريد الإلكتروني",
+      "MESSAGE": "الرسالة",
+      "SEND_INQUIRY": "إرسال الاستفسار",
+      "SUCCESS_MESSAGE": "تم إرسال الرسالة بنجاح!",
+      "REACH_OUT": "تواصل معنا",
+      "EMAIL_ADDRESS_LABEL": "عنوان البريد الإلكتروني:",
+      "PHONE_NUMBER_LABEL": "رقم الهاتف:",
+      "OUR_LOCATIONS": "مواقعنا"
+    }
+  },
+  "ABOUT": {
+    "TITLE": "حولنا",
+    "OUR_STORY": "قصتنا",
+    "MISSION": "رسالتنا",
+    "VISION": "رؤيتنا",
+    "VALUES": "قيمنا",
+    "HEADER": {
+      "TITLE": "حولنا",
+      "DESCRIPTION": "نحن فريق من الأفراد المتحمسين ملتزمون بتقديم خدمات وحلول استثنائية. مهمتنا هي تمكين الأعمال والأفراد من خلال استراتيجيات مبتكرة وتصاميم إبداعية. مع التركيز على الجودة ورضا العملاء، نسعى لتجاوز التوقعات في كل مشروع نقوم به. انضم إلينا في رحلتنا لإحداث تأثير إيجابي في العالم الرقمي."
+    },
+    "ALT_TEXTS": {
+      "LIGHT_NAVBAR": "خلفية شريط التنقل الفاتح",
+      "GALLERY_IMAGE_1": "صورة حولنا 1",
+      "GALLERY_IMAGE_2": "صورة حولنا 2",
+      "GALLERY_IMAGE_3": "صورة حولنا 3",
+      "GALLERY_IMAGE_4": "صورة حولنا 4"
+    },
+    "WHO_WE_ARE": {
+      "TITLE": "من نحن",
+      "DESCRIPTION": "نحن فريق من الأفراد المتحمسين ملتزمون بإنشاء حلول مبتكرة تحدث فرقاً حقيقياً في العالم. مهمتنا هي تمكين الأعمال والأفراد من خلال التكنولوجيا والإبداع والتعاون المثمر."
+    }
+  },
+  "SERVICES": {
+    "TITLE": "خدماتنا",
+    "DESCRIPTION": "نقدم حلول تسويق رقمي شاملة",
+    "TRUSTED_SERVICES": "الخدمات الموثوقة",
+
+    "CORE_SERVICES": {
+      "TITLE": "خدماتنا الأساسية",
+      "SUBTITLE": "نحن لسنا وكالة تسويق عادية. نحن كريفل، نسير في مسار مختلف تماماً.",
+      "LEARN_MORE": "اعرف المزيد",
+      "DESCRIPTION": "الوصف",
+      "LAST_UPDATED": "آخر تحديث:",
+      "STATUS": "الحالة:",
+      "ACTIVE": "نشط",
+      "CLOSE": "إغلاق",
+      "RECENTLY": "مؤخراً"
+    },
+    "HEADER": {
+      "TITLE": "مستقبل التسويق، منشور واحد في كل مرة",
+      "SUBTITLE": "استكشف أحدث ما في العلامات التجارية ووسائل التواصل الاجتماعي والتصميم وغيرها لتصميم مستقبل حضورك الرقمي.",
+      "BUTTONS": {
+        "EXPLORE_INSIGHTS": "استكشف الأفكار",
+        "READ_MORE": "اقرأ المزيد"
+      }
+    }
+  },
+  "HOW_WE_SUCCEED": {
+    "TITLE": "كيف ننجح",
+    "SUBTITLE": "نحن نتبع نهجًا استراتيجيًا لضمان نجاح مشاريعنا",
+    "STEP_1_TITLE": "الخطوة الأولى: التحليل",
+    "STEP_1_DESCRIPTION": "نبدأ بفهم متطلباتك وأهدافك بعناية",
+    "STEP_2_TITLE": "الخطوة الثانية: التخطيط",
+    "STEP_2_DESCRIPTION": "نضع خطة مفصلة واستراتيجية شاملة",
+    "STEP_3_TITLE": "الخطوة الثالثة: التنفيذ",
+    "STEP_3_DESCRIPTION": "ننفذ المشروع بكفاءة وجودة عالية",
+    "STEP_4_TITLE": "الخطوة الرابعة: التقييم",
+    "STEP_4_DESCRIPTION": "نقيم النتائج ونضمن رضاك التام"
+  },
+  "OUR_BLUEPRINT": {
+    "TITLE": "مخططنا للنجاح",
+    "SUBTITLE": "منهجيتنا المثبتة التي تحقق نتائج استثنائية",
+    "PHASE_1_TITLE": "الاكتشاف والاستراتيجية",
+    "PHASE_1_DESCRIPTION": "الغوص العميق في أهداف عملك وتموضعك في السوق",
+    "PHASE_2_TITLE": "التطوير الإبداعي",
+    "PHASE_2_DESCRIPTION": "صياغة حلول مبتكرة مصممة خصيصًا لاحتياجاتك",
+    "PHASE_3_TITLE": "التنفيذ والاختبار",
+    "PHASE_3_DESCRIPTION": "إحياء الأفكار بدقة وجودة عالية",
+    "PHASE_4_TITLE": "الإطلاق والتحسين",
+    "PHASE_4_DESCRIPTION": "النشر المباشر والتحسين المستمر للأداء"
+  },
+  "PORTFOLIO": {
+    "TITLE": "أعمالنا",
+    "DESCRIPTION": "عرض أفضل أعمالنا",
+    "VIEW_PROJECT": "عرض المشروع",
+    "ALL_PROJECTS": "جميع المشاريع",
+    "HEADER": {
+      "TITLE": "أعمالنا",
+      "DESCRIPTION": "لوريم إيبسوم دولور، سيت أميت كونسيكتيتور أديبيسيتشنج إليت. ماجنام كومودي أبيريام أسوميندا إنفينتور كويسكوام. كولبا كوم أسبيرناتور فينيام كووس كويس إيبسوم. كومودي إت سيت دوسيموس، إينيم أب فوجيت إيتاكوي ماجنام."
+    }
+  },
+  "CONTACT": {
+    "TITLE": "اتصل بنا",
+    "DESCRIPTION": "تواصل معنا",
+    "NAME": "الاسم",
+    "EMAIL": "البريد الإلكتروني",
+    "PHONE": "الهاتف",
+    "MESSAGE": "الرسالة",
+    "SEND": "إرسال الرسالة",
+    "ADDRESS": "العنوان",
+    "GET_IN_TOUCH": "تواصل معنا",
+    "HEADER": {
+      "TITLE": "اتصل بنا",
+      "SUBTITLE": "دعنا نبدأ شيئًا رائعًا معًا"
+    }
+  },
+  "BLOG": {
+    "TITLE": "المدونة",
+    "READ_MORE": "اقرأ المزيد",
+    "POSTED_ON": "نشر في",
+    "AUTHOR": "الكاتب",
+    "CATEGORY": "الفئة",
+    "TAGS": "العلامات",
+    "SHARE": "مشاركة",
+    "DETAILS": {
+      "BACK_TO_BLOGS": "العودة إلى المدونات",
+      "BLOG_NOT_FOUND": "المدونة غير موجودة",
+      "BLOG_NOT_FOUND_MESSAGE": "لا يمكن العثور على المدونة المطلوبة.",
+      "FAILED_TO_LOAD_BLOG": "فشل في تحميل المدونة"
+    },
+    "HEADER": {
+      "TITLE": "مستقبل التسويق، منشور واحد في كل مرة",
+      "SUBTITLE": "استكشف أحدث ما في العلامات التجارية ووسائل التواصل الاجتماعي والتصميم وغيرها لرفع مستوى حضورك الرقمي.",
+      "BUTTONS": {
+        "READ_MORE": "اقرأ المزيد",
+        "EXPLORE_INSIGHTS": "استكشف الأفكار"
+      }
+    }
+  },
+  "AUTH": {
+    "LOGIN": {
+      "TITLE": "تسجيل الدخول إلى حسابك",
+      "USER_TYPE": "نوع المستخدم",
+      "ADMIN": "مدير",
+      "SUPER_ADMIN": "مدير عام",
+      "USERNAME_EMAIL": "اسم المستخدم أو البريد الإلكتروني",
+      "USERNAME_EMAIL_PLACEHOLDER": "admin@example.com",
+      "PASSWORD": "كلمة المرور",
+      "PASSWORD_PLACEHOLDER": "••••••••",
+      "CONFIRMATION_PASSWORD": "تأكيد كلمة المرور",
+      "CONFIRMATION_PASSWORD_PLACEHOLDER": "أدخل كلمة المرور للتأكيد",
+      "REMEMBER_ME": "تذكرني",
+      "FORGOT_PASSWORD": "نسيت كلمة المرور؟",
+      "SIGN_IN": "تسجيل الدخول",
+      "SIGNING_IN": "جارٍ تسجيل الدخول...",
+      "NO_ACCOUNT": "ليس لديك حساب؟",
+      "SIGN_UP": "إنشاء حساب",
+      "USERNAME_EMAIL_REQUIRED": "اسم المستخدم أو البريد الإلكتروني مطلوب.",
+      "PASSWORD_REQUIRED": "كلمة المرور مطلوبة.",
+      "PASSWORD_MIN_LENGTH": "يجب أن تكون كلمة المرور 6 أحرف على الأقل.",
+      "CONFIRMATION_PASSWORD_REQUIRED": "كلمة مرور التأكيد مطلوبة للمدير العام."
+    },
+    "REGISTER": {
+      "TITLE": "إنشاء حساب",
+      "SUBTITLE": "اشترك لبدء استخدام حسابك",
+      "FULL_NAME": "الاسم الكامل",
+      "FULL_NAME_PLACEHOLDER": "أدخل اسمك الكامل",
+      "EMAIL": "البريد الإلكتروني",
+      "EMAIL_PLACEHOLDER": "أدخل بريدك الإلكتروني",
+      "PASSWORD": "كلمة المرور",
+      "PASSWORD_PLACEHOLDER": "أدخل كلمة المرور",
+      "CREATING_ACCOUNT": "جارٍ إنشاء الحساب...",
+      "CREATE_ACCOUNT": "إنشاء حساب",
+      "ALREADY_HAVE_ACCOUNT": "لديك حساب بالفعل؟",
+      "SIGN_IN_HERE": "سجل دخولك هنا"
+    },
+    "FORGOT_PASSWORD": {
+      "TITLE": "نسيت كلمة المرور",
+      "SUBTITLE": "أدخل بريدك الإلكتروني للحصول على رابط إعادة تعيين",
+      "EMAIL": "البريد الإلكتروني",
+      "EMAIL_PLACEHOLDER": "أدخل بريدك الإلكتروني",
+      "SEND_RESET_LINK": "إرسال رابط إعادة التعيين",
+      "EMAIL_REQUIRED": "البريد الإلكتروني مطلوب",
+      "EMAIL_INVALID": "أدخل بريد إلكتروني صالح",
+      "BACK_TO_LOGIN": "العودة إلى تسجيل الدخول"
+    },
+    "OTP_CONFIRM": {
+      "TITLE": "تأكيد رمز OTP",
+      "SUBTITLE": "أدخل رمز OTP المرسل إلى بريدك الإلكتروني",
+      "OTP_CODE": "رمز OTP",
+      "OTP_PLACEHOLDER": "أدخل 6 أرقام",
+      "VERIFY": "تأكيد",
+      "RESEND_OTP": "إعادة إرسال رمز OTP",
+      "OTP_REQUIRED": "رمز OTP مطلوب",
+      "OTP_INVALID": "يجب أن يكون رمز OTP 6 أرقام بالضبط"
+    },
+    "CONFIRM_EMAIL": {
+      "TITLE": "تأكيد البريد الإلكتروني",
+      "SUBTITLE": "نحن نتحقق من بريدك الإلكتروني...",
+      "CONFIRMING": "جارٍ تأكيد بريدك الإلكتروني...",
+      "SUCCESS_TITLE": "نجح!",
+      "SUCCESS_MESSAGE": "تم تأكيد بريدك الإلكتروني بنجاح!",
+      "REDIRECT_MESSAGE": "سيتم توجيهك إلى صفحة تسجيل الدخول خلال ثوانٍ قليلة...",
+      "ERROR_TITLE": "حدث خطأ ما",
+      "BACK_TO_LOGIN": "العودة إلى تسجيل الدخول"
+    },
+    "RESET_PASSWORD": {
+      "TITLE": "إعادة تعيين كلمة المرور",
+      "SUBTITLE": "أدخل كلمة مرور جديدة",
+      "PASSWORD": "كلمة المرور الجديدة",
+      "PASSWORD_PLACEHOLDER": "أدخل كلمة مرور جديدة",
+      "CONFIRM_PASSWORD": "تأكيد كلمة المرور",
+      "CONFIRM_PASSWORD_PLACEHOLDER": "أعد إدخال كلمة المرور",
+      "RESET": "إعادة تعيين",
+      "RESETTING": "جارٍ إعادة التعيين...",
+      "PASSWORD_REQUIRED": "كلمة المرور مطلوبة",
+      "CONFIRM_PASSWORD_REQUIRED": "تأكيد كلمة المرور مطلوب",
+      "PASSWORDS_MISMATCH": "كلمات المرور غير متطابقة",
+      "BACK_TO_LOGIN": "العودة إلى تسجيل الدخول"
+    },
+    "LOGIN_OPTIONS": "خيارات تسجيل الدخول",
+    "USER_REGISTRATION": "تسجيل المستخدم",
+    "USER_LOGIN": {
+      "TITLE": "تسجيل دخول المستخدم",
+      "SUBTITLE": "سجل دخولك كمستخدم",
+      "USERNAME_EMAIL": "اسم المستخدم أو البريد الإلكتروني",
+      "USERNAME_EMAIL_PLACEHOLDER": "user@example.com",
+      "PASSWORD": "كلمة المرور",
+      "PASSWORD_PLACEHOLDER": "••••••••",
+      "REMEMBER_ME": "تذكرني",
+      "SIGN_IN": "تسجيل الدخول",
+      "SIGNING_IN": "جارٍ تسجيل الدخول...",
+      "NO_ACCOUNT": "ليس لديك حساب؟",
+      "SIGN_UP": "إنشاء حساب"
+    }
+  },
+  "ADMIN": {
+    "BRIEFS": {
+      "TITLE": "إدارة النبذات",
+      "LOADING": "جارٍ تحميل النبذات...",
+      "TABS": {
+        "ALL": "جميع النبذات"
+      },
+      "COUNT": "نبذة",
+      "EMPTY_STATE": "لم يتم العثور على نبذات للفترة المحددة",
+      "UNTITLED": "نبذة بدون عنوان",
+      "FIELDS": {
+        "COMPANY": "الشركة",
+        "EMAIL": "البريد الإلكتروني",
+        "PHONE": "الهاتف",
+        "BUSINESS_SECTOR": "قطاع الأعمال",
+        "WEBSITE": "الموقع الإلكتروني",
+        "SOCIAL_MEDIA": "وسائل التواصل الاجتماعي",
+        "LINKS": "رابط"
+      }
+    },
+    "CONTACT": {
+      "TITLE": "إدارة التواصل",
+      "DESCRIPTION": "إدارة وعرض جميع طلبات التواصل",
+      "LOADING": "جارٍ تحميل طلبات التواصل...",
+      "EMPTY_STATE": {
+        "TITLE": "لم يتم العثور على طلبات تواصل",
+        "DESCRIPTION": "لم يتم استلام أي طلبات تواصل بعد."
+      },
+      "STATS": {
+        "TOTAL": "إجمالي طلبات التواصل",
+        "ACTIVE": "طلبات التواصل النشطة",
+        "EMAIL": "طلبات التواصل بالبريد الإلكتروني"
+      }
+    },
+    "CONTACT_US": {
+      "TITLE": "رسائل التواصل",
+      "LOADING": "جارٍ تحميل رسائل التواصل...",
+      "NO_MESSAGES": "لا توجد رسائل",
+      "NO_MESSAGES_DESC": "لا توجد رسائل تواصل حالياً.",
+      "PHONE": "الهاتف",
+      "SERVICE": "الخدمة",
+      "MESSAGE": "الرسالة"
+    },
+    "DASHBOARD": "لوحة التحكم",
+    "USERS": "المستخدمون",
+    "MEETINGS": "الاجتماعات",
+    "SERVICES": "الخدمات",
+    "PORTFOLIO": "أعمالنا",
+    "SETTINGS": "الإعدادات",
+    "LOGOUT": "تسجيل الخروج",
+    "FOOTER_MANAGEMENT": "إدارة التذييل",
+    "ABOUT_US": "حولنا",
+    "BLOG": "المدونة",
+    "FOOTER": "التذييل",
+    "HOME": "الرئيسية",
+    "HOW_WE_SUCCEED": "كيف ننجح",
+    "ADMIN_DASHBOARD": "لوحة تحكم الإدارة",
+    "OPEN_SIDEBAR": "فتح الشريط الجانبي",
+    "ADMIN_USER": "مستخدم الإدارة",
+    "ADMIN_EMAIL": "admin@crevel.com",
+    "SIGN_OUT": "تسجيل الخروج",
+    "FOOTER_SETTINGS": "إعدادات التذييل",
+    "BLOG_MANAGEMENT": "إدارة المدونة",
+    "FOOTER_MANAGEMENT_DESCRIPTION": "إضافة بيانات التذييل الجديدة",
+    "CURRENT_FOOTER_DATA": "بيانات التذييل الحالية",
+    "REFRESH_DATA": "تحديث البيانات",
+    "NO_FOOTER_DATA": "لا توجد بيانات للتذييل. أضف بعض البيانات باستخدام النموذج أدناه.",
+    "LOGO": "الشعار",
+    "CONTACT_INFORMATION": "معلومات الاتصال",
+    "CONTENT": "المحتوى",
+    "SOCIAL_MEDIA_LINKS": "روابط وسائل التواصل الاجتماعي",
+    "FOOTER_ID": "معرف التذييل",
+    "MOBILE": "الجوال",
+    "EMAIL": "البريد الإلكتروني",
+    "WEBSITE": "الموقع الإلكتروني",
+    "LOCATION": "الموقع",
+    "SELECT_PLATFORM": "اختر المنصة",
+    "SERVICE_TITLE": "عنوان الخدمة",
+    "SERVICE_URL": "رابط الخدمة",
+    "ADD_SOCIAL_LINK": "إضافة رابط اجتماعي",
+    "REMOVE": "إزالة",
+    "ADD_SERVICE": "إضافة خدمة",
+    "SELECT_NEW_LOGO": "اختر شعار جديد",
+    "SUPPORTED_FORMATS": "التنسيقات المدعومة: JPG، PNG، GIF. الحد الأقصى للحجم: 5 ميجابايت",
+    "CURRENT_LOGO": "الشعار الحالي",
+    "CHANGING": "جارٍ التغيير...",
+    "CHANGE_LOGO": "تغيير الشعار",
+    "ENGLISH_CONTENT": "المحتوى بالإنجليزية",
+    "ARABIC_CONTENT": "المحتوى بالعربية",
+    "SAVING": "جارٍ الحفظ...",
+    "SAVE_FOOTER_DATA": "حفظ بيانات التذييل",
+    "DASHBOARD_STATS": {
+      "ACTIVE_CLIENTS": "العملاء النشطون",
+      "PROJECTS_COMPLETED": "المشاريع المكتملة",
+      "AVG_COMPLETION": "متوسط الإنجاز",
+      "REVENUE": "الإيرادات",
+      "CURRENT_PROJECTS": "المشاريع الحالية",
+      "ENGAGEMENT_METRICS": "مقاييس التفاعل",
+      "PERFORMANCE_DESCRIPTION": "أداء الحملات الأخيرة",
+      "CLIENT_SATISFACTION": "رضا العملاء",
+      "CURRENT_SCORE": "النتيجة الحالية",
+      "FROM_LAST_MONTH": "+2% من الشهر الماضي",
+      "VERY_SATISFIED": "راضٍ جداً",
+      "SATISFIED": "راضٍ",
+      "NEUTRAL": "محايد",
+      "DISSATISFIED": "غير راضٍ",
+      "RECENT_ACTIVITY": "النشاطات الأخيرة",
+      "VIEW_ALL_ACTIVITY": "عرض جميع الأنشطة",
+      "TEAM_PERFORMANCE": "أداء الفريق"
+    },
+
+    "SERVICES_MANAGEMENT": {
+      "TITLE": "إدارة الخدمات",
+      "ADD_SERVICE": "إضافة خدمة",
+      "LOADING": "جارٍ تحميل الخدمات...",
+      "RETRY": "إعادة المحاولة",
+      "TITLE_EN": "العنوان بالإنجليزية",
+      "TITLE_AR": "العنوان بالعربية",
+      "DESCRIPTION_EN": "الوصف بالإنجليزية",
+      "DESCRIPTION_AR": "الوصف بالعربية",
+      "ICON": "الأيقونة",
+      "CREATED_AT": "تاريخ الإنشاء",
+      "ACTIONS": "الإجراءات",
+      "EDIT": "تعديل",
+      "DELETE": "حذف",
+      "TITLE_ENGLISH": "العنوان (الإنجليزية)",
+      "TITLE_ARABIC": "العنوان (العربية)",
+      "DESCRIPTION_ENGLISH": "الوصف (الإنجليزية)",
+      "DESCRIPTION_ARABIC": "الوصف (العربية)",
+      "ICON_PLACEHOLDER": "الأيقونة (مثال: fa-icon)",
+      "CANCEL": "إلغاء",
+      "SAVE": "حفظ",
+      "UPDATE": "تحديث",
+      "TITLE_ENGLISH_PLACEHOLDER": "أدخل العنوان بالإنجليزية",
+      "TITLE_ARABIC_PLACEHOLDER": "أدخل العنوان بالعربية",
+      "DESCRIPTION_ENGLISH_PLACEHOLDER": "أدخل الوصف بالإنجليزية",
+      "DESCRIPTION_ARABIC_PLACEHOLDER": "أدخل الوصف بالعربية"
+    },
+    "USERS_MANAGEMENT": {
+      "TITLE": "إدارة المستخدمين",
+      "ACTIVE_USERS": "المستخدمون النشطون",
+      "BLOCKED_USERS": "المستخدمون المحظورون",
+      "DELETED_USERS": "المستخدمون المحذوفون",
+      "RETRY": "إعادة المحاولة",
+      "SEARCH_PLACEHOLDER": "البحث في المستخدمين...",
+      "TABLE": {
+        "PROFILE": "الملف الشخصي",
+        "NAME": "الاسم",
+        "EMAIL": "البريد الإلكتروني",
+        "ROLE": "الدور",
+        "STATUS": "الحالة",
+        "ACTIONS": "الإجراءات",
+        "JOINED": "انضم في",
+        "BLOCKED": "حظر في"
+      },
+      "LOADING_ACTIVE": "جارٍ تحميل المستخدمين النشطين...",
+      "LOADING_BLOCKED": "جارٍ تحميل المستخدمين المحظورين...",
+      "LOADING_DELETED": "جارٍ تحميل المستخدمين المحذوفين...",
+      "STATUS": {
+        "CONFIRMED": "مؤكد",
+        "UNCONFIRMED": "غير مؤكد",
+        "BLOCKED": "محظور",
+        "ACTIVE": "نشط",
+        "DELETED": "محذوف"
+      },
+      "ACTIONS": {
+        "CONFIRM_USER": "تأكيد المستخدم",
+        "BLOCK_USER": "حظر المستخدم",
+        "UNBLOCK_USER": "إلغاء حظر المستخدم",
+        "DELETE_USER": "حذف المستخدم",
+        "UNDELETE_USER": "استعادة المستخدم",
+        "ADD_ADMIN_ROLE": "إضافة دور المدير",
+        "REMOVE_ADMIN_ROLE": "إزالة دور المدير",
+        "CHANGE_USERNAME": "تغيير اسم المستخدم",
+        "ADD_ADMIN": "إضافة مدير",
+        "REMOVE_ADMIN": "إزالة مدير",
+        "CHANGE_NAME": "تغيير الاسم"
+      },
+      "UNBLOCK": "إلغاء الحظر",
+      "RESTORE": "استعادة",
+      "MESSAGES": {
+        "NO_BLOCKED_USERS": "لم يتم العثور على مستخدمين محظورين",
+        "NO_DELETED_USERS": "لم يتم العثور على مستخدمين محذوفين",
+        "GENERIC_ERROR": "حدث خطأ",
+        "ENTER_BLOCK_REASON": "أدخل سبب الحظر",
+        "CONFIRM_DELETE": "هل أنت متأكد من أنك تريد حذف هذا المستخدم؟",
+        "CONFIRM_UNDELETE": "هل أنت متأكد من أنك تريد استعادة هذا المستخدم؟",
+        "CONFIRM_ADD_ADMIN": "هل أنت متأكد من أنك تريد إضافة دور المدير لهذا المستخدم؟",
+        "CONFIRM_REMOVE_ADMIN": "هل أنت متأكد من أنك تريد إزالة دور المدير من هذا المستخدم؟",
+        "ENTER_NEW_USERNAME": "أدخل اسم المستخدم الجديد"
+      },
+      "MODAL": {
+        "EDIT_USER": "تعديل المستخدم",
+        "ADD_USER": "إضافة مستخدم",
+        "FULL_NAME": "الاسم الكامل",
+        "EMAIL": "البريد الإلكتروني",
+        "ROLES": {
+          "ADMIN": "مدير",
+          "EDITOR": "محرر",
+          "VIEWER": "مشاهد"
+        },
+        "CANCEL": "إلغاء",
+        "SAVE": "حفظ"
+      }
+    },
+    "NEW_BRIEFS": {
+      "TITLE": "النبذات الجديدة",
+      "LOADING": "جارٍ تحميل النبذات الجديدة...",
+      "NO_BRIEFS": "لا توجد نبذات",
+      "NO_BRIEFS_DESC": "لا توجد نبذات جديدة حالياً.",
+      "BUDGET": "الميزانية",
+      "EMAIL": "البريد الإلكتروني",
+      "CREATED_AT": "تاريخ الإنشاء",
+      "DESCRIPTION": "الوصف"
+    }
+  },
+  "ERRORS": {
+    "PAGE_NOT_FOUND": "الصفحة غير موجودة",
+    "UNAUTHORIZED": "وصول غير مصرح",
+    "FORBIDDEN": "الوصول محظور",
+    "SERVER_ERROR": "خطأ في الخادم الداخلي",
+    "NETWORK_ERROR": "خطأ في الشبكة",
+    "GENERIC_ERROR": "حدث خطأ ما",
+    "SESSION_EXPIRED": "انتهت صلاحية جلستك. يرجى تسجيل الدخول مرة أخرى للمتابعة."
+  },
+  "SUCCESS": {
+    "MESSAGE_SENT": "تم إرسال الرسالة بنجاح",
+    "LOGIN_SUCCESS": "تم تسجيل الدخول بنجاح",
+    "LOGOUT_SUCCESS": "تم تسجيل الخروج بنجاح",
+    "DATA_SAVED": "تم حفظ البيانات بنجاح",
+    "DATA_DELETED": "تم حذف البيانات بنجاح"
+  },
+  "TESTIMONIALS": {
+    "CLIENT_1_NAME": "جون سميث",
+    "CLIENT_1_POSITION": "الرئيس التنفيذي، مبتكرو التكنولوجيا",
+    "CLIENT_1_TESTIMONIAL": "العمل مع كريفل كان تغييرًا جذريًا في قواعد اللعبة. نهجهم الاستراتيجي في تحسين محركات البحث والمحتوى ضاعف حركة المرور العضوية لدينا في غضون ستة أشهر فقط. أوصي بهم بشدة!"
+  },
+  "TAGLINES": {
+    "CORE_SERVICES": "نحن لسنا وكالة تسويق عادية. نحن كريفل، نسير في مسار مختلف تماماً.",
+    "PORTFOLIO": "نحن لسنا وكالة تسويق عادية. في كريفل، نجمع بين الإبداع",
+    "BLOG": "نحن لسنا وكالة تسويق عادية فقط. في كريفل، نجمع بين الإبداع والتكنولوجيا المتطورة لتحويل العلامات التجارية إلى قوى رقمية."
+  },
+  "TOPICS": {
+    "AI_AUTOMATION": "أتمتة الذكاء الاصطناعي",
+    "VOICE_ASSISTANT": "المساعد الصوتي",
+    "CLOUD_INTEGRATION": "تكامل السحابة"
+  },
+  "FORMS": {
+    "LOADING": "جارٍ التحميل...",
+    "SCHEDULE_MEETING": "حجز اجتماع",
+    "REQUEST_CONTACT": "طلب الاتصال",
+    "FULL_NAME": "الاسم الكامل",
+    "EMAIL_ADDRESS": "عنوان البريد الإلكتروني",
+    "PREFERRED_DATE": "التاريخ المفضل",
+    "PREFERRED_TIME": "الوقت المفضل",
+    "SCHEDULING": "جارٍ الحجز...",
+    "SEND_MESSAGE": "إرسال الرسالة",
+    "SUBMIT_BRIEF": "إرسال النبذة",
+    "PROJECT_NAME": "اسم المشروع",
+    "PROJECT_DESCRIPTION": "وصف المشروع",
+    "MOBILE_NUMBER": "رقم الهاتف المحمول",
+    "BUDGET_EGP": "الميزانية (جنيه مصري)",
+    "CLIENT_INFO": "معلومات العميل",
+    "COMPANY_NAME": "اسم الشركة",
+    "BUSINESS_SECTOR": "قطاع الأعمال",
+    "WEBSITE": "الموقع الإلكتروني",
+    "SOCIAL_MEDIA_LINKS": "حسابات وسائل التواصل الاجتماعي (رابط واحد في كل سطر)\nمثال:\nhttps://twitter.com/company\nhttps://linkedin.com/company/company",
+    "CREATING": "جارٍ الإنشاء...",
+    "CREATE_BRIEF": "إنشاء النبذة",
+    "REQUIRED": "هذا الحقل مطلوب",
+    "INVALID_EMAIL": "يرجى إدخال بريد إلكتروني صالح",
+    "MIN_LENGTH": "الحد الأدنى للطول هو {{length}} حرف",
+    "MAX_LENGTH": "الحد الأقصى للطول هو {{length}} حرف"
+  },
+  "MESSAGES": {
+    "MEETING_BOOKED": "تم حجز الاجتماع بنجاح! سنتواصل معك قريباً.",
+    "MESSAGE_SENT": "تم إرسال الرسالة بنجاح!",
+    "BRIEF_SUBMITTED": "تم إرسال النبذة بنجاح!",
+    "BRIEF_CREATED": "تم إنشاء النبذة بنجاح!",
+    "THANK_SUBMISSION": "شكراً لك على إرسالك. سنعود إليك قريباً.",
+    "REQUEST_SENT": "تم إرسال طلبك بنجاح!",
+    "LOADING_PORTFOLIO": "جارٍ تحميل عناصر أعمالنا...",
+    "LOADING_SERVICES": "جارٍ تحميل الخدمات...",
+    "LOADING_GALLERY": "جارٍ تحميل المعرض...",
+    "NO_SERVICES": "لم يتم العثور على خدمات.",
+    "VIEW_CASE_STUDY": "عرض دراسة الحالة",
+    "VIEW_LIVE_PROJECT": "عرض المشروع الحي",
+    "BACK_TO_PORTFOLIO": "العودة إلى أعمالنا",
+    "PROJECT_NOT_FOUND": "المشروع غير موجود",
+    "PROJECT_COUNT": "عدد المشاريع",
+    "SOMETHING_WRONG": "حدث خطأ ما",
+    "TRY_AGAIN": "حاول مرة أخرى",
+    "LEARN_MORE": "اعرف المزيد",
+    "CLOSE": "إغلاق",
+    "LAST_UPDATED": "آخر تحديث:",
+    "RECENTLY": "مؤخراً",
+    "STATUS": "الحالة:",
+    "ACTIVE": "نشط",
+    "FAILED_TO_LOAD": "فشل في تحميل الصورة",
+    "LOADING_BLOGS": "جارٍ تحميل المدونات...",
+    "MOST_POPULAR": "الأكثر شهرة",
+    "NEW_ON_BLOG": "جديد في المدونة",
+    "EXPLORE_TOPICS": "استكشف المزيد من المواضيع",
+    "GALLERY_IMAGE": "صورة المعرض",
+    "TRUSTED_BY": "موثوق به من قبل قادة الصناعة",
+    "PARTNERED_WITH": "نحن فخورون بالشراكة مع الشركات المبتكرة حول العالم.",
+    "DESIGN_TEAM": "فريق التصميم استثنائي. لقد حولوا علامتنا التجارية القديمة إلى شيء عصري ومثير يتردد صداه حقًا مع جمهورنا.",
+    "ALICE_DAVIS": "أليس ديفيس",
+    "MARKETING_DIRECTOR": "مديرة التسويق، الشركة الإبداعية",
+    "OUR_WORK_GALLERY": "معرض أعمالنا",
+    "PORTFOLIO_PROJECT": "مشروع أعمالنا",
+    "EXPLORE_INSIGHTS": "استكشف الأفكار",
+    "READ_MORE": "اقرأ المزيد",
+    "OOPS_NOT_FOUND": "عذراً! الصفحة غير موجودة",
+    "PAGE_UNAVAILABLE": "عذراً، الصفحة التي تبحث عنها غير موجودة أو تم نقلها أو غير متاحة مؤقتاً.",
+    "BACK_TO_HOME": "العودة إلى الرئيسية"
+  },
+  "COMPONENTS": {
+    "NAVBAR": {
+      "OPEN_MAIN_MENU": "فتح القائمة الرئيسية",
+      "LOGO_ALT": "شعار الشركة",
+      "AUTH_DROPDOWN": "خيارات المصادقة",
+      "LOGIN_SECTION": "خيارات تسجيل الدخول",
+      "USER_LOGIN": "تسجيل دخول المستخدم",
+      "USER_REGISTRATION": "تسجيل المستخدم",
+      "NEW_REQUEST_DROPDOWN": "خيارات الطلب الجديد",
+      "REQUEST_CONTACT": "طلب الاتصال",
+      "SCHEDULE_MEETING": "حجز اجتماع",
+      "SUBMIT_BRIEF": "إرسال نبذة",
+      "CLOSE_MODAL": "إغلاق النافذة المنبثقة"
+    },
+    "FOOTER": {
+      "LOGO_ALT": "شعار الشركة",
+      "NAVIGATION_LINKS": "روابط التنقل",
+      "CONTACT_INFO": "معلومات الاتصال",
+      "SOCIAL_LINKS": "روابط وسائل التواصل الاجتماعي",
+      "VISIT_WEBSITE": "زيارة الموقع",
+      "VIEW_LOCATION": "عرض الموقع"
+    },
+    "BUTTONS": {
+      "LETS_TALK": "دعنا نتحدث",
+      "SEE_MORE": "عرض المزيد",
+      "VIEW_DETAILS": "عرض التفاصيل",
+      "LEARN_MORE": "اعرف المزيد",
+      "GET_STARTED": "ابدأ الآن",
+      "CONTACT_US": "تواصل معنا",
+      "READ_MORE": "اقرأ المزيد",
+      "EXPLORE": "استكشف",
+      "DISCOVER": "اكتشف",
+      "VIEW_PROJECT": "عرض المشروع",
+      "VIEW_ALL": "عرض الكل",
+      "LOAD_MORE": "تحميل المزيد",
+      "SUBMIT": "إرسال",
+      "SEND": "إرسال",
+      "SAVE": "حفظ",
+      "CANCEL": "إلغاء",
+      "CLOSE": "إغلاق",
+      "BACK": "رجوع",
+      "NEXT": "التالي",
+      "PREVIOUS": "السابق",
+      "REFRESH": "تحديث"
+    },
+    "CARDS": {
+      "BLOG_CARD": {
+        "READ_MORE": "اقرأ المزيد",
+        "POSTED_ON": "نشر في",
+        "BY": "بواسطة",
+        "CATEGORY": "الفئة",
+        "TAGS": "العلامات",
+        "SHARE": "مشاركة"
+      },
+      "SERVICE_CARD": {
+        "LEARN_MORE": "اعرف المزيد",
+        "VIEW_DETAILS": "عرض التفاصيل",
+        "GET_STARTED": "ابدأ الآن"
+      },
+      "PORTFOLIO_CARD": {
+        "VIEW_PROJECT": "عرض المشروع",
+        "VIEW_CASE_STUDY": "عرض دراسة الحالة",
+        "VIEW_LIVE": "عرض المشروع الحي"
+      }
+    },
+    "FORMS": {
+      "CONTACT_FORM": {
+        "SEND_MESSAGE": "إرسال الرسالة",
+        "SENDING": "جارٍ الإرسال...",
+        "MESSAGE_SENT": "تم إرسال الرسالة بنجاح!",
+        "FULL_NAME": "الاسم الكامل",
+        "EMAIL": "عنوان البريد الإلكتروني",
+        "PHONE": "رقم الهاتف",
+        "SUBJECT": "الموضوع",
+        "MESSAGE": "الرسالة",
+        "REQUIRED_FIELD": "هذا الحقل مطلوب"
+      },
+      "MEETING_FORM": {
+        "SCHEDULE_MEETING": "حجز اجتماع",
+        "SCHEDULING": "جارٍ الحجز...",
+        "MEETING_BOOKED": "تم حجز الاجتماع بنجاح!",
+        "PREFERRED_DATE": "التاريخ المفضل",
+        "PREFERRED_TIME": "الوقت المفضل",
+        "SELECT_DATE": "اختر التاريخ",
+        "SELECT_TIME": "اختر الوقت"
+      },
+      "BRIEF_FORM": {
+        "SUBMIT_BRIEF": "إرسال النبذة",
+        "SUBMITTING": "جارٍ الإرسال...",
+        "BRIEF_SUBMITTED": "تم إرسال النبذة بنجاح!",
+        "PROJECT_NAME": "اسم المشروع",
+        "PROJECT_DESCRIPTION": "وصف المشروع",
+        "BUDGET": "الميزانية",
+        "COMPANY_NAME": "اسم الشركة",
+        "BUSINESS_SECTOR": "قطاع الأعمال",
+        "WEBSITE": "الموقع الإلكتروني",
+        "SOCIAL_MEDIA": "روابط وسائل التواصل الاجتماعي"
+      }
+    },
+    "ACCESSIBILITY": {
+      "ALT_TEXTS": {
+        "LOGO": "شعار الشركة",
+        "NAVBAR_BACKGROUND": "خلفية شريط التنقل",
+        "HERO_IMAGE": "صورة القسم الرئيسي",
+        "GALLERY_IMAGE": "صورة المعرض",
+        "PROFILE_IMAGE": "صورة الملف الشخصي",
+        "ICON": "الأيقونة",
+        "BUTTON_ICON": "أيقونة الزر",
+        "DECORATIVE_IMAGE": "صورة تزيينية",
+        "INFOGRAPHIC": "الرسم البياني",
+        "CHART": "الرسم البياني أو الجدول",
+        "MAP": "خريطة الموقع",
+        "SOCIAL_ICON": "أيقونة وسائل التواصل الاجتماعي"
+      },
+      "ARIA_LABELS": {
+        "OPEN_MENU": "فتح قائمة التنقل",
+        "CLOSE_MENU": "إغلاق قائمة التنقل",
+        "OPEN_MODAL": "فتح النافذة المنبثقة",
+        "CLOSE_MODAL": "إغلاق النافذة المنبثقة",
+        "NAVIGATION_LINK": "الانتقال إلى",
+        "EXTERNAL_LINK": "يفتح في تبويب جديد",
+        "SUBMIT_FORM": "إرسال النموذج",
+        "CLEAR_FORM": "مسح النموذج",
+        "SHOW_PASSWORD": "إظهار كلمة المرور",
+        "HIDE_PASSWORD": "إخفاء كلمة المرور",
+        "SORT_ASCENDING": "ترتيب تصاعدي",
+        "SORT_DESCENDING": "ترتيب تنازلي",
+        "FILTER_RESULTS": "تصفية النتائج",
+        "SEARCH_RESULTS": "نتائج البحث",
+        "LOAD_MORE": "تحميل المزيد من المحتوى",
+        "GO_TO_TOP": "الانتقال إلى أعلى الصفحة",
+        "GO_TO_BOTTOM": "الانتقال إلى أسفل الصفحة",
+        "SKIP_TO_CONTENT": "تخطي إلى المحتوى الرئيسي",
+        "MAIN_CONTENT": "منطقة المحتوى الرئيسي"
+      },
+      "SCREEN_READER": {
+        "LOADING": "جارٍ تحميل المحتوى",
+        "ERROR": "حدث خطأ",
+        "SUCCESS": "تم إكمال الإجراء بنجاح",
+        "REQUIRED": "حقل مطلوب",
+        "OPTIONAL": "حقل اختياري",
+        "SELECT_OPTION": "اختر خياراً",
+        "CURRENT_PAGE": "الصفحة الحالية",
+        "TOTAL_PAGES": "من إجمالي الصفحات",
+        "RESULTS_COUNT": "نتيجة تم العثور عليها",
+        "NO_RESULTS": "لم يتم العثور على نتائج",
+        "ITEM_COUNT": "عنصر",
+        "EXPANDED": "موسع",
+        "COLLAPSED": "مطوي",
+        "SORTED_BY": "مرتب حسب",
+        "FILTERED_BY": "مفلتر حسب"
+      }
+    },
+    "STATUS": {
+      "LOADING": "جارٍ التحميل...",
+      "SAVING": "جارٍ الحفظ...",
+      "DELETING": "جارٍ الحذف...",
+      "PROCESSING": "جارٍ المعالجة...",
+      "UPDATING": "جارٍ التحديث...",
+      "CREATING": "جارٍ الإنشاء...",
+      "SENDING": "جارٍ الإرسال...",
+      "RECEIVING": "جارٍ الاستقبال...",
+      "VALIDATING": "جارٍ التحقق...",
+      "CONNECTING": "جارٍ الاتصال...",
+      "DISCONNECTING": "جارٍ قطع الاتصال...",
+      "SUCCESS": "نجح",
+      "ERROR": "خطأ",
+      "WARNING": "تحذير",
+      "INFO": "معلومات",
+      "NOT_AVAILABLE": "غير متوفر"
+    },
+    "ERRORS": {
+      "NETWORK_ERROR": "حدث خطأ في الشبكة",
+      "SERVER_ERROR": "حدث خطأ في الخادم",
+      "VALIDATION_ERROR": "يرجى التحقق من مدخلاتك",
+      "REQUIRED_FIELD": "هذا الحقل مطلوب",
+      "INVALID_EMAIL": "يرجى إدخال بريد إلكتروني صالح",
+      "INVALID_PHONE": "يرجى إدخال رقم هاتف صالح",
+      "INVALID_URL": "يرجى إدخال رابط صالح",
+      "FILE_TOO_LARGE": "حجم الملف كبير جداً",
+      "UNSUPPORTED_FORMAT": "تنسيق الملف غير مدعوم",
+      "UPLOAD_FAILED": "فشل في الرفع",
+      "SAVE_FAILED": "فشل في الحفظ",
+      "DELETE_FAILED": "فشل في الحذف",
+      "LOAD_FAILED": "فشل في التحميل",
+      "CONNECTION_FAILED": "فشل في الاتصال",
+      "TIMEOUT": "انتهت مهلة الطلب",
+      "UNAUTHORIZED": "وصول غير مصرح",
+      "FORBIDDEN": "الوصول محظور",
+      "NOT_FOUND": "العنصر غير موجود",
+      "ALREADY_EXISTS": "العنصر موجود بالفعل"
+    }
+  }
+}

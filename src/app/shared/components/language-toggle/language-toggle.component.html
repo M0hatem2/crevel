@@ -1,0 +1,9 @@
+<div class="language-toggle-container" [class]="'lang-' + languageService.currentLanguage"
+  [class.arabic-font]="languageService.currentLanguage === 'ar'"
+  [dir]="languageService.currentLanguage === 'ar' ? 'rtl' : 'ltr'">
+  <button class="language-icon-btn"
+    [attr.aria-label]="'Current language: ' + getLanguageText() + '. Click to switch language'"
+    (click)="toggleLanguageAndRefresh()" type="button">
+    <i [class]="getLanguageIconClass()" aria-hidden="true"></i>
+  </button>
+</div>

@@ -1,0 +1,63 @@
+<div class="relative" [class.arabic-font]="currentLanguage === 'ar'" [dir]="currentLanguage === 'ar' ? 'rtl' : 'ltr'">
+    <div class="container mx-auto px-4 py-16">
+        <!-- العنوان الرئيسي -->
+        <div class="text-center mb-20">
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+                {{ getTranslation('OUR_BLUEPRINT.TITLE') || 'Our blueprint for success' }}
+            </h1>
+            <app-title-line></app-title-line>
+        </div>
+
+        <!-- المخطط التفاعلي -->
+        <div class="max-w-6xl mx-auto">
+            <!-- خط الاتصال والأرقام -->
+            <div class="relative flex items-center justify-center mb-16">
+                <!-- الخط الأساسي -->
+                <div class="absolute top-1/2 left-0 right-0 h-0.5 bg-gray-600 -translate-y-1/2"></div>
+
+                <!-- الأرقام المتوهجة -->
+                <div class="relative flex items-center justify-between w-full max-w-4xl mx-auto">
+                    <div class="flex flex-col items-center relative z-10">
+                        <div
+                            class="w-16 h-16 rounded-full bg-[#57c4c1] flex items-center justify-center text-white font-bold text-xl shadow-[0_0_20px_#57c4c1] border-2 border-[#57c4c1] relative hover:scale-110 transition-transform duration-300">
+                            <div class="absolute inset-0 rounded-full bg-[#57c4c1] opacity-30 animate-pulse"></div>
+                            <span class="relative z-10">1</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col items-center relative z-10">
+                        <div
+                            class="w-16 h-16 rounded-full bg-[#57c4c1] flex items-center justify-center text-white font-bold text-xl shadow-[0_0_20px_#57c4c1] border-2 border-[#57c4c1] relative hover:scale-110 transition-transform duration-300">
+                            <div class="absolute inset-0 rounded-full bg-[#57c4c1] opacity-30 animate-pulse"></div>
+                            <span class="relative z-10">2</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col items-center relative z-10">
+                        <div
+                            class="w-16 h-16 rounded-full bg-[#57c4c1] flex items-center justify-center text-white font-bold text-xl shadow-[0_0_20px_#57c4c1] border-2 border-[#57c4c1] relative hover:scale-110 transition-transform duration-300">
+                            <div class="absolute inset-0 rounded-full bg-[#57c4c1] opacity-30 animate-pulse"></div>
+                            <span class="relative z-10">3</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col items-center relative z-10">
+                        <div
+                            class="w-16 h-16 rounded-full bg-[#57c4c1] flex items-center justify-center text-white font-bold text-xl shadow-[0_0_20px_#57c4c1] border-2 border-[#57c4c1] relative hover:scale-110 transition-transform duration-300">
+                            <div class="absolute inset-0 rounded-full bg-[#57c4c1] opacity-30 animate-pulse"></div>
+                            <span class="relative z-10">4</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- تفاصيل المراحل -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+                <div *ngFor="let card of cardData; let i = index" class="text-center group">
+                    <h3 class="text-2xl font-bold text-white mb-4">{{ getTranslation(card.title) || card.title }}</h3>
+                    <p class="text-gray-300">{{ getTranslation(card.description) || card.description }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

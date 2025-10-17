@@ -1,0 +1,128 @@
+<div *ngIf="isVisible"
+  class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-md transition-opacity arabic-font"
+  role="dialog" aria-modal="true" aria-labelledby="privacy-policy-title">
+  <div
+    class="relative bg-[#0d1413] border border-[#1e2f2d] rounded-2xl shadow-2xl max-w-5xl w-full mx-4 max-h-[90vh] overflow-y-auto text-gray-200 animate-fade-in">
+    <!-- Header -->
+    <div class="flex items-center justify-between p-6 border-b border-[#1e2f2d]">
+      <h2 id="privacy-policy-title" class="text-3xl font-bold text-[#57c4c1] tracking-wide">
+        {{ 'PRIVACY_POLICY.TITLE' | translate }}
+      </h2>
+      <button (click)="close()" class="text-gray-400 hover:text-[#57c4c1] transition-colors"
+        aria-label="Close privacy policy">
+        <i class="fa-solid fa-xmark text-2xl"></i>
+      </button>
+    </div>
+
+    <!-- Content -->
+    <div class="p-8 space-y-10 text-gray-300 leading-relaxed">
+      <section>
+        <h3 class="text-xl font-semibold text-white mb-3">
+          1. {{ 'PRIVACY_POLICY.INFORMATION_COLLECTED' | translate }}
+        </h3>
+        <p class="mb-3">
+          {{ 'PRIVACY_POLICY.COLLECTION_DESCRIPTION' | translate }}
+        </p>
+        <ul class="list-disc list-inside space-y-1 ml-4">
+          <li>{{ 'PRIVACY_POLICY.COLLECTION_ITEMS.FULL_NAME' | translate }}</li>
+          <li>{{ 'PRIVACY_POLICY.COLLECTION_ITEMS.MESSAGES' | translate }}</li>
+          <li>{{ 'PRIVACY_POLICY.COLLECTION_ITEMS.USAGE_DATA' | translate }}</li>
+          <li>{{ 'PRIVACY_POLICY.COLLECTION_ITEMS.COOKIES' | translate }}</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3 class="text-xl font-semibold text-white mb-3">
+          2. {{ 'PRIVACY_POLICY.HOW_WE_USE' | translate }}
+        </h3>
+        <p>
+          {{ 'PRIVACY_POLICY.USAGE_DESCRIPTION' | translate }}
+        </p>
+        <ul class="list-disc list-inside space-y-1 ml-4 mt-2">
+          <li>{{ 'PRIVACY_POLICY.USAGE_ITEMS.SERVICES' | translate }}</li>
+          <li>{{ 'PRIVACY_POLICY.USAGE_ITEMS.COMMUNICATION' | translate }}</li>
+          <li>{{ 'PRIVACY_POLICY.USAGE_ITEMS.UPDATES' | translate }}</li>
+          <li>{{ 'PRIVACY_POLICY.USAGE_ITEMS.SECURITY' | translate }}</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3 class="text-xl font-semibold text-white mb-3">
+          3. {{ 'PRIVACY_POLICY.INFORMATION_SHARING' | translate }}
+        </h3>
+        <p>
+          {{ 'PRIVACY_POLICY.SHARING_DESCRIPTION' | translate }}
+        </p>
+        <ul class="list-disc list-inside space-y-1 ml-4">
+          <li>{{ 'PRIVACY_POLICY.SHARING_ITEMS.PARTNERS' | translate }}</li>
+          <li>{{ 'PRIVACY_POLICY.SHARING_ITEMS.LEGAL' | translate }}</li>
+          <li>{{ 'PRIVACY_POLICY.SHARING_ITEMS.PROVIDERS' | translate }}</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3 class="text-xl font-semibold text-white mb-3">4. {{ 'PRIVACY_POLICY.DATA_PROTECTION' | translate }}</h3>
+        <p>
+          {{ 'PRIVACY_POLICY.PROTECTION_DESCRIPTION' | translate }}
+        </p>
+      </section>
+
+      <section>
+        <h3 class="text-xl font-semibold text-white mb-3">5. {{ 'PRIVACY_POLICY.YOUR_RIGHTS' | translate }}</h3>
+        <ul class="list-disc list-inside space-y-1 ml-4">
+          <li>{{ 'PRIVACY_POLICY.RIGHTS_ITEMS.ACCESS' | translate }}</li>
+          <li>{{ 'PRIVACY_POLICY.RIGHTS_ITEMS.DELETION' | translate }}</li>
+          <li>{{ 'PRIVACY_POLICY.RIGHTS_ITEMS.OPTOUT' | translate }}</li>
+          <li>{{ 'PRIVACY_POLICY.RIGHTS_ITEMS.PORTABILITY' | translate }}</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3 class="text-xl font-semibold text-white mb-3">
+          6. {{ 'PRIVACY_POLICY.COOKIES_ANALYTICS' | translate }}
+        </h3>
+        <p>
+          {{ 'PRIVACY_POLICY.COOKIES_DESCRIPTION' | translate }}
+        </p>
+      </section>
+
+      <section>
+        <h3 class="text-xl font-semibold text-white mb-3">7. {{ 'PRIVACY_POLICY.UPDATES' | translate }}</h3>
+        <p>
+          {{ 'PRIVACY_POLICY.UPDATES_DESCRIPTION' | translate }}
+        </p>
+      </section>
+
+      <section>
+        <h3 class="text-xl font-semibold text-white mb-3">8. {{ 'PRIVACY_POLICY.CONTACT_US' | translate }}</h3>
+        <p>
+          {{ 'PRIVACY_POLICY.CONTACT_DESCRIPTION' | translate }}
+        </p>
+        <ul class="ml-4 mt-2">
+          <li *ngIf="footerData.email">{{ 'PRIVACY_POLICY.CONTACT_INFO.EMAIL' | translate }}: <span
+              class=" ">{{ footerData.email }}</span></li>
+          <li *ngIf="footerData.mobile">{{ 'PRIVACY_POLICY.CONTACT_INFO.PHONE' | translate }}: {{ footerData.mobile }}
+          </li>
+          <li *ngIf="footerData.website?.url"><a [href]="footerData.website!.url" target="_blank"
+              class=" hover:underline">{{ 'PRIVACY_POLICY.CONTACT_INFO.WEBSITE' | translate }}: {{
+              footerData.website!.name }}</a></li>
+          <li *ngIf="footerData.location?.url"><a [href]="footerData.location!.url" target="_blank"
+              class=" hover:underline">{{ 'PRIVACY_POLICY.CONTACT_INFO.LOCATION' | translate }}: {{
+              footerData.location!.title_en }}</a></li>
+        </ul>
+      </section>
+
+      <div class="text-sm text-gray-500 border-t border-[#1e2f2d] pt-4 text-right">
+        <p>{{ 'PRIVACY_POLICY.LAST_UPDATED' | translate }} {{ currentDate | date: 'mediumDate' }}</p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="flex justify-end p-6 border-t border-[#1e2f2d] bg-[#0a1211]/60 backdrop-blur-sm">
+      <button (click)="close()"
+        class="px-6 py-2 bg-[#57c4c1] text-white font-medium rounded-xl hover:bg-[#49aca9] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#57c4c1] focus:ring-offset-2 focus:ring-offset-[#0d1413]">
+        {{ 'PRIVACY_POLICY.CLOSE' | translate }}
+      </button>
+    </div>
+  </div>
+</div>

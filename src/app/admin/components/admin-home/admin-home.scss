@@ -1,0 +1,183 @@
+    @keyframes wiggle {
+
+  0%,
+  100% {
+    transform: rotate(-5deg);
+  }
+
+  50% {
+    transform: rotate(5deg);
+  }
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes backdropFadeIn {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+
+  to {
+    opacity: 1;
+    backdrop-filter: blur(8px);
+  }
+}
+
+/* Modal animations */
+.modal-open .backdrop {
+  animation: backdropFadeIn 0.3s ease-out forwards;
+}
+
+.modal-open .modal-content {
+  animation: modalFadeIn 0.3s ease-out forwards;
+}
+
+/* Prevent body scroll when modal is open */
+.modal-open {
+  overflow: hidden;
+}
+
+/* Enhanced hover effects for notifications */
+.notification-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.notification-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.notification-item:hover::before {
+  left: 100%;
+}
+
+/* Smooth transitions for modal elements */
+.modal-header {
+  background: linear-gradient(135deg, #093937 0%, #0f4f4d 100%);
+}
+
+.modal-content {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* Enhanced button hover effects */
+.btn-close-modal {
+  transition: all 0.2s ease;
+  transform-origin: center;
+}
+
+.btn-close-modal:hover {
+  transform: rotate(90deg) scale(1.1);
+  background: rgba(239, 68, 68, 0.2);
+}
+
+/* Status badge animations */
+.status-badge {
+  transition: all 0.3s ease;
+}
+
+.status-badge.unread {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+/* Enhanced card hover effects */
+.notification-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.notification-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Dropdown animation styles */
+#notifications-dropdown {
+  transform-origin: top right;
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+#notifications-dropdown:not(.hidden) {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+#notifications-dropdown.hidden {
+  opacity: 0;
+  transform: scale(0.95);
+  pointer-events: none;
+}
+
+/* Notification item styles */
+.notification-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.notification-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.notification-item:hover::before {
+  left: 100%;
+}
+
+/* Notification badge animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.status-badge.unread {
+  animation: pulse 2s infinite;
+}
+
+/* Smooth transitions for dropdown */
+#notifications-dropdown {
+  transition: all 0.3s ease-out;
+}

@@ -1,0 +1,147 @@
+<section class="min-h-screen flex items-center justify-center   px-4 py-10">
+  <div class="  max-w-3xl md:min-w-xl  bg-[#081110] border border-[#1e2f2d] rounded-2xl shadow-2xl p-8">
+
+    <!-- Header -->
+    <h1 class="text-3xl font-semibold text-center text-white mb-8 tracking-wide">
+      {{ getTranslation('AUTH.LOGIN.TITLE') }}
+    </h1>
+
+    <!-- Form -->
+    <form [formGroup]="loginForm" (ngSubmit)="submitInput()" class="space-y-6">
+
+      <!-- User Type Selection -->
+      <div>
+        <label class="block mb-3 text-sm font-medium text-gray-300">
+          {{ 'AUTH.LOGIN.USER_TYPE' | translate }}
+        </label>
+        <div class="flex items-center space-x-6">
+          <label class="flex items-center cursor-pointer">
+            <input type="radio" formControlName="userType" value="admin"
+              class="w-4 h-4 text-[#00c896] bg-[#0d1413] border-[#1e2f2d] focus:ring-[#00c896]" />
+            <span class="ml-2 text-sm text-gray-300">{{ 'AUTH.LOGIN.ADMIN' | translate }}</span>
+          </label>
+          <label class="flex items-center cursor-pointer">
+            <input type="radio" formControlName="userType" value="superAdmin"
+              class="w-4 h-4 text-[#00c896] bg-[#0d1413] border-[#1e2f2d] focus:ring-[#00c896]" />
+            <span class="ml-2 text-sm text-gray-300">{{ 'AUTH.LOGIN.SUPER_ADMIN' | translate }}</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Identifier -->
+      <div>
+        <label for="identifier" class="block mb-2 text-sm font-medium text-gray-300">
+          {{ 'AUTH.LOGIN.USERNAME_EMAIL' | translate }}
+        </label>
+        <input type="text" id="identifier" formControlName="identifier"
+          [placeholder]="'AUTH.LOGIN.USERNAME_EMAIL_PLACEHOLDER' | translate"
+          class="w-full px-4 py-2.5 rounded-lg bg-[#0d1413] border border-[#1e2f2d] text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#00c896] transition" />
+        <p *ngIf="loginForm.get('identifier')?.touched && loginForm.get('identifier')?.errors?.['required']"
+          class="text-xs text-red-400 mt-1">
+          {{ 'AUTH.LOGIN.USERNAME_EMAIL_REQUIRED' | translate }}
+        </p>
+        <p *ngIf="loginForm.get('identifier')?.touched && loginForm.get('identifier')?.errors?.['invalidEmailOrUsername']"
+          class="text-xs text-red-400 mt-1">
+          Please enter a valid email or username
+        </p>
+      </div>
+
+      <!-- Password -->
+      <div class="relative">
+        <label for="password" class="block mb-2 text-sm font-medium text-gray-300">
+          {{ 'AUTH.LOGIN.PASSWORD' | translate }}
+        </label>
+        <input [type]="showPassword ? 'text' : 'password'" id="password" formControlName="password"
+          [placeholder]="'AUTH.LOGIN.PASSWORD_PLACEHOLDER' | translate"
+          class="w-full px-4 py-2.5 pr-10 rounded-lg bg-[#0d1413] border border-[#1e2f2d] text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#00c896] transition" />
+        <button type="button" (click)="togglePasswordVisibility()"
+          class="absolute right-3 top-9 text-gray-400 hover:text-[#00c896] transition">
+          <svg *ngIf="!showPassword" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+          </svg>
+          <svg *ngIf="showPassword" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M3 3l18 18" />
+          </svg>
+        </button>
+        <p *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors?.['required']"
+          class="text-xs text-red-400 mt-1">
+          {{ 'AUTH.LOGIN.PASSWORD_REQUIRED' | translate }}
+        </p>
+        <p *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors?.['minlength']"
+          class="text-xs text-red-400 mt-1">
+          {{ 'AUTH.LOGIN.PASSWORD_MIN_LENGTH' | translate }}
+        </p>
+      </div>
+
+      <!-- Confirmation Password -->
+      <div *ngIf="loginForm.get('userType')?.value === 'superAdmin'" class="relative">
+        <label for="confirmationPassword" class="block mb-2 text-sm font-medium text-gray-300">
+          {{ 'AUTH.LOGIN.CONFIRMATION_PASSWORD' | translate }}
+        </label>
+        <input [type]="showConfirmationPassword ? 'text' : 'password'" id="confirmationPassword"
+          formControlName="confirmationPassword"
+          [placeholder]="'AUTH.LOGIN.CONFIRMATION_PASSWORD_PLACEHOLDER' | translate"
+          class="w-full px-4 py-2.5 pr-10 rounded-lg bg-[#0d1413] border border-[#1e2f2d] text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#00c896] transition" />
+        <button type="button" (click)="toggleConfirmationPasswordVisibility()"
+          class="absolute right-3 top-9 text-gray-400 hover:text-[#00c896] transition">
+          <!-- same eye icon logic -->
+        </button>
+        <p *ngIf="loginForm.get('confirmationPassword')?.touched && loginForm.get('confirmationPassword')?.invalid"
+          class="text-xs text-red-400 mt-1">
+          {{ 'AUTH.LOGIN.CONFIRMATION_PASSWORD_REQUIRED' | translate }}
+        </p>
+      </div>
+
+      <!-- Remember Me + Forgot Password -->
+      <div class="flex items-center justify-between mt-3">
+        <label class="flex items-center space-x-2 cursor-pointer">
+          <input type="checkbox" id="rememberMe" formControlName="rememberMe"
+            class="w-4 h-4 text-[#00c896] bg-[#0d1413] border-[#1e2f2d] rounded focus:ring-[#00c896]" />
+          <span class="text-sm text-gray-300">{{ 'AUTH.LOGIN.REMEMBER_ME' | translate }}</span>
+        </label>
+
+        <a routerLink="/auth/forgot-password" class="text-sm text-[#00c896] hover:underline">
+          {{ 'AUTH.LOGIN.FORGOT_PASSWORD' | translate }}
+        </a>
+      </div>
+
+      <!-- Error Message -->
+      <p *ngIf="errorMsg" class="text-sm text-red-500 text-center mt-2">
+        {{ errorMsg }}
+      </p>
+
+      <!-- Submit Button -->
+      <button type="submit" [disabled]="loginForm.invalid || loading"
+        class="w-full flex items-center justify-center bg-[#00c896] hover:bg-[#00a67f] text-white font-medium py-2.5 px-4 rounded-lg transition-transform transform hover:scale-[1.02] focus:ring-2 focus:ring-[#00c896]">
+        <span *ngIf="loading"
+          class="animate-spin border-2 border-white border-t-transparent rounded-full w-4 h-4 mr-2"></span>
+        {{ loading ? ('AUTH.LOGIN.SIGNING_IN' | translate) : ('AUTH.LOGIN.SIGN_IN' | translate) }}
+      </button>
+
+      <!-- Extra Links -->
+      <div class="text-center mt-6 space-y-2">
+        <p class="text-sm text-gray-400">
+          {{ 'AUTH.LOGIN.NO_ACCOUNT' | translate }}
+          <a routerLink="/auth/register" class="text-[#00c896] hover:underline font-medium">
+            {{ 'AUTH.LOGIN.SIGN_UP' | translate }}
+          </a>
+        </p>
+        <p class="text-sm text-gray-400">
+          <button (click)="openPrivacyPolicy()" class="text-[#00c896] hover:underline font-medium focus:outline-none focus:ring-2 focus:ring-[#00c896] rounded">
+            Privacy Policy
+          </button>
+        </p>
+      </div>
+    </form>
+
+    <!-- Privacy Policy Modal -->
+    <app-privacy-policy
+      [isVisible]="showPrivacyPolicy"
+      (closeModal)="closePrivacyPolicy()">
+    </app-privacy-policy>
+  </div>
+</section>

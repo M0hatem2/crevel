@@ -1,0 +1,119 @@
+<section class="min-h-screen   text-gray-100 py-16 px-6 flex flex-col items-center arabic-font">
+  <div class="max-w-7xl w-full">
+    <!-- Header -->
+    <div class="flex flex-col md:flex-row justify-between items-center mb-12 gap-6">
+      <div class="flex items-center gap-4">
+        <div class="bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl p-4 shadow-lg">
+          <i class="fa-solid fa-file-alt text-white text-2xl"></i>
+        </div>
+        <h1 class="text-4xl font-bold text-white tracking-tight drop-shadow-md">
+          {{ 'ADMIN.NEW_BRIEFS.TITLE' | translate }}
+        </h1>
+      </div>
+
+      <button (click)="onRefresh()" [disabled]="loading"
+        class="flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-sm font-semibold rounded-xl hover:from-cyan-600 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-cyan-400 disabled:opacity-50 shadow-md transition-all">
+        <i *ngIf="loading" class="fa-solid fa-spinner animate-spin"></i>
+        <i *ngIf="!loading" class="fa-solid fa-rotate-right"></i>
+        {{ 'COMPONENTS.BUTTONS.REFRESH' | translate }}
+      </button>
+    </div>
+
+    <!-- Loading -->
+    <div *ngIf="loading" class="flex flex-col items-center justify-center py-20">
+      <app-loading-spinner></app-loading-spinner>
+
+    </div>
+
+    <!-- Error -->
+    <div *ngIf="error && !loading"
+      class="bg-red-900/30 border border-red-700/60 rounded-xl p-8 text-center shadow-lg max-w-xl mx-auto backdrop-blur-md">
+      <i class="fa-solid fa-triangle-exclamation text-red-500 text-5xl mb-3"></i>
+      <p class="text-red-400 font-medium mb-5">{{ error }}</p>
+      <button (click)="onRefresh()"
+        class="px-6 py-2 bg-red-600 text-white text-sm font-semibold rounded-lg hover:bg-red-700 focus:ring-2 focus:ring-red-400 transition">
+        {{ 'BUTTONS.TRY_AGAIN' | translate }}
+      </button>
+    </div>
+
+    <!-- Briefs -->
+    <div *ngIf="!loading && !error" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mt-8">
+      <!-- Empty -->
+      <div *ngIf="newBriefs.length === 0"
+        class="col-span-full bg-[#101b1a]/70 rounded-2xl shadow-lg p-16 text-center border border-[#1e2f2d]/40 backdrop-blur-md">
+        <i class="fa-regular fa-file-alt text-6xl text-gray-500 mb-4"></i>
+        <h3 class="text-xl font-semibold mb-2 text-gray-200">{{ 'ADMIN.NEW_BRIEFS.NO_BRIEFS' | translate }}</h3>
+        <p class="text-gray-400">{{ 'ADMIN.NEW_BRIEFS.NO_BRIEFS_DESC' | translate }}</p>
+      </div>
+
+      <!-- Card -->
+      <div *ngFor="let brief of newBriefs; trackBy: trackByBriefId"
+        class="bg-[#101b1a]/60 border border-[#1e2f2d]/40 backdrop-blur-md rounded-2xl p-5 shadow-md hover:shadow-cyan-700/30 hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between">
+        <!-- Header -->
+        <div class="flex items-center justify-between mb-4 border-b border-[#1e2f2d]/50 pb-3">
+          <div class="flex items-center">
+            <div
+              class="w-12 h-12 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 flex items-center justify-center text-white font-semibold text-lg shadow-md mr-3">
+              {{ brief.projectName.charAt(0).toUpperCase() }}
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-white">{{ brief.projectName }}</h3>
+              <p class="text-gray-400 text-sm"><i class="fa-regular fa-envelope mr-1"></i>{{ brief.email }}</p>
+            </div>
+          </div>
+          <div class="text-xs text-gray-400 text-right">
+            <div class="bg-slate-800/70 px-2 py-1 rounded-full inline-block font-mono text-gray-300">
+              #{{ brief._id.slice(-8) }}
+            </div>
+            <div class="mt-1">{{ formatDate(brief.createdAt) }}</div>
+          </div>
+        </div>
+
+        <!-- Body -->
+        <div class="space-y-4">
+          <div>
+            <label class="text-xs text-gray-400 uppercase font-semibold mb-1 block">
+              {{ 'ADMIN.NEW_BRIEFS.BUDGET' | translate }}
+            </label>
+            <div class="text-lg text-green-400 font-bold bg-slate-800/60 px-3 py-2 rounded-md">
+              {{ formatCurrency(brief.budget) }}
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="text-xs text-gray-400 uppercase font-semibold mb-1 block">
+                {{ 'ADMIN.NEW_BRIEFS.EMAIL' | translate }}
+              </label>
+              <div class="text-sm bg-slate-800/60 px-3 py-2 rounded-md truncate text-gray-100">
+                <i class="fa-solid fa-envelope mr-1"></i>{{ brief.email }}
+              </div>
+            </div>
+            <div>
+              <label class="text-xs text-gray-400 uppercase font-semibold mb-1 block">
+                {{ 'ADMIN.NEW_BRIEFS.CREATED_AT' | translate }}
+              </label>
+              <div class="text-sm bg-slate-800/60 px-3 py-2 rounded-md text-gray-100">
+                <i class="fa-solid fa-calendar mr-1"></i>{{ formatDate(brief.createdAt) }}
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <label class="text-xs text-gray-400 uppercase font-semibold mb-2 block">
+              {{ 'ADMIN.NEW_BRIEFS.DESCRIPTION' | translate }}
+            </label>
+            <div
+              class="bg-slate-800/60 border border-slate-700/50 rounded-md p-3 text-sm text-gray-100 min-h-[80px] max-h-[120px] overflow-y-auto">
+              {{ brief.description }}
+            </div>
+          </div>
+
+          <div class="text-xs text-gray-500 mt-3 flex items-center gap-1">
+            <i class="fa-solid fa-code-branch"></i> Version: {{ brief.__v }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

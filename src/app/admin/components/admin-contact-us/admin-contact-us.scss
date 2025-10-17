@@ -1,0 +1,63 @@
+/* Admin Contact Us Component - Using Tailwind CSS */
+/* Additional custom styles if needed beyond Tailwind */
+
+/* Custom scrollbar for message content */
+.message-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.message-content::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+.message-content::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+.message-content::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Animation for loading spinner */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse-custom {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Hover effects for cards */
+.contact-card {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.contact-card:hover {
+  transform: translateY(-2px);
+}
+
+/* RTL Support */
+[dir="rtl"] .contact-card .card-header {
+  direction: rtl;
+}
+
+[dir="rtl"] .contact-card .card-header .contact-avatar {
+  margin-right: 0;
+  margin-left: 16px;
+}
+
+/* Print styles */
+@media print {
+  .contact-card {
+    break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid #e2e8f0;
+  }
+}

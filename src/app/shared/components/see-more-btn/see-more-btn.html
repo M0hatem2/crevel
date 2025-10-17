@@ -1,0 +1,5 @@
+<a [routerLink]="link"
+  class="text-center inline-block bg-gradient-to-r from-[#173b3c] to-[#06b6d4] text-white font-semibold text-lg px-8 py-3 rounded-2xl hover:from-[#1f4d4f] hover:to-[#0891b2] shadow-lg hover:shadow-[#57c4c180] hover:scale-105 transition-all duration-300 ease-in-out"
+  [class.arabic-font]="currentLanguage === 'ar'" [dir]="currentLanguage === 'ar' ? 'rtl' : 'ltr'">
+  {{ getDisplayText() }}
+</a>

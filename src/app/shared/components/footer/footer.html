@@ -1,0 +1,65 @@
+<footer class="md:m-16 m-6 rounded-2xl text-white" [dir]="currentLanguage === 'ar' ? 'rtl' : 'ltr'" *ngIf="!showFooter">
+  <div class="rounded-2xl mx-auto p-16 bg-[#074447] ">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+
+      <!-- Logo + Social -->
+      <div class="flex flex-col"
+        [class]="currentLanguage === 'ar' ? 'items-center md:items-end text-center md:text-right' : 'items-center md:items-start text-center md:text-left'">
+        <img [src]="footerData?.logo?.secure_url || 'assets/LOGO/logom.png'"
+          [alt]="'COMPONENTS.FOOTER.LOGO_ALT' | translate" class="max-w-[200px] mb-4" />
+        <!-- Social Icons -->
+        <div class="flex gap-4 mt-4" [class]="currentLanguage === 'ar' ? 'justify-end' : 'justify-start'">
+          <a *ngFor="let social of footerData?.social" [href]="social.url" target="_blank"
+            class="w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-all duration-300 transform hover:scale-110 hover:rotate-3 shadow-[0_0_0px_rgba(0,255,204,0)] hover:shadow-[0_0_15px_rgba(0,255,204,0.7),0_0_30px_rgba(0,255,204,0.5)]">
+            <i class="fa-brands fa-{{ getSocialIcon(social.platform.toLowerCase()) }} text-2xl"></i>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Contact Info -->
+      <div class="flex flex-col gap-4 text-xl" [class]="currentLanguage === 'ar' ? 'arabic-font' : ''">
+        <div class="flex items-center gap-3 hover:text-[#00ffcc] transition-colors duration-300">
+          <i class="fa-solid fa-phone w-5 h-5 rounded-full text-[#00ffcc]"></i>
+          <span>{{ footerData?.mobile }}</span>
+        </div>
+        <div class="flex items-center gap-3 hover:text-[#00ffcc] transition-colors duration-300">
+          <i class="fa-solid fa-envelope w-5 h-5 rounded-full text-[#00ffcc]"></i>
+          <span>{{ footerData?.email }}</span>
+        </div>
+        <div class="flex items-center gap-3 hover:text-[#00ffcc] transition-colors duration-300">
+          <i class="fa-solid fa-globe w-5 h-5 rounded-full text-[#00ffcc]"></i>
+          <a [href]="footerData?.website?.url" target="_blank" class="hover:underline">{{ footerData?.website?.name
+            }}</a>
+        </div>
+        <div class="flex items-center gap-3 hover:text-[#00ffcc] transition-colors duration-300">
+          <i class="fa-solid fa-location-dot w-5 h-5 rounded-full text-[#00ffcc]"></i>
+          <a [href]="footerData?.location?.url" target="_blank" class="hover:underline">{{
+            footerData?.location?.title_en }}</a>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <div class="flex flex-col gap-4 text-xl" [class]="currentLanguage === 'ar' ? 'items-end' : 'items-start'">
+        <a (click)="navigateTo('home')"
+          class="relative cursor-pointer hover:text-[#00ffcc] transition-colors duration-300"
+          [class]="currentLanguage === 'ar' ? 'after:right-0 after:left-auto' : 'after:left-0 after:right-auto'"
+          [class.arabic-font]="currentLanguage === 'ar'">{{ 'NAVIGATION.HOME' | translate }}</a>
+        <a (click)="navigateTo('portfolio')"
+          class="relative cursor-pointer hover:text-[#00ffcc] transition-colors duration-300"
+          [class]="currentLanguage === 'ar' ? 'after:right-0 after:left-auto' : 'after:left-0 after:right-auto'"
+          [class.arabic-font]="currentLanguage === 'ar'">{{ 'NAVIGATION.PORTFOLIO' | translate }}</a>
+        <a (click)="navigateTo('services')"
+          class="relative cursor-pointer hover:text-[#00ffcc] transition-colors duration-300"
+          [class]="currentLanguage === 'ar' ? 'after:right-0 after:left-auto' : 'after:left-0 after:right-auto'"
+          [class.arabic-font]="currentLanguage === 'ar'">{{ 'NAVIGATION.SERVICES' | translate }}</a>
+        <a (click)="navigateTo('about')"
+          class="relative cursor-pointer hover:text-[#00ffcc] transition-colors duration-300"
+          [class]="currentLanguage === 'ar' ? 'after:right-0 after:left-auto' : 'after:left-0 after:right-auto'"
+          [class.arabic-font]="currentLanguage === 'ar'">{{ 'NAVIGATION.ABOUT' | translate }}</a>
+      </div>
+
+
+    </div>
+  </div>
+</footer>

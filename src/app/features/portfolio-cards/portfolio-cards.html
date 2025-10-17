@@ -1,0 +1,33 @@
+<div class="portfolio-section justify-center items-center arabic-font">
+      <!-- Loading indicator -->
+      <div *ngIf="isLoading" class="loading-container">
+                 <app-loading-spinner></app-loading-spinner>
+
+      </div>
+
+      <div class="carousel-wrapper w-full" *ngIf="!isLoading">
+            <!-- Left Navigation Button -->
+            <button class="nav-button left" (click)="scrollLeft()" aria-label="Previous cards">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6" />
+                  </svg>
+            </button>
+
+            <div class="carousel-container w-full" #carouselContainer>
+                  <div class="card" *ngFor="let card of cards; let i = index" [style.--card-index]="i"
+                        [style.background-color]="getCardColor(i)" [style.box-shadow]="getCardShadow(getCardColor(i))">
+                        <div class="card-content flex items-center justify-center text-center">
+                              <h2 class="card-title w-60 h-40">{{ card.title }}</h2>
+                         </div>
+                  </div>
+            </div>
+
+            <!-- Right Navigation Button -->
+            <button class="nav-button right" (click)="scrollRight()" aria-label="Next cards">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6" />
+                  </svg>
+            </button>
+      </div>
+
+</div>

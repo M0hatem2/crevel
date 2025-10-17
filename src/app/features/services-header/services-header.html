@@ -1,0 +1,21 @@
+<section class="hero-section arabic-font">
+  <div class="container">
+    <div class="hero-content">
+      <h1 class="hero-title">
+        {{ 'HEADER.TITLE' | translate }}<br>
+        {{ 'HEADER.SUBTITLE' | translate }}
+      </h1>
+
+      <p class="hero-subtitle">
+        {{ 'SERVICES.HEADER.SUBTITLE' | translate }}
+      </p>
+
+      <div class="hero-buttons">
+        <button routerLink="/blog" class="btn btn-primary">{{
+          'SERVICES.HEADER.BUTTONS.EXPLORE_INSIGHTS' | translate }}</button>
+        <button class="btn btn-secondary" (click)="navigateToCoreServices()">{{
+                'SERVICES.HEADER.BUTTONS.READ_MORE' | translate }}</button>
+      </div>
+    </div>
+  </div>
+</section>

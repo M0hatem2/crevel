@@ -1,0 +1,93 @@
+<div class="flex items-center justify-center min-h-screen px-4 max-w-3xl mx-auto arabic-font">
+  <div class="bg-[#334748] rounded-2xl shadow-2xl p-10 w-full max-w-3xl">
+
+    <!-- Title -->
+    <h2 class="text-center text-4xl font-bold text-white mb-8 tracking-wide">
+      {{ 'COMMON.BRIEF_FORM.CLIENT_INFO_TITLE' | translate }}
+    </h2>
+
+    <!-- Success Message -->
+    <div *ngIf="submitSuccess" class="bg-green-600 text-white p-4 rounded-lg mb-6 text-center">
+      <p class="text-lg font-semibold">{{ 'COMMON.BRIEF_FORM.SUCCESS_TITLE' | translate }}</p>
+      <p class="text-sm mt-1">{{ 'COMMON.BRIEF_FORM.SUCCESS_SUBTITLE' | translate }}</p>
+    </div>
+
+    <!-- Error Message -->
+    <div *ngIf="submitError" class="bg-red-600 text-white p-4 rounded-lg mb-6 text-center">
+      <p class="text-lg font-semibold">{{ 'COMMON.BRIEF_FORM.ERROR_TITLE' | translate }}</p>
+      <p class="text-sm mt-1">{{ submitError }}</p>
+    </div>
+
+    <!-- Form -->
+    <form [formGroup]="briefForm" (ngSubmit)="onSubmit()" class="space-y-6 ">
+      <!-- First Row -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="form-group">
+          <input type="text" formControlName="companyName" [placeholder]="'COMMON.BRIEF_FORM.COMPANY_NAME' | translate"
+            class="w-full rounded-lg bg-[#263B3C] text-white px-4 py-3 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-teal-400 transition"
+            [class.border-red-500]="briefForm.get('companyName')?.invalid && briefForm.get('companyName')?.touched" />
+          <div *ngIf="getErrorMessage('companyName')" class="text-red-400 text-sm mt-1">
+            {{ getErrorMessage('companyName') }}
+          </div>
+        </div>
+
+        <div class="form-group">
+          <input type="text" formControlName="businessSector" [placeholder]="'COMMON.BRIEF_FORM.BUSINESS_SECTOR' | translate"
+            class="w-full rounded-lg bg-[#263B3C] text-white px-4 py-3 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-teal-400 transition"
+            [class.border-red-500]="briefForm.get('businessSector')?.invalid && briefForm.get('businessSector')?.touched" />
+          <div *ngIf="getErrorMessage('businessSector')" class="text-red-400 text-sm mt-1">
+            {{ getErrorMessage('businessSector') }}
+          </div>
+        </div>
+      </div>
+
+      <!-- Second Row -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="form-group">
+          <input type="text" formControlName="mobileNumber" [placeholder]="'COMMON.BRIEF_FORM.MOBILE_NUMBER' | translate"
+            class="w-full rounded-lg bg-[#263B3C] text-white px-4 py-3 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-teal-400 transition"
+            [class.border-red-500]="briefForm.get('mobileNumber')?.invalid && briefForm.get('mobileNumber')?.touched" />
+          <div *ngIf="getErrorMessage('mobileNumber')" class="text-red-400 text-sm mt-1">
+            {{ getErrorMessage('mobileNumber') }}
+          </div>
+        </div>
+
+        <div class="form-group">
+          <input type="email" formControlName="email" [placeholder]="'FORMS.EMAIL_ADDRESS' | translate"
+            class="w-full rounded-lg bg-[#263B3C] text-white px-4 py-3 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-teal-400 transition"
+            [class.border-red-500]="briefForm.get('email')?.invalid && briefForm.get('email')?.touched" />
+          <div *ngIf="getErrorMessage('email')" class="text-red-400 text-sm mt-1">
+            {{ getErrorMessage('email') }}
+          </div>
+        </div>
+
+        <div class="form-group">
+          <input type="url" formControlName="website" [placeholder]="'COMMON.BRIEF_FORM.WEBSITE' | translate"
+            class="w-full rounded-lg bg-[#263B3C] text-white px-4 py-3 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-teal-400 transition"
+            [class.border-red-500]="briefForm.get('website')?.invalid && briefForm.get('website')?.touched" />
+          <div *ngIf="getErrorMessage('website')" class="text-red-400 text-sm mt-1">
+            {{ getErrorMessage('website') }}
+          </div>
+        </div>
+      </div>
+
+      <!-- Social Media Links -->
+      <div class="form-group">
+        <textarea rows="4" formControlName="socialMediaLinks"
+          [placeholder]="'COMMON.BRIEF_FORM.SOCIAL_MEDIA_LINKS' | translate"
+          class="w-full rounded-lg bg-[#263B3C] border border-gray-600 text-white px-4 py-3 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-teal-400 transition">
+        </textarea>
+      </div>
+
+      <!-- Button -->
+      <div class="flex justify-center">
+        <button type="submit" [disabled]="isLoading"
+          class="bg-[#52A3A7] hover:bg-teal-500 disabled:bg-gray-600 disabled:cursor-not-allowed text-white font-bold text-lg px-12 py-3 rounded-xl shadow-md hover:shadow-lg transition duration-300 flex items-center justify-center min-w-[120px]">
+          <span *ngIf="isLoading"
+            class="inline-block w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></span>
+          {{ isLoading ? ('COMMON.BRIEF_FORM.CREATING' | translate) : ('COMMON.BRIEF_FORM.CREATE_BRIEF' | translate) }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

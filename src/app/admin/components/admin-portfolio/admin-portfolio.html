@@ -1,0 +1,184 @@
+<div
+  class="portfolio-form-container bg-[#081110] border border-[#1e2f2d] shadow-lg shadow-black/30 rounded-xl p-8 max-w-3xl mx-auto arabic-font ">
+  <!-- Header -->
+  <div class="form-header mb-6 text-center">
+    <h2 class="text-2xl font-bold text-white mb-2">
+      {{ isEditMode ? 'Edit Portfolio Item' : 'Add New Portfolio Item' }}
+    </h2>
+    <p class="text-gray-400 text-sm">
+      {{ isEditMode ? 'Update the details below to modify the project' : 'Fill in the details below to add a new project
+      to your portfolio' }}
+    </p>
+  </div>
+
+  <!-- Cancel Edit -->
+  <div *ngIf="isEditMode" class="mb-4 text-right">
+    <button type="button"
+      class="px-4 py-2 rounded-lg bg-gray-600 text-white hover:bg-gray-700 transition flex items-center gap-2"
+      (click)="cancelEdit()">
+      <i class="fas fa-times"></i> Cancel Edit
+    </button>
+  </div>
+
+  <!-- Success/Error -->
+  <div *ngIf="submitMessage" class="mb-4 p-3 rounded-lg text-sm font-medium flex items-center gap-2"
+    [ngClass]="submitMessage.includes('Error') ? 'bg-red-900/40 border border-red-500 text-red-400' : 'bg-green-900/40 border border-green-500 text-green-400'">
+    <i class="fas" [ngClass]="submitMessage.includes('Error') ? 'fa-exclamation-circle' : 'fa-check-circle'"></i>
+    {{ submitMessage }}
+  </div>
+
+  <!-- Form -->
+  <form [formGroup]="portfolioForm" (ngSubmit)="onSubmit()" class="space-y-6">
+
+    <!-- Titles -->
+    <div class="grid md:grid-cols-2 gap-4">
+      <div>
+        <label for="title_en" class="block text-gray-300 mb-1 text-sm">English Title <span
+            class="text-red-500">*</span></label>
+        <input type="text" id="title_en" formControlName="title_en"
+          class="w-full px-4 py-2 rounded-lg bg-[#0f1a19] border border-[#1e2f2d] text-white placeholder-gray-500 focus:ring-2 focus:ring-[#1e2f2d] focus:outline-none"
+          placeholder="Enter project title in English">
+        <div *ngIf="titleEn?.invalid && titleEn?.touched" class="text-red-400 text-xs mt-1">
+          <span *ngIf="titleEn?.errors?.['required']">English title is required</span>
+          <span *ngIf="titleEn?.errors?.['minlength']">Title must be at least 3 characters</span>
+        </div>
+      </div>
+      <div>
+        <label for="title_ar" class="block text-gray-300 mb-1 text-sm">Arabic Title <span
+            class="text-red-500">*</span></label>
+        <input type="text" id="title_ar" formControlName="title_ar" dir="rtl"
+          class="w-full px-4 py-2 rounded-lg bg-[#0f1a19] border border-[#1e2f2d] text-white placeholder-gray-500 focus:ring-2 focus:ring-[#1e2f2d] focus:outline-none"
+          placeholder="أدخل عنوان المشروع باللغة العربية">
+      </div>
+    </div>
+
+    <!-- Descriptions -->
+    <div class="grid md:grid-cols-2 gap-4">
+      <div>
+        <label for="description_en" class="block text-gray-300 mb-1 text-sm">English Description <span
+            class="text-red-500">*</span></label>
+        <textarea id="description_en" formControlName="description_en" rows="4"
+          class="w-full px-4 py-2 rounded-lg bg-[#0f1a19] border border-[#1e2f2d] text-white placeholder-gray-500 focus:ring-2 focus:ring-[#1e2f2d] focus:outline-none"
+          placeholder="Enter project description in English"></textarea>
+      </div>
+      <div>
+        <label for="description_ar" class="block text-gray-300 mb-1 text-sm">Arabic Description <span
+            class="text-red-500">*</span></label>
+        <textarea id="description_ar" formControlName="description_ar" rows="4" dir="rtl"
+          class="w-full px-4 py-2 rounded-lg bg-[#0f1a19] border border-[#1e2f2d] text-white placeholder-gray-500 focus:ring-2 focus:ring-[#1e2f2d] focus:outline-none"
+          placeholder="أدخل وصف المشروع باللغة العربية"></textarea>
+      </div>
+    </div>
+
+    <!-- Category -->
+    <div>
+      <label for="category" class="block text-gray-300 mb-1 text-sm">Category <span
+          class="text-red-500">*</span></label>
+      <select id="category" formControlName="category"
+        class="w-full px-4 py-2 rounded-lg bg-[#0f1a19] border border-[#1e2f2d] text-white focus:ring-2 focus:ring-[#1e2f2d] focus:outline-none">
+        <option value="">Select a category</option>
+        <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+      </select>
+    </div>
+
+    <!-- URLs -->
+    <div class="grid md:grid-cols-2 gap-4">
+      <div>
+        <label for="githubRepo" class="block text-gray-300 mb-1 text-sm">GitHub Repository URL</label>
+        <input type="url" id="githubRepo" formControlName="githubRepo"
+          class="w-full px-4 py-2 rounded-lg bg-[#0f1a19] border border-[#1e2f2d] text-white placeholder-gray-500 focus:ring-2 focus:ring-[#1e2f2d] focus:outline-none"
+          placeholder="https://github.com/username/repository">
+        <div *ngIf="githubRepo?.invalid && githubRepo?.touched" class="text-red-400 text-xs mt-1">
+          <span *ngIf="githubRepo?.errors?.['pattern']">Please enter a valid URL</span>
+        </div>
+      </div>
+      <div>
+        <label for="productionUrl" class="block text-gray-300 mb-1 text-sm">Production URL</label>
+        <input type="url" id="productionUrl" formControlName="productionUrl"
+          class="w-full px-4 py-2 rounded-lg bg-[#0f1a19] border border-[#1e2f2d] text-white placeholder-gray-500 focus:ring-2 focus:ring-[#1e2f2d] focus:outline-none"
+          placeholder="https://your-project.com">
+        <div *ngIf="productionUrl?.invalid && productionUrl?.touched" class="text-red-400 text-xs mt-1">
+          <span *ngIf="productionUrl?.errors?.['pattern']">Please enter a valid URL</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Images -->
+    <div class="grid md:grid-cols-2 gap-4">
+      <div>
+        <label for="mainImage" class="block text-gray-300 mb-1 text-sm">Main Project Image <span
+            class="text-red-500">*</span></label>
+        <input type="file" id="mainImage" accept="image/*" (change)="onMainImageSelected($event)"
+          class="block w-full text-sm text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:bg-[#1e2f2d] file:text-white hover:file:bg-[#263c3a] cursor-pointer">
+      </div>
+      <div>
+        <label for="galleryImages" class="block text-gray-300 mb-1 text-sm">Gallery Images (Max 5)</label>
+        <input type="file" id="galleryImages" accept="image/*" multiple (change)="onGalleryImagesSelected($event)"
+          class="block w-full text-sm text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:bg-[#1e2f2d] file:text-white hover:file:bg-[#263c3a] cursor-pointer">
+      </div>
+    </div>
+
+    <!-- Form Actions -->
+    <div class="flex justify-end gap-3 pt-4">
+      <button type="button" class="px-5 py-2 rounded-lg bg-[#1e2f2d] text-gray-300 hover:bg-[#263c3a] transition"
+        (click)="resetForm()">
+        <i class="fas fa-undo"></i> Reset Form
+      </button>
+      <button type="submit"
+        class="px-5 py-2 rounded-lg bg-[#eec044] text-black font-semibold hover:bg-[#d4aa34] transition"
+        [disabled]="isSubmitting">
+        <i class="fas fa-save"></i>
+        {{ isSubmitting ? (isEditMode ? 'Updating...' : 'Adding...') : (isEditMode ? 'Update Portfolio Item' : 'Add
+        Portfolio Item') }}
+      </button>
+    </div>
+  </form>
+
+  <!-- Portfolio Items List -->
+  <div class="portfolio-list mt-8 space-y-4">
+    <h3 class="text-xl font-bold text-white mb-4">Existing Portfolio Items</h3>
+    <div *ngFor="let item of portfolioItems"
+      class="bg-[#0f1a19] border border-[#1e2f2d] rounded-xl p-4 shadow-md hover:shadow-lg transition cursor-pointer"
+      (click)="openDetailsModal(item)">
+      <div class="flex justify-between items-start mb-4">
+        <div class="flex-1">
+          <h4 class="text-lg font-semibold text-white hover:text-[#eec044] transition-colors">{{ item.title_en }}</h4>
+          <p class="text-gray-400 text-sm">{{ item.title_ar }}</p>
+          <p class="text-gray-300 text-sm mt-1">{{ item.category }}</p>
+        </div>
+        <div class="flex gap-2 ml-4">
+          <button type="button"
+            class="px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700 transition flex items-center gap-1"
+            (click)="editProject(item); $event.stopPropagation();">
+            <i class="fas fa-edit"></i> Edit
+          </button>
+          <button type="button"
+            class="px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700 transition flex items-center gap-1"
+            (click)="deleteProject(item._id); $event.stopPropagation();">
+            <i class="fas fa-trash-alt"></i> Delete
+          </button>
+        </div>
+      </div>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div>
+          <p class="text-gray-300 text-sm mb-2">Main Image:</p>
+          <img [src]="item.image.secure_url" alt="Main Image"
+            class="w-full h-32 object-cover rounded border border-[#1e2f2d]">
+        </div>
+        <div>
+          <p class="text-gray-300 text-sm mb-2">Gallery ({{ item.gallery?.length || 0 }} images):</p>
+          <div class="flex gap-2 overflow-x-auto">
+            <img *ngFor="let galleryImg of item.gallery" [src]="galleryImg.secure_url" alt="Gallery Image"
+              class="w-16 h-16 object-cover rounded border border-[#1e2f2d] flex-shrink-0">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Portfolio Details Modal -->
+  <app-portfolio-details-modal [isOpen]="showDetailsModal" [selectedItem]="selectedPortfolioItem"
+    (close)="closeDetailsModal()" (edit)="editProjectFromModal($event)" (delete)="deleteProjectFromModal($event)"
+    (refreshList)="loadPortfolioItems()">
+  </app-portfolio-details-modal>
+</div>

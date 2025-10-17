@@ -1,0 +1,79 @@
+<div
+  class="portfolio-section w-full flex flex-col items-center justify-center text-white   px-4"
+  [class.arabic-font]="currentLanguage === 'ar'"
+  [dir]="currentLanguage === 'ar' ? 'rtl' : 'ltr'">
+
+  <div class="w-full max-w-7xl">
+
+    <!-- 🌀 Loading -->
+    <div *ngIf="loading" class="flex items-center justify-center py-32">
+      <app-loading-spinner></app-loading-spinner>
+    </div>
+
+    <!-- ⚠️ Error -->
+    <div *ngIf="error && !loading"
+      class="bg-[#101a19] border border-[#1e2f2d]/50 rounded-2xl p-10 text-center shadow-2xl">
+      <i class="fa-solid fa-triangle-exclamation text-5xl text-red-500 mb-4"></i>
+      <h3 class="text-2xl font-bold mb-2">{{ 'COMMON.ERROR' | translate }}</h3>
+      <p class="text-gray-400 mb-6">{{ error }}</p>
+      <button (click)="loadPortfolio()"
+        class="px-6 py-3 bg-gradient-to-r from-[#00FFC6] to-[#06b6d4] text-[#0d1413] rounded-xl font-semibold hover:opacity-90 transition-all flex items-center justify-center gap-2 mx-auto">
+        <i class="fa-solid fa-rotate-right"></i>
+        {{ 'COMMON.TRY_AGAIN' | translate }}
+      </button>
+    </div>
+
+    <!-- ✅ Portfolio Cards -->
+    <div *ngIf="!loading && !error" class="m-12 ">
+      <div #scrollableContainer
+        class="flex gap-8 overflow-x-auto scrollbar-hide scroll-smooth py-4 px-2"
+        [class.flex-row-reverse]="currentLanguage === 'ar'">
+
+        <!-- 🪩 Card -->
+        <div *ngFor="let card of cards"
+          class=" mb-20 portfolio-card group flex-none w-80 bg-[#112121] border border-[#1e2f2d]/40 rounded-3xl overflow-hidden shadow-xl hover:shadow-[0_0_40px_#00FFC633] transform hover:-translate-y-2 transition-all duration-500 cursor-pointer"
+          (click)="viewPortfolioDetails(card.id)">
+
+          <!-- 🖼️ Image -->
+          <div class="relative overflow-hidden">
+            <img *ngIf="card.image" [src]="card.image" alt="Portfolio Image"
+              class="w-full h-52 object-cover transform group-hover:scale-110 transition-all duration-700" />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-[#0b1312] via-transparent opacity-70 group-hover:opacity-60 transition-opacity"></div>
+          </div>
+
+          <!-- ✨ Card Content -->
+          <div class="p-6 space-y-4">
+            <span
+              class="inline-block px-4 py-1 text-xs font-medium rounded-full bg-gradient-to-r from-[#00FFC6] to-[#06b6d4] text-[#0b1312] shadow-md">
+              {{ card.category }}
+            </span>
+
+            <h3 class="text-xl font-bold leading-tight text-white">
+              {{ getCurrentTitle(card) }}
+            </h3>
+
+            <p class="text-gray-400 text-sm leading-relaxed">
+              {{ getCurrentDescription(card) }}
+            </p>
+
+            <!-- 🔗 View Button -->
+            <a href="javascript:void(0)"
+              class="flex items-center gap-2 text-[#00FFC6] font-semibold mt-2 group-hover:gap-3 transition-all"
+              [class.flex-row-reverse]="currentLanguage === 'ar'">
+              <span>{{ 'PORTFOLIO.VIEW_PROJECT' | translate }}</span>
+              <i class="fa-solid"
+                [class.fa-arrow-left]="currentLanguage === 'ar'"
+                [class.fa-arrow-right]="currentLanguage !== 'ar'"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 🔘 See More -->
+      <div class="flex justify-center  ">
+        <app-see-more-btn [link]="'/portfolio'"></app-see-more-btn>
+      </div>
+    </div>
+  </div>
+</div>

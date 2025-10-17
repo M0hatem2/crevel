@@ -1,0 +1,268 @@
+// Direction-aware styles for blogs-cards component
+:host {
+  display: block;
+}
+
+// Base RTL/LTR support
+.arabic-font {
+  direction: rtl;
+
+  &[dir="ltr"] {
+    direction: ltr;
+  }
+}
+
+// Responsive direction handling
+@media (min-width: 1024px) {
+  .arabic-font {
+
+    // For Arabic (RTL) on large screens
+    &[dir="rtl"] {
+      .ltr\:lg\:text-left {
+        text-align: right !important;
+      }
+
+      .rtl\:lg\:text-right {
+        text-align: right !important;
+      }
+
+      .ltr\:lg\:justify-start {
+        justify-content: flex-end !important;
+      }
+
+      .rtl\:lg\:justify-end {
+        justify-content: flex-end !important;
+      }
+    }
+
+    // For English (LTR) on large screens
+    &[dir="ltr"] {
+      .ltr\:lg\:text-left {
+        text-align: left !important;
+      }
+
+      .rtl\:lg\:text-right {
+        text-align: right !important;
+      }
+
+      .ltr\:lg\:justify-start {
+        justify-content: flex-start !important;
+      }
+
+      .rtl\:lg\:justify-end {
+        justify-content: flex-end !important;
+      }
+    }
+  }
+}
+
+// Animation and transition support for direction changes
+:host {
+  transition: all 0.3s ease-in-out;
+}
+
+// Ensure proper spacing for both directions
+.container {
+  .arabic-font[dir="rtl"] & {
+    @media (min-width: 1024px) {
+      padding-left: 1rem;
+      padding-right: 4rem;
+    }
+  }
+
+  .arabic-font[dir="ltr"] & {
+    @media (min-width: 1024px) {
+      padding-left: 4rem;
+      padding-right: 1rem;
+    }
+  }
+}
+
+// Button alignment for RTL/LTR
+.arabic-font {
+  &[dir="rtl"] {
+    .flex {
+      &.ltr\:lg\:justify-start {
+        @media (min-width: 1024px) {
+          justify-content: flex-end;
+        }
+      }
+    }
+  }
+
+  &[dir="ltr"] {
+    .flex {
+      &.ltr\:lg\:justify-start {
+        @media (min-width: 1024px) {
+          justify-content: flex-start;
+        }
+      }
+    }
+  }
+}
+
+// Text alignment for RTL/LTR
+.arabic-font {
+  &[dir="rtl"] {
+    .ltr\:lg\:text-left {
+      @media (min-width: 1024px) {
+        text-align: right;
+      }
+    }
+
+    .rtl\:lg\:text-right {
+      @media (min-width: 1024px) {
+        text-align: right;
+      }
+    }
+  }
+
+  &[dir="ltr"] {
+    .ltr\:lg\:text-left {
+      @media (min-width: 1024px) {
+        text-align: left;
+      }
+    }
+
+    .rtl\:lg\:text-right {
+      @media (min-width: 1024px) {
+        text-align: right;
+      }
+    }
+  }
+}
+
+// Logo positioning for RTL/LTR
+.arabic-font {
+  &[dir="rtl"] {
+    .lg\:justify-end {
+      @media (min-width: 1024px) {
+        justify-content: flex-start;
+      }
+    }
+  }
+
+  &[dir="ltr"] {
+    .lg\:justify-end {
+      @media (min-width: 1024px) {
+        justify-content: flex-end;
+      }
+    }
+  }
+}
+
+// Smooth transitions for direction changes
+* {
+  transition: margin 0.3s ease, padding 0.3s ease;
+}
+
+// Enhanced button animations and effects
+.blogs-highlight {
+  position: relative;
+  animation: blogsPulse 2s ease-out;
+}
+
+.insights-highlight {
+  position: relative;
+  animation: insightsGlow 3s ease-out;
+}
+
+// Blogs section highlight animation
+@keyframes blogsPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(107, 114, 128, 0.4);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 0 15px rgba(107, 114, 128, 0.1);
+    transform: scale(1.02);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(107, 114, 128, 0);
+    transform: scale(1);
+  }
+}
+
+// Insights section special glow animation
+@keyframes insightsGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.7);
+    background: rgba(6, 182, 212, 0.05);
+  }
+  50% {
+    box-shadow: 0 0 0 20px rgba(6, 182, 212, 0.2);
+    background: rgba(6, 182, 212, 0.1);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(6, 182, 212, 0);
+    background: rgba(6, 182, 212, 0);
+  }
+}
+
+// Enhanced button hover effects
+button {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+  }
+
+  &:hover::before {
+    left: 100%;
+  }
+
+  &.loading {
+    position: relative;
+    color: transparent;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 16px;
+      height: 16px;
+      margin: -8px 0 0 -8px;
+      border: 2px solid transparent;
+      border-top: 2px solid currentColor;
+      border-radius: 50%;
+      animation: buttonSpin 1s linear infinite;
+    }
+  }
+}
+
+@keyframes buttonSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+// Smooth scroll behavior for better UX
+html {
+  scroll-behavior: smooth;
+}
+
+// Enhanced card animations on scroll
+.card-animate-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideInUp 0.6s ease-out forwards;
+}
+
+@keyframes slideInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,32 @@
+<div [class]="getCardClasses()" [attr.dir]="getDirection()  " >
+
+  <!-- Card Background Image -->
+  <div class="card-image-container">
+    <div *ngIf="isLoading" class="absolute inset-0 flex items-center justify-center bg-gray-700 text-white">
+      <app-loading-spinner></app-loading-spinner>
+    </div>
+    <div *ngIf="hasError" class="absolute inset-0 flex items-center justify-center bg-gray-700 text-white">
+      {{ 'COMPONENTS.ERRORS.FAILED_TO_LOAD' | translate }}
+    </div>
+    <img *ngIf="!hasError && blog?.image?.secure_url" class="w-full h-full object-cover" [src]="blog.image.secure_url"
+      [alt]="getTitle()" (load)="onImageLoad()" (error)="onImageError()" />
+  </div>
+
+  <!-- Card Content -->
+  <div [class]="getContentClasses()" >
+    <!-- Category Tag -->
+    <div>
+      <span class="category-tag inline-flex items-center px-3 py-1 rounded-full text-xs font-medium text-white">
+        {{ blog.category || ('COMPONENTS.CARDS.BLOG_CARD.CATEGORY' | translate) }}
+      </span>
+    </div>
+    <h3 class="card-title pt-6">{{ getTitle() }}</h3>
+    <p class="card-description">{{ getContent() }}</p>
+
+    <!-- View Case Study Link -->
+    <a (click)="navigateToDetails($event)" class="view-case-study group cursor-pointer">
+      {{ getReadMoreText() }}
+      <i [class]="getArrowClass() + ' px-2'"></i>
+    </a>
+  </div>
+</div>

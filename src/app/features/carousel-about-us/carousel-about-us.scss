@@ -1,0 +1,162 @@
+// Professional Carousel Styling
+section {
+  position: relative;
+   display: flex;
+  align-items: center;
+
+  // Enhanced background effects
+  .absolute {
+    &.top-1\/4 {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    &.bottom-1\/4 {
+      animation: float 8s ease-in-out infinite reverse;
+    }
+  }
+}
+
+// Image transitions with smooth scaling effect
+img {
+  transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &.opacity-100 {
+    transform: scale(1.02);
+    filter: brightness(1.1) contrast(1.1);
+  }
+
+  &.opacity-0 {
+    transform: scale(0.98);
+  }
+}
+
+// Navigation buttons with enhanced hover effects
+button {
+  &.absolute {
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-50%) scale(1.1);
+      background: rgba(87, 196, 193, 0.2);
+      box-shadow: 0 4px 20px rgba(87, 196, 193, 0.3);
+    }
+
+    &.left-4, &.right-4 {
+      width: 50px;
+      height: 50px;
+
+      @media (min-width: 768px) {
+        width: 60px;
+        height: 60px;
+      }
+    }
+  }
+
+  // Thumbnail buttons
+  &.relative {
+    &.w-16 {
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(87, 196, 193, 0.3);
+      }
+    }
+  }
+}
+
+// Responsive design improvements
+@media (max-width: 640px) {
+  section {
+    padding: 2rem 1rem;
+
+    .text-4xl {
+      font-size: 2rem;
+    }
+
+    .text-5xl {
+      font-size: 2.5rem;
+    }
+  }
+
+  .relative {
+    &.h-96 {
+      height: 250px !important;
+    }
+
+    &.md\:h-\[500px\] {
+      height: 300px !important;
+    }
+  }
+
+  button {
+    &.w-16 {
+      width: 3rem;
+      height: 3rem;
+    }
+  }
+}
+
+// Animation keyframes
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(2deg);
+  }
+}
+
+// Loading animation
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Fade-in animation for section
+section {
+  animation: fadeInUp 1.2s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Enhanced gradient text animation
+.bg-gradient-to-r {
+  background-size: 200% 200%;
+  animation: gradientShift 4s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+// Hover effects for interactive elements
+.group {
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}

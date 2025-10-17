@@ -1,0 +1,63 @@
+<section class="trusted-services py-20 text-white" [class.arabic-font]="currentLanguage === 'ar'"
+      [dir]="currentLanguage === 'ar' ? 'rtl' : 'ltr'">
+      <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-[#57c4c1] mb-4">
+                  {{ 'MESSAGES.TRUSTED_BY' | translate }}
+            </h2>
+            <p class="text-gray-400 mb-12 text-lg">
+                  {{ 'MESSAGES.PARTNERED_WITH' | translate }}
+            </p>
+
+            <div class="grid gap-10 md:grid-cols-2 max-w-5xl mx-auto arabic-font text-start">
+                  <!-- Testimonial 1 -->
+                  <div
+                        class="testimonial-card relative bg-[#0f1a19] border border-[#1f2f2e] rounded-2xl shadow-lg p-8 transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl">
+                        <div class="quote-icon absolute text-[#57c4c1] text-6xl font-bold top-0 left-6 -translate-y-4">
+                              “
+                        </div>
+                        <p class="testimonial-text   text-gray-300 mt-6 mb-8 leading-relaxed">
+                              "{{ 'TESTIMONIALS.CLIENT_1_TESTIMONIAL' | translate }}"
+                        </p>
+                        <div class="testimonial-author flex items-center gap-4">
+                              <div
+                                    class="avatar bg-[#57c4c1] text-black font-bold rounded-full w-12 h-12 flex items-center justify-center text-lg">
+                                    JS
+                              </div>
+                              <div class="author-info text-left">
+                                    <div class="author-name font-semibold text-white">
+                                          {{ 'TESTIMONIALS.CLIENT_1_NAME' | translate }}
+                                    </div>
+                                    <div class="author-title text-gray-400 text-sm">
+                                          {{ 'TESTIMONIALS.CLIENT_1_POSITION' | translate }}
+                                    </div>
+                              </div>
+                        </div>
+                  </div>
+
+                  <!-- Testimonial 2 -->
+                  <div
+                        class="testimonial-card relative bg-[#0f1a19] border border-[#1f2f2e] rounded-2xl shadow-lg p-8 transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl">
+                        <div class="quote-icon absolute text-[#57c4c1] text-6xl font-bold top-0 left-6 -translate-y-4">
+                              “
+                        </div>
+                        <p class="testimonial-text   text-gray-300 mt-6 mb-8 leading-relaxed">
+                              "{{ 'MESSAGES.DESIGN_TEAM' | translate }}"
+                        </p>
+                        <div class="testimonial-author flex items-center gap-4">
+                              <div
+                                    class="avatar bg-[#57c4c1] text-black font-bold rounded-full w-12 h-12 flex items-center justify-center text-lg">
+                                    AD
+                              </div>
+                              <div class="author-info text-left">
+                                    <div class="author-name font-semibold text-white">
+                                          {{ 'MESSAGES.ALICE_DAVIS' | translate }}
+                                    </div>
+                                    <div class="author-title text-gray-400 text-sm">
+                                          {{ 'MESSAGES.MARKETING_DIRECTOR' | translate }}
+                                    </div>
+                              </div>
+                        </div>
+                  </div>
+            </div>
+      </div>
+</section>
